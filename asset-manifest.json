@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Mayhoral8/Transcert/static/css/main.55a21b64.css",
-    "main.js": "/Mayhoral8/Transcert/static/js/main.fe316a86.js",
-    "static/js/787.28cb0dcd.chunk.js": "/Mayhoral8/Transcert/static/js/787.28cb0dcd.chunk.js",
-    "static/media/Register1.jpg": "/Mayhoral8/Transcert/static/media/Register1.a998c72a5f70b0a9157b.jpg",
-    "static/media/Payment1.jpg": "/Mayhoral8/Transcert/static/media/Payment1.e0a7b9e4dc8fbc4b982d.jpg",
-    "static/media/UNIZIK2.png": "/Mayhoral8/Transcert/static/media/UNIZIK2.903289158fcfc7e84fee.png",
-    "index.html": "/Mayhoral8/Transcert/index.html",
-    "main.55a21b64.css.map": "/Mayhoral8/Transcert/static/css/main.55a21b64.css.map",
-    "main.fe316a86.js.map": "/Mayhoral8/Transcert/static/js/main.fe316a86.js.map",
-    "787.28cb0dcd.chunk.js.map": "/Mayhoral8/Transcert/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/Transcert/static/css/main.55a21b64.css",
+    "main.js": "/Transcert/static/js/main.eae70f10.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Transcert/static/js/787.28cb0dcd.chunk.js",
+    "static/media/Register1.jpg": "/Transcert/static/media/Register1.a998c72a5f70b0a9157b.jpg",
+    "static/media/Payment1.jpg": "/Transcert/static/media/Payment1.e0a7b9e4dc8fbc4b982d.jpg",
+    "static/media/UNIZIK2.png": "/Transcert/static/media/UNIZIK2.903289158fcfc7e84fee.png",
+    "index.html": "/Transcert/index.html",
+    "main.55a21b64.css.map": "/Transcert/static/css/main.55a21b64.css.map",
+    "main.eae70f10.js.map": "/Transcert/static/js/main.eae70f10.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Transcert/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.55a21b64.css",
-    "static/js/main.fe316a86.js"
+    "static/js/main.eae70f10.js"
   ]
 }
