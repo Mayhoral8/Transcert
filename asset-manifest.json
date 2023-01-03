@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Transcert/static/css/main.55a21b64.css",
-    "main.js": "/Transcert/static/js/main.eae70f10.js",
+    "main.css": "/Transcert/static/css/main.26720205.css",
+    "main.js": "/Transcert/static/js/main.bf50b2b3.js",
     "static/js/787.28cb0dcd.chunk.js": "/Transcert/static/js/787.28cb0dcd.chunk.js",
     "static/media/Register1.jpg": "/Transcert/static/media/Register1.a998c72a5f70b0a9157b.jpg",
     "static/media/Payment1.jpg": "/Transcert/static/media/Payment1.e0a7b9e4dc8fbc4b982d.jpg",
     "static/media/UNIZIK2.png": "/Transcert/static/media/UNIZIK2.903289158fcfc7e84fee.png",
     "index.html": "/Transcert/index.html",
-    "main.55a21b64.css.map": "/Transcert/static/css/main.55a21b64.css.map",
-    "main.eae70f10.js.map": "/Transcert/static/js/main.eae70f10.js.map",
+    "main.26720205.css.map": "/Transcert/static/css/main.26720205.css.map",
+    "main.bf50b2b3.js.map": "/Transcert/static/js/main.bf50b2b3.js.map",
     "787.28cb0dcd.chunk.js.map": "/Transcert/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.55a21b64.css",
-    "static/js/main.eae70f10.js"
+    "static/css/main.26720205.css",
+    "static/js/main.bf50b2b3.js"
   ]
 }
