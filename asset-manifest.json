@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Transcert/static/css/main.6cd07613.css",
-    "main.js": "/Transcert/static/js/main.dbd610f5.js",
+    "main.js": "/Transcert/static/js/main.9424a517.js",
     "static/js/787.28cb0dcd.chunk.js": "/Transcert/static/js/787.28cb0dcd.chunk.js",
     "static/media/Register1.jpg": "/Transcert/static/media/Register1.ee421ef083e2430fa892.jpg",
     "static/media/Payment1.jpg": "/Transcert/static/media/Payment1.1c305b76391c53a0d301.jpg",
@@ -9,11 +9,11 @@
     "static/media/TranscertLogo.png": "/Transcert/static/media/TranscertLogo.56cb204370cdd6da0f2d.png",
     "index.html": "/Transcert/index.html",
     "main.6cd07613.css.map": "/Transcert/static/css/main.6cd07613.css.map",
-    "main.dbd610f5.js.map": "/Transcert/static/js/main.dbd610f5.js.map",
+    "main.9424a517.js.map": "/Transcert/static/js/main.9424a517.js.map",
     "787.28cb0dcd.chunk.js.map": "/Transcert/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6cd07613.css",
-    "static/js/main.dbd610f5.js"
+    "static/js/main.9424a517.js"
   ]
 }
