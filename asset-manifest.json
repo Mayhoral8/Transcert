@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Transcert/static/css/main.8d6e55df.css",
-    "main.js": "/Transcert/static/js/main.174e77fb.js",
+    "main.css": "/Transcert/static/css/main.dd5a74c8.css",
+    "main.js": "/Transcert/static/js/main.a392a5d0.js",
     "static/js/787.28cb0dcd.chunk.js": "/Transcert/static/js/787.28cb0dcd.chunk.js",
     "static/media/Register1.jpg": "/Transcert/static/media/Register1.ee421ef083e2430fa892.jpg",
     "static/media/Payment1.jpg": "/Transcert/static/media/Payment1.1c305b76391c53a0d301.jpg",
     "static/media/UNIZIK2.png": "/Transcert/static/media/UNIZIK2.903289158fcfc7e84fee.png",
     "static/media/TranscertLogo.png": "/Transcert/static/media/TranscertLogo.56cb204370cdd6da0f2d.png",
     "index.html": "/Transcert/index.html",
-    "main.8d6e55df.css.map": "/Transcert/static/css/main.8d6e55df.css.map",
-    "main.174e77fb.js.map": "/Transcert/static/js/main.174e77fb.js.map",
+    "main.dd5a74c8.css.map": "/Transcert/static/css/main.dd5a74c8.css.map",
+    "main.a392a5d0.js.map": "/Transcert/static/js/main.a392a5d0.js.map",
     "787.28cb0dcd.chunk.js.map": "/Transcert/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d6e55df.css",
-    "static/js/main.174e77fb.js"
+    "static/css/main.dd5a74c8.css",
+    "static/js/main.a392a5d0.js"
   ]
 }
