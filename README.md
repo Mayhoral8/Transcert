@@ -1,3 +1,17 @@
+# Your transcript is ready
+Transcert is a web application that helps automate the process of 
+transcript application and delivery.
+It was made specifically for UNIZIK students.
+
+
+# Live deployment link
+transcert.com.ng
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
