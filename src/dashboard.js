@@ -15,8 +15,8 @@ const Dashboard = () => {
 const [displayName, setDisplayName] = useState('')
 // setIsLoading(true)
 useEffect(()=>{
+  setIsLoading(true)
   if(userId){
-    setIsLoading(true)
     onValue(ref(db, `/users/${userId}`), (snapshot) => 
     {
       const responseData = snapshot.val();
@@ -40,15 +40,14 @@ useEffect(()=>{
   return (
     <>
                  { openModal ? <Modal/> : null}
-                 <div className="bg-blue-base  h-72 font-openSans mx-auto lg:mt-20 block">
-            <h2 className=" text-center mt-10 lg:mt-6 py-32  lg:text-3xl text-xl font-bold text-white">
-              
-              Hi, {displayName}
+            <div className=" h-screen font-openSans block">
+              <div className="hidden lg:flex justify-between px-4 align-middle items-center flex-flow-row lg:block h-20 shadow-md ">
+              <h2 className="text-2xl text-blue-base font-bold">Hi, {displayName} </h2>
+              <img alt="" src="" className="h-12 w-12 border-1 rounded-full"/>
+              </div>
+              <div className="lg:grid lg:grid-cols-2 ">
 
-              </h2>
-              <div className="grid ">
-
-              <h2 className=" text-center mt-14 lg:mt-6 pt-12  lg:text-1xl  font-bold">
+              <h2 className=" lg:text-1xl  font-bold">
                 Document Upload Status: {regStatus}
               </h2>
               {regStatus === 'undefined'?
@@ -61,7 +60,7 @@ useEffect(()=>{
                   </button> </Link>:  null }
                       
               
-              <h2 className=" text-center mt-14 lg:mt-6  lg:text-1xl font-bold">
+              <h2 className=" text-center lg:text-1xl font-bold">
                 Payment Status: {paymentStatus }
               </h2>
               {paymentStatus === 'undefined'?
@@ -77,9 +76,7 @@ useEffect(()=>{
              
             </div>
              
-            <div className="h-screen">
-            </div>
-            <Footer/>
+           
             </>
           )
         } 

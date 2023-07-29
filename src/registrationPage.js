@@ -37,20 +37,18 @@ const RegistrationPage = () => {
           return (
             <>
               {openModal ? <Modal /> : null}
-              <div className=" bg-blue-base h-72 font-openSans mx-auto lg:mt-20 block">
-                <h2 className=" text-center mt-10 lg:mt-6 py-32  lg:text-3xl font-bold text-white">
-                  Welcome To The Registration Page
-                </h2>
+              <div className="hidden lg:flex items-center px-4 lg:block h-20 shadow-md ">
+              <h2 className="text-2xl text-blue-base font-bold">Register </h2>
               </div>
-
               {regStatus  ? (
-                <div className="font-openSans lg:w-1/2 px-10 lg:mt-16 mx-auto block">
-                  <h2 className="mt-16 text-center  font-bold ">
+                
+                <div className=" font-openSans px-10 lg:px-10 lg:mt-10 mt-10 lg:mx-40 block">
+                  <h2 className=" text-center  font-bold ">
                     Please, carefully fill in your details.
                   </h2>
                   <form
                     ref={form}
-                    className=" grid gap-y-6 mt-14  text-sm mx-auto"
+                    className=" grid grid-flow-row py-24 lg:py-2  gap-y-6 lg:mt-8 mt-10 text-sm mx-auto"
                   >
                     <div>
                       <label>Full Name (As in official documents)</label>
@@ -202,7 +200,7 @@ const RegistrationPage = () => {
                      
                       disabled={regStatus === "undefined" ? false : true}
                       type="submit"
-                      className="px-auto flex items-center mx-auto mt-5 px-28 w-72 bg-orange-base rounded-md h-8 my-auto text-white"
+                      className="cursor-pointer px-auto flex items-center mx-auto mt-5 px-28 w-72 bg-orange-base rounded-md h-8 my-auto text-white"
                       onClick={(e) => {
                         
                         updateFunc(e);
@@ -227,9 +225,6 @@ const RegistrationPage = () => {
                   </a>
                 </>
               )}
-              <div className="mt-20">
-                <Footer />
-              </div>
             </>
           );
         } else {

@@ -4,10 +4,8 @@ import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import TranscertLogo from './img/TranscertLogo.png'
 import Footer from "./footer";
+
 const Register = () => {
-  const namRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
   return (
     <>
       <ConsumerContext>
@@ -99,7 +97,7 @@ const Register = () => {
 
                     <div className=" font-openSans mx-auto flex flex-row justify-between w-72 bg-orange-base rounded-lg h-8 mt-8 text-white">
                       <button
-                        className="box my-auto  mx-auto"
+                        className="box my-auto w-full mx-auto"
                         onClick={(e) => {
                           registerUser(e);
                         }}

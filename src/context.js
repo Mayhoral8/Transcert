@@ -141,12 +141,13 @@ if(funcType === 'login'){
    
   
 
-  const loginHandler = () => {
+  const loginHandler = (e) => {
+    e.preventDefault()
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
     .then((response) => {
       if(response.user.emailVerified) {
-        console.log(response.user)
+        
        login(response.user.accessToken, response.user.uid)
       }else{
         alert('please Verify email')
@@ -207,8 +208,8 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
        setTokenExpirationTime(null)
       localStorage.removeItem("userData");
       setErrorMsg("");
+      setIsLoading(false);
       navigate('/login')
-    // setIsLoading(false);
 
     });
   let timeoutId;
@@ -340,6 +341,7 @@ sendPasswordResetEmail(auth, email)
       const handleCloseModal =()=>{
         setCloseModal(true);
     }
+  
   return (
     <ContextCreate.Provider
       value={{
@@ -420,6 +422,7 @@ sendPasswordResetEmail(auth, email)
         userId
       }}
     >
+     
       {props.children}
     </ContextCreate.Provider>
   );

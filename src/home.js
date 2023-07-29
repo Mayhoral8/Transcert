@@ -88,9 +88,9 @@ const Home = () => {
               <h2 className="mt-15 text-center lg:text-2xl font-openSans font-bold">GET STARTED IN {true ? <span className="text-orange-base">3 EASY </span>: null} STEPS</h2>
             <section className="mt-20 grid grid-rows-3">
 
-              <article className="grid lg:grid-cols-2">
+              <article className="grid lg:grid-cols-2 lg:h-32">
                 <div
-                  className="mx-auto lg:order-last"
+                  className="mx-auto lg:order-last lg:align-center"
                   data-aos="fade-left"
                   data-aos-easing="ease-out"
                   data-aos-duration="1200"
@@ -104,7 +104,7 @@ const Home = () => {
                   data-aos-duration="1200 "
                 >
                   <h2 className="text-center block font-bold font-openSans">REGISTER</h2>
-                  <p className="mt-2 text-gray font-openSans font-normal">
+                  <p className="mt-2 text-gray font-openSans font-thin text-sm ">
                     It's quick, easy, and secure. Rest assured that your details
                     are safe. Simply click the "Sign Up" button
                   </p>
@@ -129,7 +129,7 @@ const Home = () => {
                   <h2 className=" text-center block font-bold font-openSans">
                     UPLOAD DETAILS
                   </h2>
-                  <p className="mt-2 text-gray text-center font-normal font-openSans">
+                  <p className="mt-2 text-gray text-center font-thin text-sm  font-openSans">
                     Next, supply your details and official documents from UNIZIK to
                     process your transcript and equivalents.
                   </p>
@@ -151,7 +151,7 @@ const Home = () => {
                   data-aos-duration="1200"
                 >
                   <h2 className=" text-center font-bold block font-openSans">PAYMENT</h2>
-                  <p className="mt-2 text-gray font-normal text-center font-openSans">
+                  <p className="mt-2 text-gray font-thin text-sm text-center font-openSans">
                     Finish by paying a token. We accept Paystack as a payment
                     method for all types of online transactions!
                   </p>
@@ -159,13 +159,18 @@ const Home = () => {
               </article>
             </section>
             <button className="mt-10 mx-auto bg-orange-base text-white rounded-lg h-10 w-32 block">Sign Up Now</button>
-            <div className="bg-gray grid grid-rows-3 my-auto text-white lg:h-36 left-0 bottom-0 right-0 pb-14 mt-10">
+            <div className="border-t border-gray grid grid-rows-3 gap-y-4 my-auto text-gray lg:h-64 left-0 bottom-0 right-0 pb-14 mt-10">
               <div>
 
-             <img src={TranscertLogo} alt="logo" className="w-40 mt-5 mx-auto"/>
+             <img src={TranscertLogo} alt="logo" className="w-40 mt-5 lg:mt-1 mx-auto"/>
+             <div className=" text-center grid-cols-3 grid mx-28 lg:mx-72 mt-5">
+             <i className="fa-brands fa-twitter cursor-pointer text-end"/>
+             <i className="fa-brands fa-instagram cursor-pointer"/>
+             <i className="fa-brands fa-whatsapp cursor-pointer text-start"/> 
+             </div>
               </div>
-<div>
-              <ul className="grid grid-cols-3 text-center mt-10">
+<div className="align-bottom">
+              <ul className="align-bottom grid grid-cols-3 text-center mt-10">
                 <li>
                   <span>Contact us</span>
                 </li>
@@ -178,7 +183,7 @@ const Home = () => {
               </ul>
 
 </div>
-              <div className="mt-10 text-center flex flex-row  mx-auto justify-center">
+              <div className="align-bottom mt-10 text-center flex flex-row  mx-auto justify-center">
                 <p className="font-light  text-sm"> Copyright</p>
                 <i className="fas fa-copyright ml-1 mt-1" />
                 <p className="ml-1 font-light text-sm ">2023 Transcert</p>
