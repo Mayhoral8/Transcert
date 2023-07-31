@@ -48,7 +48,7 @@ const RegistrationPage = () => {
                   </h2>
                   <form
                     ref={form}
-                    className=" grid grid-flow-row py-24 lg:py-2  gap-y-6 lg:mt-8 mt-10 text-sm mx-auto"
+                    className=" grid grid-flow-row py-24 lg:py-24  gap-y-6 lg:mt-8  text-sm mx-auto"
                   >
                     <div>
                       <label>Full Name (As in official documents)</label>
@@ -200,27 +200,27 @@ const RegistrationPage = () => {
                      
                       disabled={regStatus === "undefined" ? false : true}
                       type="submit"
-                      className="cursor-pointer px-auto flex items-center mx-auto mt-5 px-28 w-72 bg-orange-base rounded-md h-8 my-auto text-white"
+                      className="cursor-pointer text-center   items-center mx-auto mt-5  w-72 bg-orange-base rounded-md h-8 text-white"
                       onClick={(e) => {
                         
                         updateFunc(e);
                       }}
                     >
-                      {isLoading ?<i className="fas mx-auto text-center fa-spinner animate-spin"/>  : 'Submit'}
+                       Submit
                     </button>
                   </form>
                 </div>
               ) : (
                 <>
-                  <h2 className="mt-16 text-center  font-bold ">
-                    Please, click on the icon below <br />
+                  <h2 className="mt-16 text-center  font-medium ">
+                    Please, click on the icon below
                     to get in touch with our representative <br /> and complete
-                    your registration before <br /> making payments
+                    your registration before making payments
                   </h2>
-                  <a href="https://chatwith.io/s/transcert" target= "_blank">
+                  <a href="https://chatwith.io/s/transcert" target= "_blank" className="mx-auto w-64 block">
                     <img
                       src={whatsappIcon}
-                      className="mx-auto lg:mt-20 mt-10 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
+                      className=" lg:mt-20 lg:mt-8 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
                     />
                   </a>
                 </>

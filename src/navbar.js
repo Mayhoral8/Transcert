@@ -3,23 +3,33 @@ import { Link } from "react-router-dom";
 import { ConsumerContext } from "./context";
 import { useNavigate } from "react-router-dom";
 import TranscertLogo from "./img/TranscertLogo.png";
+import dashboard from './img/dashboard.png'
+import dashboardBlack from './img/dashboard-black.png'
+import register from './img/register.png'
+import registerBlack from './img/register-black.png'
+import payment from './img/payment2.png'
+import paymentBlack from './img/payment-black.png'
 
 
 const Navbar = () => {
   const initialState = {
     paymentMode: false,
     dashboardMode: true,
-    registerMode: false
+    registerMode: false,
+    profileMode: false
   }
 
   const reducerInputs  = (state, action)=>{
     if(action.type === 'dashboard'){
-      return {...state, dashboardMode: true, paymentMode:false, registerMode: false}
+      return {...state, dashboardMode: true, paymentMode:false, registerMode: false, profileMode:false}
     }else if(action.type === 'payment'){
-      return {...state, paymentMode: true, registerMode:false, dashboardMode:false}
+      return {...state, paymentMode: true, registerMode:false, dashboardMode:false, profileMode:false}
     }else if(action.type === 'register'){
       console.log('works')
-      return {...state, registerMode: true, dashboardMode:false, paymentMode:false}
+      return {...state, registerMode: true, dashboardMode:false, paymentMode:false, profileMode:false}
+    }else if(action.type === 'profile'){
+      console.log('works')
+      return {...state, profileMode: true, dashboardMode:false, paymentMode:false, registerMode:false}
     }
 
   }
@@ -38,10 +48,9 @@ const Navbar = () => {
   const registerHandler = ()=>{
      dispatch({type: 'register'})
   }
-// console.log(state.registerMode)
-console.log(state.paymentMode)
-  const navigate = useNavigate();
-
+const profileHandler = ()=>{
+  dispatch({type: 'profile'})
+}
   return (
     <>
       <ConsumerContext>
@@ -54,7 +63,7 @@ console.log(state.paymentMode)
           } = value;
 
           return (
-            <section className="lg:h-screen h-10 font-openSans lg:flex lg:flex-col left-0 lg:fixed  bg-white lg:w-64 shadow-md">
+            <section className="lg:h-screen h-10 font-openSans left-0 lg:fixed  bg-white lg:w-64 shadow-md">
               <div className="mx-auto text-center w-44 h-12">
                 
                 <Link to="/">
@@ -62,7 +71,7 @@ console.log(state.paymentMode)
                     src={TranscertLogo}
                     alt=""
                    
-                    className="lg:mt-5 mt-2.5 box text-black mx-auto text-center w-28 h-6"
+                    className="lg:mt-5 mt-2.5 box text-black  w-28 h-6"
                   />
                 </Link>
               
@@ -71,47 +80,64 @@ console.log(state.paymentMode)
                   className={` hidden lg:grid lg:grid-rows-4 gap-y-10 mt-10  sticky 
                   text-gray  text-start mx-auto lg:text-gray`}
                 >
+                  <Link to="/dashboard">
                   <div
-                    className={`lg:block   text-gray`}
+                    className={`h-10 grid grid-cols-3 px-3 justify-between transition-all  w-36 mx-auto  items-center ease-in delay-400  ${state.dashboardMode ? "bg-orange-base rounded-lg  text-white" :  null}`}
                   >
-                    <Link to="/dashboard">
+                  <img src={state.dashboardMode ? dashboard : dashboardBlack} className="w-6"/>
+                      
                       <button
-                        type="button "
+                        type="button"
                         onClick={dashboardHandler}
-                        className={`h-10 transition-all ease-in delay-400 lg:px-12 ${state.dashboardMode ? " bg-orange-base rounded-lg text-white  h-10" :null}`}
+                        className={`w-1/2 block col-span-2 `}
                       
                       >
                         Dashboard
                       </button>
-                    </Link>
                   </div>
+                    </Link>
+                  <Link to="/registration">
                   <div
-                    className={``}
+                    className={`h-10 grid grid-cols-3 px-3 justify-between transition-all  w-36 mx-auto  items-center ease-in delay-400  ${state.registerMode ? "rounded-lg text-white  bg-orange-base" :  null}`}
                     onClick={registerHandler}
                   >
-                    <Link to="/registration">
+                  <img src={state.registerMode ? register: registerBlack} className="w-6"/>
                       <button
                         type="button"
-                        className={`h-10 transition-all ease-in delay-400 lg:px-12 ${state.registerMode ? "bg-orange-base rounded-lg  text-white" :  null} `}
+                        className={` w-1/2 block col-span-2 `}
                        
                       >
                         Register
                       </button>
-                    </Link>
                   </div>
-                  <div onClick={paymentHandler} className={` transition-all ease-in delay-400 ${state.paymentMode ? "bg-orange-base  text-white text-center rounded-lg " : null}`}>
-                    
+                    </Link>
                     <Link to="/payment">
+                  <div onClick={paymentHandler} className={`h-10 grid grid-cols-3 px-3 justify-between transition-all  w-36 mx-auto  items-center ease-in delay-400  ${state.paymentMode ? "rounded-lg text-white  bg-orange-base" :  null}`}>
+                  <img src={state.paymentMode ? payment: paymentBlack} className="w-6"/>
                       <button
                       className={` `}
                       >
                         Payment
                       </button>
+                  </div>
                     </Link>
+
+                    <Link to="/profile">
+                  <div onClick={profileHandler} className={`h-10 grid grid-cols-3 px-3 justify-between transition-all  w-36 mx-auto  items-center ease-in delay-400  ${state.profileMode ? "rounded-lg text-white  bg-orange-base" :  null}`}>
+                  {state.profileMode ? <i className="w-6 fa-regular fa-user"/>: <i className="w-6 text-black fa-regular fa-user"></i>}
+                      <button
+                      className={` `}
+                      >
+                        Profile
+                      </button>
                   </div>
 
-                  <div className={``}>
+                    </Link>
+                </div>
+                  <div className={` lg:block px-3 items-center mx-auto grid grid-cols-3 w-36 text-center mt-20`}>
+                  <i className="fa-solid fa-arrow-right-from-bracket w-6"></i>
                     <button
+                    className="col-span-2 w-full"
                       type="button"
                       
                       onClick={() => {
@@ -122,42 +148,9 @@ console.log(state.paymentMode)
                       Sign Out
                     </button>
                   </div>
-                </div>
-                {/* <div className={` lg:grid lg:grid-cols-2  lg:text-end lg:text-blue-base text-md text-center text-white`}>
-                  <div>
-                    <Link to="/login">
-                      <button
-                        className={``}
-                        onClick={() => {
-                          setShow(!show);
-                          topScroll();
-                        }}
-                      >
-                        Login
-                      </button>
-                    </Link>
-                  </div>
-                  <div
-                    className={` `}
-                  >
-                    <Link to="/signUp">{
-
-                      <button
-                      className={`lg:bg-orange-base lg:w-28 lg:h-8 lg:rounded-md text-white text-center`}
-                      onClick={() => {
-                        logout("register");
-                        topScroll();
-                        setShow(!show);
-                      }}
-                      >
-                        Sign Up Free
-                      </button>
-                      }
-                    </Link>
-                  </div>
-                </div> */}
+                  </section>
               
-            </section>
+              
           );
         }}
       </ConsumerContext>

@@ -53,7 +53,7 @@ const Login = () => {
                   <div className="grid grid-rows-2  gap-y-10 text-sm">
 
                     <input
-                      className={`focus:outline-none border-b-2 mx-auto h-10 text-gray w-72 ${errorMsg === 'Invalid Email'? 'border-red border-2': null}`}
+                      className={`focus:outline-none border-b mx-auto h-10 text-gray w-72 ${errorMsg === 'Invalid Email'? 'border-red border-2': null}`}
                       type="email"
                       placeholder="Email"
                       disabled={isLoading? true:false}
@@ -62,13 +62,13 @@ const Login = () => {
                      <div className="grid grid-cols-2">
 
                     <input
-                      className={`focus:outline-none box border-b-2 h-8 w-72 text-gray-700 ${errorMsg === 'Wrong Password'? 'border-red border-2': null}`}
-                      type={showPassword? 'password': 'text'}
+                      className={`focus:outline-none border-b box h-8 w-72 text-gray-700 ${errorMsg === 'Wrong Password'? 'border-red border-2': null}`}
+                      type={!showPassword? 'password': 'text'}
                       placeholder="Password"
                       disabled={isLoading? true:false}
                       onChange ={(e)=> {setPassword(e.target.value); }}
                       />
-                      <span className="text-end mt-2">{showPassword?<i className="fa-solid fa-eye cursor-pointer" onClick={passwordShowHandler}></i>: <i className="fa-solid fa-eye-slash cursor-pointer" onClick={passwordShowHandler}></i>}</span>
+                      <span className="w-4 text-end ml-auto mt-2">{showPassword? <i className="fa-solid fa-eye-slash cursor-pointer" onClick={passwordShowHandler}></i> : <i className="fa-solid fa-eye cursor-pointer" onClick={passwordShowHandler}></i>}</span>
                       </div>
                       
                   </div>

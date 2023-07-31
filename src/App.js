@@ -6,6 +6,7 @@ import Register from "./register";
 import Dashboard from "./dashboard";
 import RegistrationPage from "./registrationPage";
 import Paystack from "./paystack";
+import Profile from "./profile";
 import Navbar from "./navbar";
 import BottomNav from "./bottom-nav";
 
@@ -31,6 +32,7 @@ const App = () => {
         <Routes> <Route path="/dashboard" element={<Dashboard />} />
   <Route path="/registration" element={<RegistrationPage />} />
   <Route path="/payment" element={<Paystack/>}  />  
+  <Route path = '/profile' element = {<Profile/>}/>
    </Routes>
    </div>  
 <BottomNav/>

@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import dashboard from './img/dashboard.png'
+import register from './img/register.png'
+import payment from './img/payment2.png'
 
 const BottomNav = ()=>{
     return(
@@ -9,16 +12,16 @@ const BottomNav = ()=>{
                   text-white w-full h-20 block pt-6 shadow-md grid grid-cols-3 text-center bg-orange-base`}
                 >
                   <div
-                    className={`lg:block`}
+                    className={``}
                   >
                     <Link to="/dashboard">
-                      <button
+                    <button
                         type="button"
                         className={` `}
-                      
+                       
                       >
-                        Dashboard
-                      </button>
+                    <img src={dashboard} className="w-8"/>
+                    </button>
                     </Link>
                   </div>
                   <div
@@ -30,7 +33,8 @@ const BottomNav = ()=>{
                         className={` `}
                        
                       >
-                        Register
+           <img src={register} className="w-8"/>
+
                       </button>
                     </Link>
                   </div>
@@ -39,7 +43,8 @@ const BottomNav = ()=>{
                       <button
                        
                       >
-                        Payment
+            <img src={payment} className="w-8"/>
+
                       </button>
                     </Link>
                   </div>

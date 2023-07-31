@@ -159,7 +159,7 @@ const Home = () => {
               </article>
             </section>
             <button className="mt-10 mx-auto bg-orange-base text-white rounded-lg h-10 w-32 block">Sign Up Now</button>
-            <div className="border-t border-gray grid grid-rows-3 gap-y-4 my-auto text-gray lg:h-64 left-0 bottom-0 right-0 pb-14 mt-10">
+            <div className="shadow-md border-t border-gray grid grid-rows-3 gap-y-4 my-auto text-gray lg:h-64 left-0 bottom-0 right-0 pb-14 mt-10">
               <div>
 
              <img src={TranscertLogo} alt="logo" className="w-40 mt-5 lg:mt-1 mx-auto"/>

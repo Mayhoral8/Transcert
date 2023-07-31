@@ -74,14 +74,16 @@ useEffect(()=>{
   if(token){
   return (
     <>
-     <div className="hidden lg:block h-20 shadow-md  lg:flex items-center px-4">
+     <div className="hidden  lg:block h-20 shadow-md  lg:flex items-center px-4">
               <h2 className="text-2xl text-blue-base font-bold">Payment </h2>
               </div>
-    <div className="checkout-form h-screen w-1/2
+    <div className="checkout-form h-screen w-1/2 mx-auto
     ">
  
-      <h1 className="text-center font-medium font-openSans mt-20 lg:text-base font-bold">{regStatus === '' ? 'You are about to be redirected': 'Please register before making payment'} <br/> {regStatus === '' ? 'to our payment portal': null}</h1>
-  {regStatus === '' ?<PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} /> : null}
+      <h1 className="text-center font-medium font-openSans mt-20 lg:text-base font-bold">{regStatus !== '' ? 'You are about to be redirected': 'Please register before making payment'}  {regStatus !== '' ? 'to our payment portal': null}</h1>
+  {/* {true === '' ? <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} /> : null}
+   */}
+    <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} />
 </div>
       
     </>
