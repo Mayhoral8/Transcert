@@ -1,13 +1,15 @@
-import { React, useRef } from "react";
+import { React, useState } from "react";
 import { ConsumerContext } from "./context";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import TranscertLogo from './img/TranscertLogo.png'
 import Footer from "./footer";
+
 const Register = () => {
-  const namRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const[showPassword, setShowPassword] = useState(false)
+  const passwordShowHandler = ()=>{
+    setShowPassword(!showPassword)
+  }
   return (
     <>
       <ConsumerContext>
@@ -31,26 +33,18 @@ const Register = () => {
           if(!token){
           return (
             <>
-             <div className="mt-24">
+             <div className="mt-14">
 
-<img src={TranscertLogo} alt="" className="w-40 mt-5 mx-auto"/>
+<img src={TranscertLogo} alt="" className="w-40 mt-1 mx-auto"/>
 </div>
-              <div className="mt-12 h-screen">
+              <div className="mt-8 h-screen">
                 <h1 className="font-openSans font-bold text-center text-md">Create An Account</h1>
                 <h4 className="text-center text-red-500 font-bold h-6">
                   {errorMsg}
                 </h4>
-
-                <span className="h-6 text-center mx-auto">
-                  {isLoading ? (
-                    <button type="button" className="mx-auto block" disabled>
-                      <i className="fas fa-spinner animate-spin" />
-                    </button>
-                  ) : null}
-                </span>
                 <div className="">
                   <form  onSubmit={sendEmail}>
-                    <div className=" font-openSans mx-auto w-72 mt-6 grid grid-cols-2 h-52 ">
+                    <div className=" font-openSans mx-auto w-72 mt-4 grid grid-cols-2 h-52 ">
                       <div className="grid grid-cols-1 text-sm text-gray-900">
                         <input
                           className="focus:outline-none border-b mx-auto h-10 text-gray-900 w-72 border-gray-300"
@@ -73,17 +67,6 @@ const Register = () => {
                             setErrorMsg("");
                           }}
                         />
-
-                        <input
-                          className="focus:outline-none box border-b h-8 w-72 text-gray-900 border-gray-300"
-                          type="password"
-                          placeholder="Password"
-                          name="pass_word"
-                          onChange={(e) => {
-                            setPassword(e.target.value);
-                            setErrorMsg("");
-                          }}
-                        />
                         <input
                           className="focus:outline-none box border-b h-8 text-gray-900 w-72 border-gray-300"
                           type="text"
@@ -94,12 +77,24 @@ const Register = () => {
                             setErrorMsg("");
                           }}
                         />
+                     <div className="grid grid-cols-2 w-72">
+                          <input
+                            className="focus:outline-none box border-b h-8 w-72 text-gray-900 border-gray-300"
+                            type={!showPassword? 'password': 'text'}
+                            placeholder="Password"
+                            name="pass_word"
+                            onChange={(e) => {
+                              setPassword(e.target.value);
+                              setErrorMsg("");
+                            }}  />
+                            <span className="w-6 text-end ml-auto mt-2">{showPassword? <i className="fa-solid fa-eye-slash cursor-pointer" onClick={passwordShowHandler}></i> : <i className="fa-solid fa-eye cursor-pointer" onClick={passwordShowHandler}></i>}</span>
+                            </div>
                       </div>
                     </div>
 
                     <div className=" font-openSans mx-auto flex flex-row justify-between w-72 bg-orange-base rounded-lg h-8 mt-8 text-white">
                       <button
-                        className="box my-auto  mx-auto"
+                        className="box my-auto w-full mx-auto"
                         onClick={(e) => {
                           registerUser(e);
                         }}
@@ -121,7 +116,7 @@ const Register = () => {
               </div>
               
               
-              <Footer/>
+              
             </>
           )
           } else {

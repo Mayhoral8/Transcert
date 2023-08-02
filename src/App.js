@@ -1,47 +1,60 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, {useContext} from "react";
 import Login from "./login";
-import Dashboard from "./dashboard";
+import { Routes, Route } from "react-router-dom";
+import { ContextCreate } from "./context";
 import Register from "./register";
-import Navbar from "./navbar";
-import Home from "./home";
+import Dashboard from "./dashboard";
 import RegistrationPage from "./registrationPage";
-import LoadingOverlay from "./spinner";
 import Paystack from "./paystack";
-import { ConsumerContext } from "./context";
+import Profile from "./profile";
+import Navbar from "./navbar";
+import BottomNav from "./bottom-nav";
+
+
+import Home from "./home";
+
+import LoadingOverlay from "./spinner";
+
+
+
+
 const App = () => {
-  return (
-    <>
-      <ConsumerContext>
-        {(value) => {
-          const {
-            logout,
-            currUser,
-            show,
-            setShow,
-            setCurrUser,
-            initialToken,
-            topScroll,
-          } = value;
-          return (
-            <>
-              <Navbar />
-              <LoadingOverlay/>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/registration" element={<RegistrationPage />}  />
-                <Route path='/home' element = {<Home/>}/>
-                <Route path="/signUp" element={<Register />} />
-                <Route path="/payment" element={<Paystack />} />
-                <Route path="/paystack" element={<Paystack />} />
-              </Routes>
-            </>
-          );
-        }}
-      </ConsumerContext>
-    </>
-  );
+  const {userId, token} = useContext(ContextCreate)
+  return(
+<>
+   
+<LoadingOverlay/> 
+ {token ? 
+ 
+ <div className="lg:flex  lg:flex-flow-row ">
+<Navbar/>  
+      <div className="lg:ml-64 lg:w-screen">
+        <Routes> <Route path="/dashboard" element={<Dashboard />} />
+  <Route path="/registration" element={<RegistrationPage />} />
+  <Route path="/payment" element={<Paystack/>}  />  
+  <Route path = '/profile' element = {<Profile/>}/>
+   </Routes>
+   </div>  
+<BottomNav/>
+   </div>
+    
+  :  
+  <Routes>
+    <Route path="/login" element={<Login />} />
+    <Route path="/signUp" element={<Register />} />
+    <Route path='/' element = {<Home/>}/>
+    </Routes>
+}
+  
+ 
+   
+    
+  
+ 
+</>
+    ) 
+    
+    
+    
 };
 export default App;
