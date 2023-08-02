@@ -9,9 +9,12 @@ import register from './img/register.png'
 import registerBlack from './img/register-black.png'
 import payment from './img/payment2.png'
 import paymentBlack from './img/payment-black.png'
+import { getAuth } from "firebase/auth";
+
 
 
 const Navbar = () => {
+  const auth = getAuth()
   const initialState = {
     paymentMode: false,
     dashboardMode: true,
@@ -64,18 +67,37 @@ const profileHandler = ()=>{
 
           return (
             <section className="lg:h-screen h-10 font-openSans left-0 lg:fixed  bg-white lg:w-64 shadow-md">
-              <div className="mx-auto text-center w-44 h-12">
+              <div className="lg:mx-auto px-2 lg:px-0 text-center lg:w-44 lg:h-12 h-full lg:block grid grid-cols-3">
                 
                 <Link to="/">
                   <img
                     src={TranscertLogo}
                     alt=""
                    
-                    className="lg:mt-5 mt-2.5 box text-black  w-28 h-6"
+                    className="lg:mt-5 mt-2.5  box text-black  w-28 h-6"
                   />
                 </Link>
+                <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="lg:hidden mx-auto mt-1 h-8 w-8 border-1 border-blue-base rounded-full"/>
+                <div className={`lg:hidden flex flex-row text-sm items-center mx-auto text-center`}>
+                  <i  onClick={() => {
+                        logout();
+                        setShow(!show);
+                      }} className="fa-solid text-sm fa-arrow-right-from-bracket w-6"></i>
+                    <button
+                    className=" w-full"
+                      type="button"
+                      
+                      onClick={() => {
+                        logout();
+                        setShow(!show);
+                      }}
+                    >
+                      Sign Out
+                    </button>
+                  </div>
               
               </div>
+
                 <div
                   className={` hidden lg:grid lg:grid-rows-4 gap-y-10 mt-10  sticky 
                   text-gray  text-start mx-auto lg:text-gray`}
@@ -134,7 +156,7 @@ const profileHandler = ()=>{
 
                     </Link>
                 </div>
-                  <div className={` lg:block px-3 items-center mx-auto grid grid-cols-3 w-36 text-center mt-20`}>
+                  <div className={`hidden lg:block px-3 items-center mx-auto grid grid-cols-3 w-36 text-center mt-20`}>
                   <i className="fa-solid fa-arrow-right-from-bracket w-6"></i>
                     <button
                     className="col-span-2 w-full"

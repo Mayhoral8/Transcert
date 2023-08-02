@@ -3,7 +3,7 @@ import { ContextCreate } from "./context";
 import { getAuth, updateProfile, updateEmail } from "firebase/auth";
 import { storage } from './firebase-config'
 import { uploadBytes, getDownloadURL, ref } from 'firebase/storage'
-import { db } from "./firebase-config";
+import Toast from "./toast";
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -11,7 +11,7 @@ const Profile = ()=>{
     const auth = getAuth()
     const [tempImgId, setTempImgId] = useState(uuidv4())    
 
-    const {displayName, userId} = useContext(ContextCreate)
+    const {displayName, setIsLoading} = useContext(ContextCreate)
     
      const [nameEditMode, setnameEditMode] = useState(false)
      const [emailEditMode, setEmailEditMode] = useState(false)
@@ -23,10 +23,12 @@ const Profile = ()=>{
      const [name, setName] = useState(auth.currentUser.displayName)
      const [userEmail, setUserEmail] =useState(auth.currentUser.email)
      
+
+    //  const toastNotif
+
    
-     
 
-
+ 
      const nameModeHandler = ()=>{
         setnameEditMode(true)
      }
@@ -90,42 +92,54 @@ const profileImgUpdate = async()=>{
 
 console.log(auth.currentUser.photoURL)
 const updateHandler = (type, extra)=>{
+    setIsLoading(true)
     if (type === 'pic'){
 
         updateProfile(auth.currentUser, {
             photoURL: extra
         }).then(() => {
            console.log('profile url updated')
+           setPicEditMode(false)
+
         }).catch((error) => {
             // An error occurred
             // ...
         });
+        setIsLoading(false)
     } else{
         updateProfile(auth.currentUser, {
             displayName: name
         }).then(() => {
-            // Profile updated!
-            // ...
+            console.log('name updated')
+            setnameEditMode(false)
+            
+        }).then(()=>{   
+            new Toast({message: 'Name Updated', type: 'success'});
         }).catch((error) => {
             // An error occurred
             // ...
         });
+        setIsLoading(false)
     }
 }
 const emailUpdateHandler = ()=>{
+    setIsLoading(true)
     updateEmail(auth.currentUser, userEmail)
+    setEmailEditMode(false)
+    setIsLoading(false)
 }
-    const updateProfileHandler = ()=>{
-       picEditMode && profileImgUpdate()
-       nameEditMode && updateHandler('name')
-       emailEditMode && emailUpdateHandler()
-       
-    }
-console.log(picEditMode)
+const updateProfileHandler = ()=>{
+    picEditMode && profileImgUpdate()
+    nameEditMode && updateHandler('name')
+    emailEditMode && emailUpdateHandler()
+    
+}
+
+
 const buttonIsValid = nameEditMode || emailEditMode || picEditMode
-    console.log(!buttonIsValid)
     return(
         <section>
+             
         <div className="hidden  lg:block h-20 shadow-md  lg:flex items-center px-4">
     <h2 className="text-2xl text-blue-base font-bold">Profile </h2>
     </div>
@@ -135,7 +149,7 @@ const buttonIsValid = nameEditMode || emailEditMode || picEditMode
 
     <img alt="" src={picEditMode ? previewUrl: auth.currentUser.photoURL} className="w-1/2 mt-6 mx-auto h-20 w-20 border-1 rounded-full border-blue-base"/>
     <input type="file" accept=".png, .jpg, .jpeg" onChange={pickFileHandler} className="hidden" ref={pickedFile}/>
-    <i onClick={pickImageHandler} className="fa-solid fa-pen my-auto mr-auto absolute ml-72 mt-20 cursor-pointer"/>
+    <i onClick={pickImageHandler} className="fa-solid fa-pen my-auto lg:mr-auto absolute lg:ml-72 ml-28 mt-20 cursor-pointer"/>
         </div>
 
         <div className=" mx-auto mt-10  grid grid-rows-3 gap-y-4">
@@ -159,6 +173,7 @@ const buttonIsValid = nameEditMode || emailEditMode || picEditMode
             </div>
         </div>
     </article>
+    {/* <Toast message='welcome to profile'/> */}
         </section>
         )
 }

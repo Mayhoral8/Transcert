@@ -42,8 +42,8 @@ const RegistrationPage = () => {
               </div>
               {regStatus  ? (
                 
-                <div className=" font-openSans px-10 lg:px-10 lg:mt-10 mt-10 lg:mx-40 block">
-                  <h2 className=" text-center  font-bold ">
+                <div className=" font-openSans px-10 lg:px-10 lg:mt-10  lg:mx-40 block">
+                  <h2 className=" text-center m  font-bold ">
                     Please, carefully fill in your details.
                   </h2>
                   <form
