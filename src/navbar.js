@@ -66,34 +66,24 @@ const profileHandler = ()=>{
           } = value;
 
           return (
-            <section className="lg:h-screen h-10 font-openSans left-0 lg:fixed  bg-white lg:w-64 shadow-md">
-              <div className="lg:mx-auto px-2 lg:px-0 text-center lg:w-44 lg:h-12 h-full lg:block grid grid-cols-3">
+            <section className="lg:h-screen h-14 font-openSans left-0 lg:fixed  bg-white lg:w-64 shadow-md">
+              <div className="lg:mx-auto px-4 lg:px-0 text-center lg:w-44 lg:h-12 h-full lg:block grid grid-cols-3">
                 
                 <Link to="/">
                   <img
                     src={TranscertLogo}
                     alt=""
                    
-                    className="lg:mt-5 mt-2.5  box text-black  w-28 h-6"
+                    className="lg:mt-5 mt-4  box text-black  w-28 h-6"
                   />
                 </Link>
-                <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="lg:hidden mx-auto mt-1 h-8 w-8 border-1 border-blue-base rounded-full"/>
-                <div className={`lg:hidden flex flex-row text-sm items-center mx-auto text-center`}>
+                <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="lg:hidden mx-auto mt-1 h-12 w-12 border-2 border-blue-base rounded-full"/>
+                <div className={`lg:hidden flex flex-row  items-center ml-auto text-end`}>
                   <i  onClick={() => {
                         logout();
                         setShow(!show);
-                      }} className="fa-solid text-sm fa-arrow-right-from-bracket w-6"></i>
-                    <button
-                    className=" w-full"
-                      type="button"
-                      
-                      onClick={() => {
-                        logout();
-                        setShow(!show);
-                      }}
-                    >
-                      Sign Out
-                    </button>
+                      }} className="fa-solid text-lg fa-arrow-right-from-bracket w-6"></i>
+                  
                   </div>
               
               </div>

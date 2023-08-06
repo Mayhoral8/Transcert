@@ -144,12 +144,12 @@ const buttonIsValid = nameEditMode || emailEditMode || picEditMode
     <h2 className="text-2xl text-blue-base font-bold">Profile </h2>
     </div>
 
-    <article className="mx-auto w-1/2 ">
+    <article className="mx-auto  lg:w-1/2 ">
         <div className="flex flex-row">
 
     <img alt="" src={picEditMode ? previewUrl: auth.currentUser.photoURL} className="w-1/2 mt-6 mx-auto h-20 w-20 border-1 rounded-full border-blue-base"/>
     <input type="file" accept=".png, .jpg, .jpeg" onChange={pickFileHandler} className="hidden" ref={pickedFile}/>
-    <i onClick={pickImageHandler} className="fa-solid fa-pen my-auto lg:mr-auto absolute lg:ml-72 ml-28 mt-20 cursor-pointer"/>
+    <i onClick={pickImageHandler} className="fa-solid fa-camera text-blue-base my-auto  lg:mr-auto absolute lg:ml-72 ml-52 mt-20 cursor-pointer"/>
         </div>
 
         <div className=" mx-auto mt-10  grid grid-rows-3 gap-y-4">
@@ -157,14 +157,14 @@ const buttonIsValid = nameEditMode || emailEditMode || picEditMode
 
             <label className=" mx-auto w-1/2 text-blue-base" >Username</label>
             <div className="mx-auto w-1/2 flex flex-row justify-between">
-            {!nameEditMode ? <button className="h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.displayName}</button>:<input  type="text" onChange={nameHandler}  value={name} name="display name" className="text-center h-8 rounded-md mx-auto w-full  border"/>}<span onClick={nameModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
+            {!nameEditMode ? <button className=" text-sm lg:text-base h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.displayName}</button>:<input  type="text" onChange={nameHandler}  value={name} name="display name" className="text-center text-sm h-8 rounded-md mx-auto w-full  border"/>}<span onClick={nameModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
             </div>
             </div>
             <div className="grid grid-rows-2 gap-y-2 ">
 
             <label className="mx-auto w-1/2 text-blue-base">Email</label>
             <div className="mx-auto w-1/2 flex flex-row justify-between">
-            {!emailEditMode ? <button className="h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.email}</button>:<input type="text" onChange={emailHandler} value={userEmail}  name="email" className="text-center h-8 rounded-md mx-auto w-full  border"/>}<span onClick={emailModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
+            {!emailEditMode ? <button className="text-sm lg:text-base h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.email}</button>:<input type="text" onChange={emailHandler} value={userEmail}  name="email" className="text-center h-8 rounded-md mx-auto w-full  border"/>}<span onClick={emailModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
             </div>
             </div>
             <div className="mt-6 mx-auto w-1/2">
