@@ -80,7 +80,7 @@ const { topScroll }  = useContext(ContextCreate)
                        
                       >
            <img src={state.registerMode? register : registerBlack} className="w-4 mx-auto"/>
-           <h4>Register</h4>
+           <h4 className="text-sm">Register</h4>
 
                       </button>
                     </Link>
@@ -91,19 +91,19 @@ const { topScroll }  = useContext(ContextCreate)
                        className="py-1"
                       >
             <img src={state.paymentMode ? payment : paymentBlack} className="w-4 mx-auto"/>
-            <h4>Payment</h4>
+            <h4 className="text-sm">Payment</h4>
 
                       </button>
                     </Link>
                   </div>
 
-                  <div onClick={profileHandler} className={`text-gray rounded-md ${state.profileMode ? 'bg-orange-base text-white': null }`}>
+                  <div onClick={profileHandler} className={` text-gray rounded-md ${state.profileMode ? 'bg-orange-base text-white ': null }`}>
                     <Link to="/profile">
                       <button
-                       className=""
+                       className="h-12"
                       >
-            <i className="w-4 mx-auto fas fa-user mt-2"/>
-            <h4 className="">Profile</h4>
+            <i className="w-4  mx-auto fas fa-user"/>
+            <h4 className="mb-3 text-sm">Profile</h4>
 
                       </button>
                     </Link>

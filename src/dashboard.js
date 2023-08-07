@@ -13,6 +13,7 @@ const Dashboard = () => {
   const auth = getAuth()
   const navigate = useNavigate();
   const [displayName, setDisplayName] = useState('')
+  const [greeting, setGreeting] = useState('')
 
 useEffect(()=>{
   
@@ -32,22 +33,36 @@ useEffect(()=>{
 
   )
   setIsLoading(false)
+  if(date.getHours() > 12 && date.getHours() < 13){
+    return setGreeting('afternoon')
+    }else if(date.getHours() > 13 ){
+     return setGreeting('evening')
+    }else if(date.getHours() > 1 && date.getHours() < 12){
+      return setGreeting('morning')
+    }
+    
 }
 }, [regStatus, paymentStatus, userId])
 
-if(token){
+const date = new Date()
+// console.log(typeof date, date,  date.getHours())
+let newString = []
+let string = 'dodo'
 
-
-  
+console.log(string.length)
+if(token){ 
   return (
   
                 
-            <div className=" lg:ml-64 h-screen grid font-openSans block">
+            <div className="lg:ml-64  h-screen grid font-openSans block">
               <div className=" hidden lg:flex justify-between px-4  items-center flex-flow-row lg:block h-20 shadow-md ">
+                <div>
               <h2 className="text-2xl text-blue-base font-bold">Hi, {displayName} </h2>
+              <h4 className="text-sm font-thin mt-2">Good {greeting}</h4>
+                </div>
               <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="h-12 w-12 border-1 rounded-full"/>
               </div>
-              <section className="mx-auto md:h-screen mt-5 ">
+              <section className=" md:h-screen bg-white-01 mt-1 ">
                 <h3 className="lg:hidden font-bold text-blue-base text-center">Hi, {displayName}</h3>
 
               <div className="mt-12 mx-auto md:mt-44  lg:grid md:gap-x-5 md:grid md:grid-cols-2 lg:grid-cols-2 md:px-2 px-10 mt-4 lg:gap-x-10 lg:px-20 lg:mt-10">

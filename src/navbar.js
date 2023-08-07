@@ -80,7 +80,7 @@ const profileHandler = ()=>{
                     src={TranscertLogo}
                     alt=""
                    
-                    className="lg:mt-5 mt-4  box text-black  w-28 h-6"
+                    className="lg:mt-5 lg:mx-auto mt-4  box text-black  w-28 h-6"
                   />
                 </Link>
                 <div className="flex flex-row">

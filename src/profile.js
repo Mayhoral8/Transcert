@@ -156,12 +156,12 @@ if(token){
     <h2 className="text-2xl text-blue-base font-bold">Profile </h2>
     </div>
 
-    <article className="mx-auto  lg:w-1/2 ">
+    <article className=" bg-white-01 mt-1 lg:px-56  mx-auto  lg:w-full h-screen  ">
         <div className="flex flex-row">
 
     <img alt="" src={picEditMode ? previewUrl: auth.currentUser.photoURL} className="w-1/2 mt-6 mx-auto h-20 w-20 border-1 rounded-full border-blue-base"/>
     <input type="file" accept=".png, .jpg, .jpeg" onChange={pickFileHandler} className="hidden" ref={pickedFile}/>
-    <i onClick={pickImageHandler} className="fa-solid fa-camera text-blue-base my-auto  lg:mr-auto absolute lg:ml-72 ml-52 mt-20 cursor-pointer"/>
+    <i onClick={pickImageHandler} className="fa-solid fa-camera text-blue-base my-auto absolute lg:ml-72 ml-52 mt-20 cursor-pointer"/>
         </div>
 
         <div className=" mx-auto mt-10  grid grid-rows-3 gap-y-4">

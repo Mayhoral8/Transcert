@@ -42,13 +42,13 @@ const RegistrationPage = () => {
               </div>
               {regStatus  ? (
                 
-                <div className=" font-openSans px-10 lg:px-10 lg:mt-10  lg:mx-40 block">
-                  <h2 className=" text-center mt-10  font-bold ">
+                <div className="bg-white-01 mt-1   font-openSans px-10 lg:px-10 lg:w-full lg:px-56  lg:mx-auto block">
+                  <h2 className=" text-center  font-bold ">
                     Please, carefully fill in your details.
                   </h2>
                   <form
                     ref={form}
-                    className=" grid grid-flow-row mt-16 lg:py-24  gap-y-6 lg:mt-8  text-sm mx-auto"
+                    className=" grid grid-flow-row mt-16 lg:py-24  gap-y-6 lg:mt-2  text-sm mx-auto"
                   >
                     <div>
                       <label>Full Name (As in official documents)</label>
