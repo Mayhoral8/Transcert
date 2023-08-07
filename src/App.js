@@ -27,9 +27,9 @@ const App = () => {
    
 <LoadingOverlay/> 
 
-{token && <Navbar/>}
 {token && <Modal/>}
-     
+{token && <Navbar/>} 
+{token && <BottomNav/>}
         <Routes>
            <Route path="/dashboard" element={<Dashboard />} />
   <Route path="/registration" element={<RegistrationPage />} />
@@ -40,7 +40,6 @@ const App = () => {
 <Route path='/' element = {<Home/>}/>
 <Route path="*" element={<Login/>} />
    </Routes>
-   {token && <BottomNav/>}
    
     
   :  

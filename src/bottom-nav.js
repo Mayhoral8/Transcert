@@ -53,8 +53,8 @@ const { topScroll }  = useContext(ContextCreate)
     return(
         <>
         <div
-                  className={`lg:hidden transition-all ease-in delay-400  bottom-0 z-20 fixed items-center align-middle
-                  text-white w-full h-16 block gap-x-2 bg-white shadow-md border grid grid-cols-4 px-2 text-center`}
+                  className={`bottom-nav lg:hidden bottom-0  transition-all ease-in delay-400   z-10 fixed items-center align-middle
+                  text-white w-full h-16 block gap-x-2 bg-white border grid grid-cols-4 px-2 text-center`}
                 >
                   <div
                     onClick={dashboardHandler} className={`text-gray rounded-md ${state.dashboardMode ? 'bg-orange-base text-white': null }`}
@@ -102,8 +102,8 @@ const { topScroll }  = useContext(ContextCreate)
                       <button
                        className=""
                       >
-            <i className="w-4 mx-auto fas fa-user"/>
-            <h4 className="mb-2 ">Profile</h4>
+            <i className="w-4 mx-auto fas fa-user mt-2"/>
+            <h4 className="">Profile</h4>
 
                       </button>
                     </Link>
