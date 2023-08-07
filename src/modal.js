@@ -1,53 +1,42 @@
-import {React, useEffect} from 'react'
+import {React, useEffect, useContext} from 'react'
 import styled from "styled-components"
-import { ConsumerContext } from './context'
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { ContextCreate } from './context';
 
 const Modal = ()=> {
   useEffect(() => {
     Aos.init({ duration: 600 });
   }, []);
-  return (
-    <ConsumerContext>
-        {(value)=>{
-            const {closeModal, setCloseModal, setOpenModal, openModal, userInFinal} = value
-            console.log('urs')
-            if(userInFinal.amount !== 'undefined'){
 
-              return(
-                <ModalStyle>
-    <div className='bg-white w-66 h-48 text-center rounded-md border-orange-base border-2'   data-aos="fade-up"
+  const {setOpenModal, openModal, modalMsg, logout} = useContext(ContextCreate)
+
+
+  if(openModal){
+
+    return (
+      <ModalStyle>
+    <div className='py-4 bg-white grid grid-rows-3 w-full lg:w-96 mx-6 h-48 text-center rounded-md border-orange-base '   data-aos="fade-up"
                   data-aos-easing="ease-in"
                   data-aos-duration="600">
-        <h4 className='mt-2  font-bold' >Registration Successful!</h4>
-        <p className='text-sm mt-3 text-center px-8'>Click on the Whatsapp Icon on this page<br/> to chat with our representative <br/> and be cleared for payment.</p>
-        <button onClick={()=> setOpenModal(false)} className='bg-orange-base w-28 h-8 text-white rounded-md mt-10 '>Continue</button>
+        <h1 className='text-start text-lg px-4 font-bold mt-4'>Sign out?</h1>
+        <p className='text-sm  text-start px-4'>{modalMsg}</p>
+        <div className='grid grid-flow-col ml-auto gap-x-2 px-4'>
+        <button onClick={()=> setOpenModal(false)} className=' text-red border-2 border-red text-gray w-20 h-8  rounded-md  '>No</button>
+        <button onClick={()=> logout()} className='bg-orange-base border-2 t border-orange-base w-20 h-8 text-white rounded-md '>Yes</button>
+        </div>
         </div>
     </ModalStyle>
         )
-      }else {
-        setOpenModal(true)
-        return(
-          <>
-                     <ModalStyle>
-    <div className='bg-white w-66 h-48 text-center rounded-md border-orange-base border-2'   data-aos="fade-up"
-                  data-aos-easing="ease-in"
-                  data-aos-duration="600">
-        <h4 className='mt-2  font-bold' >Registration Successful!</h4>
-        <p className='text-sm mt-3 text-center px-8'>Click on the Whatsapp Icon on this page<br/> to chat with our representative <br/> and be cleared for payment.</p>
-        <button onClick={()=> setOpenModal(false)} className='bg-orange-base w-28 h-8 text-white rounded-md mt-10 '>Continue</button>
-        </div>
-    </ModalStyle>
-          
-          </>
-        )
-      }
-     }
+        
+      
+    }else{
+      return null
+    }
+     
+
 }
-    </ConsumerContext>
-  )
-}
+
 
 const ModalStyle = styled.div`
 position: fixed;

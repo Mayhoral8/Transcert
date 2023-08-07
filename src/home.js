@@ -1,17 +1,18 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import UNIZIK from "./img/UNIZIK2.png";
 import Payment1 from "./img/Payment1.jpg";
 import documentUpload from './img/documentUpload.png';
 import Register1 from "./img/Register1.jpg";
+import { ContextCreate } from "./context";
+
 
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { ConsumerContext } from "./context";
-import Modal from "./modal";
 import {useTypewriter, words, Cursor} from 'react-simple-typewriter'
 import TypeWriterEffect from 'react-typewriter-effect'
 import TranscertLogo from './img/TranscertLogo.png'
+import { Navigate } from "react-router-dom";
 
 
 
@@ -21,21 +22,13 @@ const Home = () => {
   }, []);
   
   
-  
-   const {typeText} = useTypewriter({
-     words: ['TRANSCRIPT', 'COVER LETTER', 'ENGLISH PROFICIENCY LETTER'],
-     loop:{},
-     typeSpeed: 120,
-    });
+  const {topScroll, homeSignUpBtn, token } = useContext(ContextCreate)
+   
+if(!token){
+
   return (
-    <ConsumerContext>
-      {(value) => {
-        const {topScroll, homeSignUpBtn } = value;
-        
-    
-        return (
           <>
-          {/* {!closeModal ? <Modal/> : null} */}
+          
             <section className="lg:grid lg:grid-cols-2 lg:px-24 lg:justify-between lg:mt-12 py-8 w-full lg:w-full lg:h-96 bg-blue-base text-gray mx-auto">
               <div
                 className="lg:mt-6 mt-24 lg:order-last mx-auto lg:mx-64 lg:h-72 w-64 h-56"
@@ -191,8 +184,10 @@ const Home = () => {
             </div>
           </>
         );
-      }}
-    </ConsumerContext>
-  );
-};
+  
+  
+} else{
+  return <Navigate to='/dashboard' />
+}
+}
 export default Home;

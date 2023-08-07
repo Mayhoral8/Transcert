@@ -1,46 +1,40 @@
-import { React, useState } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { ConsumerContext } from "./context";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TranscertLogo from './img/TranscertLogo.png'
-import Footer from "./footer";
+import { ContextCreate } from "./context";
+
 
 const Login = () => {
   const[showPassword, setShowPassword] = useState(false)
+
+  const navigate = useNavigate()
+
   const passwordShowHandler = ()=>{
     setShowPassword(!showPassword)
   }
+
+  const { setPassword,
+    setEmail,
+    setErrorMsg,
+    loginHandler,
+    errorMsg,
+    isLoading,
+    token,
+    resetPword} = useContext(ContextCreate)
+
+  useEffect(()=>{
+    if(token){
+      return navigate('/dashboard')
+    }
+  })
+  
+  const resetErrMsg = ()=>{
+    setErrorMsg('')
+  }
+   
   return (
-    <>
-      <ConsumerContext>
-        {(value) => {
-          const {
-            setPassword,
-            setEmail,
-            setErrorMsg,
-            emailInputRef,
-            passwordInputRef,
-            email,
-            loginHandler,
-            errorMsg,
-            isLoading,
-            token,
-            resetPword,
-        
-          } = value;
-
-          const handleInputs = () => {
-            setEmail(emailInputRef.current.value);
-            setPassword(passwordInputRef.current.value);
-            console.log(email);
-          };
-       
-          const resetErrMsg = ()=>{
-            setErrorMsg('')
-          }
-       
-        if(!token){
-
-          return (
+  
             <>
             <div className="mt-24 font-openSans">
                 <img src={TranscertLogo} alt="" className="w-40 mt-5 mx-auto"/>
@@ -95,12 +89,8 @@ const Login = () => {
    
             </>
           );
-        }else {
-          return  <Navigate to = '/dashboard'  />
-        }
-        }}
-      </ConsumerContext>
-    </>
-  );
+      
+    
+  
 };
 export default Login;

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ContextCreate } from './context';
 import { ref, onValue } from "firebase/database";
 import { db } from "./firebase-config";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 
 const Paystack =()=> {
@@ -19,10 +19,10 @@ const navigate = useNavigate()
 
 
  
-const {token, regStatus, userId, setIsLoading, paymentFunc, paymentStatus, setPaymentStatus} = useContext(ContextCreate)
+const {token, regStatus, userId, setIsLoading, paymentFunc} = useContext(ContextCreate)
 
 useEffect(()=>{
-  if(userId){
+
 
     onValue(ref(db, `/users/${userId}`), (snapshot) => 
     {
@@ -48,8 +48,7 @@ useEffect(()=>{
     }
     
     )
-  }
-
+ 
     }, [userId])
 
     
@@ -73,7 +72,7 @@ useEffect(()=>{
 
   if(token){
   return (
-    <>
+    <section className='lg:ml-64'>
      <div className="hidden  lg:block h-20 shadow-md  lg:flex items-center px-4">
               <h2 className="text-2xl text-blue-base font-bold">Payment </h2>
               </div>
@@ -86,10 +85,10 @@ useEffect(()=>{
     <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} />
 </div>
       
-    </>
+    </section>
 )
 } else{
-  return navigate('/login')
+  return <Navigate to='/login'/>
 }
 }
 

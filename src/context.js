@@ -39,10 +39,10 @@ const ContextProvider = (props) => {
   const [imgUrl, setImgUrl] = useState("");
   const [regPhoneNumber, setRegPhoneNumber] = useState("");
   const [openModal, setOpenModal] = useState(false)
-  const [closeModal, setCloseModal] = useState(false)
   const [token, setToken] = useState()
   const [tokenExpirationTime, setTokenExpirationTime] = useState(null)
   const [userId, setUserId] = useState()
+  const [modalMsg, setModalMsg] = useState()
 
   const form = useRef();
 
@@ -208,6 +208,7 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
        setTokenExpirationTime(null)
       localStorage.removeItem("userData");
       setErrorMsg("");
+      setOpenModal(false)
       setIsLoading(false);
       navigate('/login')
 
@@ -335,17 +336,14 @@ sendPasswordResetEmail(auth, email)
       
    
 
-      const handleOpenModal =()=>{
-          setOpenModal(true);
-      }
-      const handleCloseModal =()=>{
-        setCloseModal(true);
-    }
+    
   
   return (
     <ContextCreate.Provider
       value={{
         regStatus,
+        modalMsg,
+        setModalMsg,
         setRegStatus,
         paymentStatus,
         setPaymentStatus,
@@ -399,10 +397,8 @@ sendPasswordResetEmail(auth, email)
         
         openModal,
         setOpenModal,
-        closeModal,
-        setCloseModal,
-        handleCloseModal,
-        handleOpenModal,
+       
+        
         resetPword,
         paymentFunc,
         emailVBtn,
@@ -419,7 +415,8 @@ sendPasswordResetEmail(auth, email)
         durationOfStudy,
         navigate,
         setFaculty,
-        userId
+        userId,
+      
       }}
     >
      

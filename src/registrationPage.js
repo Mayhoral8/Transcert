@@ -26,7 +26,7 @@ const RegistrationPage = () => {
     setCourseOfStudy,
     setModeOfStudy,
     setEmailAdd,
-    docType} = useContext(ContextCreate)
+    docType, topScroll} = useContext(ContextCreate)
   useEffect(() => {
     Aos.init({ duration: 600 });
   }, []);
@@ -35,7 +35,7 @@ const RegistrationPage = () => {
        
         if (token) {
           return (
-            <>
+            <section className="lg:ml-64">
               {openModal ? <Modal /> : null}
               <div className="hidden lg:flex items-center px-4 lg:block h-20 shadow-md ">
               <h2 className="text-2xl text-blue-base font-bold">Register </h2>
@@ -208,7 +208,7 @@ const RegistrationPage = () => {
                     >
                        Submit
                     </button>
-                    <div className="mt-20"></div>
+                    <div className="lg:hidden mt-20"></div>
                   </form>
                 </div>
               ) : (
@@ -226,7 +226,7 @@ const RegistrationPage = () => {
                   </a>
                 </>
               )}
-            </>
+            </section>
           );
         } else {
           return <Navigate to="/login" />;

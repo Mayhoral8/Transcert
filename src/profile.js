@@ -5,26 +5,50 @@ import { storage } from './firebase-config'
 import { uploadBytes, getDownloadURL, ref } from 'firebase/storage'
 import Toast from "./toast";
 import { v4 as uuidv4 } from 'uuid';
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 
 const Profile = ()=>{
+    const {displayName, setIsLoading, token} = useContext(ContextCreate)
+
+    
+    const navigate = useNavigate()
+    
     const auth = getAuth()
     const [tempImgId, setTempImgId] = useState(uuidv4())    
-
-    const {displayName, setIsLoading} = useContext(ContextCreate)
     
-     const [nameEditMode, setnameEditMode] = useState(false)
-     const [emailEditMode, setEmailEditMode] = useState(false)
-     const [picEditMode, setPicEditMode] = useState(false)
+    
+    const [nameEditMode, setnameEditMode] = useState(false)
+    const [emailEditMode, setEmailEditMode] = useState(false)
+    const [picEditMode, setPicEditMode] = useState(false)
      const [file, setFile] = useState()
      const [previewUrl, setPreviewUrl] = useState()
      const [isFileValid, setIsFileValid] = useState()
 
-     const [name, setName] = useState(auth.currentUser.displayName)
-     const [userEmail, setUserEmail] =useState(auth.currentUser.email)
+     const [name, setName] = useState(auth.currentUser ? auth.currentUser.displayName: null)
+     const [userEmail, setUserEmail] =useState(auth.currentUser? auth.currentUser.email:null)
+
+    useEffect(() => {
+      
+          if (!file) {
+              return
+          }
+              const fileReader = new FileReader();
+              fileReader.onload = () => {
+                 
+                  setPreviewUrl(fileReader.result)
+                
+              }
+              fileReader.readAsDataURL(file);
+              setIsFileValid(true)
+              console.log(isFileValid)
+         
+      
+      
+          }, [token, file])
      
 
-    //  const toastNotif
 
    
 
@@ -64,24 +88,9 @@ console.log(name, userEmail)
         }
     }
 
-    useEffect(() => {
+ 
 
-        if (!file) {
-            return
-        }
-        const fileReader = new FileReader();
-        fileReader.onload = () => {
-           
-            setPreviewUrl(fileReader.result)
-          
-        }
-        fileReader.readAsDataURL(file);
-        setIsFileValid(true)
-        console.log(isFileValid)
-
-
-    }, [file])
-
+   
 const profileImgUpdate = async()=>{
     if(file === null)return
     const imageRef = ref(storage, `${tempImgId}/${file.name}`);
@@ -90,7 +99,7 @@ const profileImgUpdate = async()=>{
   updateHandler('pic', url)
 }
 
-console.log(auth.currentUser.photoURL)
+
 const updateHandler = (type, extra)=>{
     setIsLoading(true)
     if (type === 'pic'){
@@ -137,10 +146,13 @@ const updateProfileHandler = ()=>{
 
 
 const buttonIsValid = nameEditMode || emailEditMode || picEditMode
+if(token){
+
+
     return(
-        <section>
+        <section className="lg:ml-64">
              
-        <div className="hidden  lg:block h-20 shadow-md  lg:flex items-center px-4">
+        <div className="  hidden  lg:block h-20 shadow-md  lg:flex items-center px-4">
     <h2 className="text-2xl text-blue-base font-bold">Profile </h2>
     </div>
 
@@ -176,6 +188,10 @@ const buttonIsValid = nameEditMode || emailEditMode || picEditMode
     {/* <Toast message='welcome to profile'/> */}
         </section>
         )
+    }
+    else{
+        return <Navigate to='/login'/>
+    }
 }
 
 export default Profile
