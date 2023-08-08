@@ -10,7 +10,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 
 const Profile = ()=>{
-    const {displayName, setIsLoading, token} = useContext(ContextCreate)
+    const {setMessage, setType,  setIsLoading, token, setIsOpen} = useContext(ContextCreate)
 
     
     const navigate = useNavigate()
@@ -123,7 +123,28 @@ const updateHandler = (type, extra)=>{
             setnameEditMode(false)
             
         }).then(()=>{   
-            new Toast({message: 'Name Updated', type: 'success'});
+            new Toast({message: 'Name Updated', type: 'success'})
+            setMessage('Name Updated')
+            setType('success')
+            setIsOpen(true)
+        //     setTimeout(()=>{  
+        //     new Promise((resolve, reject) => {
+            
+        //        this.toastContainerEl.setAttribute('aria-hidden', true); 
+        //         setTimeout(() => {
+        
+        //             this.toastEl.innerHTML = '';
+        //             this.toastEl.classList.remove('default', 'success', 'warning', 'danger');
+        
+        //             if ( this.focusedElBeforeOpen ) {
+        //                 this.focusedElBeforeOpen.focus();
+        //             }
+        
+        //             resolve();
+        
+        //         }, 1000); 
+        //     });
+        // }, 5000) 
         }).catch((error) => {
             // An error occurred
             // ...
@@ -169,7 +190,7 @@ if(token){
 
             <label className=" mx-auto w-1/2 text-blue-base" >Username</label>
             <div className="mx-auto w-1/2 flex flex-row justify-between">
-            {!nameEditMode ? <button className=" text-sm lg:text-base h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.displayName}</button>:<input  type="text" onChange={nameHandler}  value={name} name="display name" className="text-center text-sm h-8 rounded-md mx-auto w-full  border"/>}<span onClick={nameModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
+            {!nameEditMode ? <button onClick={setIsOpen(true)} className=" text-sm lg:text-base h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.displayName}</button>:<input  type="text" onChange={nameHandler}  value={name} name="display name" className="text-center text-sm h-8 rounded-md mx-auto w-full  border"/>}<span onClick={nameModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
             </div>
             </div>
             <div className="grid grid-rows-2 gap-y-2 ">

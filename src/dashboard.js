@@ -62,11 +62,11 @@ if(token){
                 </div>
               <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="h-12 w-12 border-1 rounded-full"/>
               </div>
-              <section className=" md:h-screen bg-white-01 mt-1 ">
+              <section className=" md:h-screen bg-white-01 mt-1 mx-auto">
                 <h3 className="lg:hidden font-bold text-blue-base text-center">Hi, {displayName}</h3>
 
-              <div className="mt-12 mx-auto md:mt-44  lg:grid md:gap-x-5 md:grid md:grid-cols-2 lg:grid-cols-2 md:px-2 px-10 mt-4 lg:gap-x-10 lg:px-20 lg:mt-10">
-            <div className=" h-48 lg:h-56 w-72 lg:w-96 shadow-md rounded-md bg-blue-base text-white">
+              <div className="mt-12 mx-auto md:mt-44   lg:grid md:gap-x-5 md:grid md:grid-cols-2 lg:grid-cols-2 md:px-2 mt-4 lg:gap-x-10 lg:px-20 lg:mt-10">
+            <div className="mx-auto h-48 lg:h-56 w-72 lg:w-96 shadow-md rounded-md bg-blue-base text-white">
 
               <h2 className="py-1 lg:mt-4 lg:py-0 px-4 lg:text-2xl  font-bold">
                 Registration
@@ -86,7 +86,7 @@ if(token){
               </p>
               </div>
  </div>
-          <div className="h-48 lg:h-56 w-72 lg:w-96 shadow-md rounded-md bg-blue-base text-white">
+          <div className=" mx-auto h-48 lg:h-56 w-72 lg:w-96 shadow-md rounded-md bg-blue-base text-white">
 
 <h2 className="mt-4 lg:mt-2 py-1 lg:py-2 px-4 lg:text-2xl font-bold">
   Payment

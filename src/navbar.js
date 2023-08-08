@@ -156,10 +156,10 @@ const profileHandler = ()=>{
 
                     </Link>
                 </div>
-                  <div className={`hidden lg:block px-3 items-center mx-auto grid grid-cols-3 w-36 text-center mt-20`}>
-                  <i className="fa-solid fa-arrow-right-from-bracket w-6"></i>
+                  <div className={`hidden lg:block  mx-auto grid grid-cols-2 w-32 gap-x-6 mt-20`}>
+                  <i className="fa-solid fa-arrow-right-from-bracket w-6 text-start"/>
                     <button
-                    className="col-span-2 w-full"
+                    className=""
                       type="button"
                       
                       onClick={() => {

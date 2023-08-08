@@ -43,6 +43,10 @@ const ContextProvider = (props) => {
   const [tokenExpirationTime, setTokenExpirationTime] = useState(null)
   const [userId, setUserId] = useState()
   const [modalMsg, setModalMsg] = useState()
+  const [message, setMessage] = useState()
+  const [type, setType] = useState()
+  const [customButtons, setCustomButtons] = useState()
+  const [isOpen, setIsOpen] = useState(false);
 
   const form = useRef();
 
@@ -416,6 +420,15 @@ sendPasswordResetEmail(auth, email)
         navigate,
         setFaculty,
         userId,
+
+        message,
+        setMessage,
+        type,
+        setType,
+        customButtons,
+        setCustomButtons,
+        isOpen,
+        setIsOpen
       
       }}
     >

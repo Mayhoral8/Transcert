@@ -47,7 +47,7 @@ Toast.prototype._addEventListeners = function() {
 };
 
 
-Toast.prototype._close = function() {
+ Toast.prototype._close = function() {
     return new Promise((resolve, reject) => {
         this.toastContainerEl.setAttribute('aria-hidden', true); 
         setTimeout(() => {
