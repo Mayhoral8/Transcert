@@ -33,23 +33,22 @@ useEffect(()=>{
 
   )
   setIsLoading(false)
-  if(date.getHours() > 12 && date.getHours() < 13){
+  
+const date = new Date()
+
+  if(date.getHours() >= 12 && date.getHours() <= 13){
     return setGreeting('afternoon')
     }else if(date.getHours() > 13 ){
      return setGreeting('evening')
-    }else if(date.getHours() > 1 && date.getHours() < 12){
+    }else if(date.getHours() >= 0 && date.getHours() < 12){
       return setGreeting('morning')
     }
     
 }
-}, [regStatus, paymentStatus, userId])
+}, [regStatus, paymentStatus, token])
 
-const date = new Date()
-// console.log(typeof date, date,  date.getHours())
-let newString = []
-let string = 'dodo'
 
-console.log(string.length)
+
 if(token){ 
   return (
   
@@ -62,8 +61,8 @@ if(token){
                 </div>
               <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="h-12 w-12 border-1 rounded-full"/>
               </div>
-              <section className=" md:h-screen bg-white-01 mt-1 mx-auto">
-                <h3 className="lg:hidden font-bold text-blue-base text-center">Hi, {displayName}</h3>
+              <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto">
+                <h3 className="lg:hidden mt-4 text-blue-base text-center">Good {greeting}, {displayName}</h3>
 
               <div className="mt-12 mx-auto md:mt-44   lg:grid md:gap-x-5 md:grid md:grid-cols-2 lg:grid-cols-2 md:px-2 mt-4 lg:gap-x-10 lg:px-20 lg:mt-10">
             <div className="mx-auto h-48 lg:h-56 w-72 lg:w-96 shadow-md rounded-md bg-blue-base text-white">
@@ -76,7 +75,7 @@ if(token){
                 Status 
               </h4>
               <h5 className="text-sm  font-thin">
-              {regStatus}
+              {regStatus} <i class={`fa-solid fa-circle ${regStatus === '' ? 'text-red' : 'text-green'}`}></i>
               </h5>
               <h4 className="mt-4">
                 Description

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { db } from "./firebase-config";
 import { set, ref, update, onValue } from "firebase/database";
 import { getAuth, sendPasswordResetEmail, sendEmailVerification, updateProfile } from "firebase/auth";
+import Toast from "./toast";
 
 // import {uid} from 'uid';
 import { auth } from "./firebase-config";
@@ -256,19 +257,21 @@ sendPasswordResetEmail(auth, email)
     // ..
   });
   }
+
+  const regFormValid = fullName !== "" &&
+  emailAdd !== "" &&
+  courseOfStudy !== "" &&
+  phoneNumber !== "" &&
+  regNumber !== "" &&
+  faculty !== ""  &&
+  modeOfStudy !== '' &&
+  durationOfStudy !== '' &&
+  programme !== '' &&
+  docType !== ''
   const updateFunc = (e) => {
     e.preventDefault();   
           if (
-            fullName !== "" &&
-            emailAdd !== "" &&
-            courseOfStudy !== "" &&
-            phoneNumber !== "" &&
-            regNumber !== "" &&
-            faculty !== ""  &&
-            modeOfStudy !== '' &&
-            durationOfStudy !== '' &&
-            programme !== '' &&
-            docType !== ''
+            regFormValid
           ) {
             setIsLoading(true)
             emailjs
@@ -286,21 +289,18 @@ sendPasswordResetEmail(auth, email)
                   console.log(error.text);
                 }
               ).then(()=>{
-                update(ref(db, `/${auth.currentUser.uid}`), {
+                update(ref(db, `/users/${userId}`), {
                   regStatus: true,
                   documentType: docType
                 });
-                localStorage.setItem("regStatus", true);
                  
               }).then(()=>{
                 setIsLoading(false);
-                  navigate('/registration');
+                  new Toast({message: 'Registration Successful', type: 'success'})
+                  navigate('/dashboard')
                   topScroll();
               })
-              .then(() => {
-                setOpenModal(() => {
-                  return true;
-                })}).then(()=>{
+              .then(()=>{
                   setFullName('')
                   setEmailAdd('')
                   setPhoneNumber('')
@@ -428,7 +428,8 @@ sendPasswordResetEmail(auth, email)
         customButtons,
         setCustomButtons,
         isOpen,
-        setIsOpen
+        setIsOpen,
+        regFormValid
       
       }}
     >

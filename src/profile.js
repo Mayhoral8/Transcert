@@ -127,24 +127,7 @@ const updateHandler = (type, extra)=>{
             setMessage('Name Updated')
             setType('success')
             setIsOpen(true)
-        //     setTimeout(()=>{  
-        //     new Promise((resolve, reject) => {
-            
-        //        this.toastContainerEl.setAttribute('aria-hidden', true); 
-        //         setTimeout(() => {
-        
-        //             this.toastEl.innerHTML = '';
-        //             this.toastEl.classList.remove('default', 'success', 'warning', 'danger');
-        
-        //             if ( this.focusedElBeforeOpen ) {
-        //                 this.focusedElBeforeOpen.focus();
-        //             }
-        
-        //             resolve();
-        
-        //         }, 1000); 
-        //     });
-        // }, 5000) 
+      
         }).catch((error) => {
             // An error occurred
             // ...

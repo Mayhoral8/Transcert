@@ -7,9 +7,12 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import whatsappIcon from "./img/whatsappIcon.png";
 import { ContextCreate } from "./context";
+import { db } from "./firebase-config";
+import { ref, onValue } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 const RegistrationPage = () => {
-
+const auth = getAuth()
   const {  isLoading,
     updateFunc,
     token,
@@ -26,12 +29,28 @@ const RegistrationPage = () => {
     setCourseOfStudy,
     setModeOfStudy,
     setEmailAdd,
-    docType, topScroll} = useContext(ContextCreate)
+    docType, setRegStatus, setIsLoading, userId, setPaymentStatus, regFormValid} = useContext(ContextCreate)
   useEffect(() => {
     Aos.init({ duration: 600 });
   }, []);
 
-    
+  console.log(regFormValid)
+  useEffect(()=>{
+    onValue(ref(db, `/users/${userId}`), (snapshot) => 
+    {
+      const responseData = snapshot.val();
+      setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
+      setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
+   
+  }, (error)=>{
+    setIsLoading(false)
+    console.log(error)
+  }
+
+  )
+  })
+
+
        
         if (token) {
           return (
@@ -40,7 +59,7 @@ const RegistrationPage = () => {
               <div className="hidden lg:flex items-center px-4 lg:block h-20 shadow-md ">
               <h2 className="text-2xl text-blue-base font-bold">Register </h2>
               </div>
-              {regStatus  ? (
+              {!regStatus ? (
                 
                 <div className="bg-white-01 mt-1   font-openSans px-10 lg:px-10 lg:w-full lg:px-56  lg:mx-auto block">
                   <h2 className=" text-center pt-10 font-bold ">
@@ -198,7 +217,7 @@ const RegistrationPage = () => {
 
                     <button
                      
-                      disabled={regStatus === "undefined" ? false : true}
+                      disabled={regStatus === 'Not registered' && regFormValid ? false : true}
                       type="submit"
                       className="cursor-pointer text-center   items-center mx-auto mt-5  w-72 bg-orange-base rounded-md h-8 text-white"
                       onClick={(e) => {
@@ -221,7 +240,7 @@ const RegistrationPage = () => {
                   <a href="https://chatwith.io/s/transcert" target= "_blank" className="mx-auto w-64 block">
                     <img
                       src={whatsappIcon}
-                      className=" lg:mt-20 lg:mt-8 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
+                      className="mx-auto mt-8 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
                     />
                   </a>
                 </>
