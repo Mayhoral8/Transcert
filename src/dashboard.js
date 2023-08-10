@@ -22,6 +22,7 @@ useEffect(()=>{
     onValue(ref(db, `/users/${userId}`), (snapshot) => 
     {
       const responseData = snapshot.val();
+      console.log(responseData)
       setDisplayName(auth.currentUser.displayName)
       setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
       setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
@@ -48,6 +49,7 @@ const date = new Date()
 }, [regStatus, paymentStatus, token])
 
 
+console.log(regStatus, paymentStatus)
 
 if(token){ 
   return (
@@ -75,7 +77,7 @@ if(token){
                 Status 
               </h4>
               <h5 className="text-sm  font-thin">
-              {regStatus} <i class={`fa-solid fa-circle ${regStatus === '' ? 'text-red' : 'text-green'}`}></i>
+              {regStatus} <i class={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'}`}></i>
               </h5>
               <h4 className="mt-4">
                 Description
@@ -95,7 +97,8 @@ if(token){
   Status 
 </h4>
 <h5 className="text-sm font-thin">
-{paymentStatus}
+{paymentStatus} <i class={`fa-solid fa-circle ${paymentStatus === 'Not Paid' ? 'text-orange-base' : 'text-green'}`}></i>
+
 </h5>
 <h4 className="mt-4">
   Description

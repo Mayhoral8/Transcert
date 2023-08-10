@@ -43,11 +43,11 @@ if(!token){
                 className="lg:mt-4 w-96 mx-auto flex flex-col"
               >
                 <div className=" lg:text-left text-center font-openSans grid:grid-rows-3 capitalize lg:text-2xl text-2xl font-bold text-white mt-12  ">
-                  <h3>Get your</h3>
+                  <h3 className="text-orange-base">Get your</h3>
 
-                <div className=" text-orange-base ml-auto w-auto"> 
+                <div className="text-white ml-auto w-auto"> 
                 <TypeWriterEffect
-                className='text-center'
+                className='text-center text-white'
         startDelay={1000}
         cursorColor="#3F3D56"
         textStyle={{

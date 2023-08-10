@@ -29,26 +29,15 @@ const auth = getAuth()
     setCourseOfStudy,
     setModeOfStudy,
     setEmailAdd,
-    docType, setRegStatus, setIsLoading, userId, setPaymentStatus, regFormValid} = useContext(ContextCreate)
+    docType, regFormValid} = useContext(ContextCreate)
   useEffect(() => {
     Aos.init({ duration: 600 });
   }, []);
 
   console.log(regFormValid)
-  useEffect(()=>{
-    onValue(ref(db, `/users/${userId}`), (snapshot) => 
-    {
-      const responseData = snapshot.val();
-      setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
-      setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
-   
-  }, (error)=>{
-    setIsLoading(false)
-    console.log(error)
-  }
 
-  )
-  })
+
+
 
 
        
@@ -59,7 +48,7 @@ const auth = getAuth()
               <div className="hidden lg:flex items-center px-4 lg:block h-20 shadow-md ">
               <h2 className="text-2xl text-blue-base font-bold">Register </h2>
               </div>
-              {!regStatus ? (
+              {regStatus === 'Not registered' ? (
                 
                 <div className="bg-white-01 mt-1   font-openSans px-10 lg:px-10 lg:w-full lg:px-56  lg:mx-auto block">
                   <h2 className=" text-center pt-10 font-bold ">
@@ -219,7 +208,7 @@ const auth = getAuth()
                      
                       disabled={regStatus === 'Not registered' && regFormValid ? false : true}
                       type="submit"
-                      className="cursor-pointer text-center   items-center mx-auto mt-5  w-72 bg-orange-base rounded-md h-8 text-white"
+                      className=" text-center   items-center mx-auto mt-5  w-72 bg-orange-base rounded-md h-8 text-white"
                       onClick={(e) => {
                         
                         updateFunc(e);

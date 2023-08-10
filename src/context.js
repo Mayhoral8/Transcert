@@ -297,7 +297,6 @@ sendPasswordResetEmail(auth, email)
               }).then(()=>{
                 setIsLoading(false);
                   new Toast({message: 'Registration Successful', type: 'success'})
-                  navigate('/dashboard')
                   topScroll();
               })
               .then(()=>{

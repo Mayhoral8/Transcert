@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import Login from "./login";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { ContextCreate } from "./context";
-import Register from "./register";
+import Register from "./signup";
 import Dashboard from "./dashboard";
 import RegistrationPage from "./registrationPage";
 import Paystack from "./paystack";
