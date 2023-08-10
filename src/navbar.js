@@ -69,9 +69,7 @@ const profileHandler = ()=>{
 }
   return (
     <>
-     
 
-          
             <section className="lg:h-screen h-14 font-openSans left-0 lg:fixed  bg-white lg:w-64 shadow-md">
               <div className="lg:mx-auto px-4 lg:px-0 text-center lg:w-44 lg:h-12 h-full lg:block grid grid-cols-2">
                 

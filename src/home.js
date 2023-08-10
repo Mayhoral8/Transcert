@@ -9,10 +9,9 @@ import { ContextCreate } from "./context";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
-import {useTypewriter, words, Cursor} from 'react-simple-typewriter'
-import TypeWriterEffect from 'react-typewriter-effect'
 import TranscertLogo from './img/TranscertLogo.png'
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import Typewriter from "typewriter-effect";
 
 
 
@@ -42,27 +41,17 @@ if(!token){
               <div
                 className="lg:mt-4 w-96 mx-auto flex flex-col"
               >
-                <div className=" lg:text-left text-center font-openSans grid:grid-rows-3 capitalize lg:text-2xl text-2xl font-bold text-white mt-12  ">
-                  <h3 className="text-orange-base">Get your</h3>
+                <div className=" lg:text-left text-white text-center font-openSans grid:grid-rows-3 capitalize lg:text-2xl text-2xl font-bold text-white mt-12  ">
+                  <h3 className="">Get your</h3>
 
-                <div className="text-white ml-auto w-auto"> 
-                <TypeWriterEffect
-                className='text-center text-white'
-        startDelay={1000}
-        cursorColor="#3F3D56"
-        textStyle={{
-         textAlign: '',
-        }}
-        multiText={[
-          'Transcript',
-          'Certificate',
-          'English Proficiency Letter',
-         
-        ]}
-        multiTextDelay={4000}
-        typeSpeed={100}
-        multiTextLoop
-      /> </div>
+                <div className="text-orange-base ml-auto w-auto"> 
+                <Typewriter
+  options={{
+    strings: ['Transcript', 'English Proficiency Letter', 'Certificate'],
+    autoStart: true,
+    loop: true,
+  }}
+/> </div>
                 
                   <h3>From Unizik in</h3> 
                   <h3>7-14 days</h3>
@@ -78,8 +67,8 @@ if(!token){
               </div>
             </section>
 
-              <h2 className="mt-15 text-center lg:text-2xl font-openSans font-bold">GET STARTED IN {true ? <span className="text-orange-base">3 EASY </span>: null} STEPS</h2>
-            <section className="mt-20 grid grid-rows-3">
+              <h2 className="mt-16 text-center lg:text-2xl font-openSans font-bold">GET STARTED IN {true ? <span className="text-orange-base">3 EASY </span>: null} STEPS</h2>
+            <section className="lg:px-10 mt-20 grid grid-rows-3">
 
               <article className="grid lg:grid-cols-2 lg:h-32">
                 <div
@@ -128,7 +117,7 @@ if(!token){
                   </p>
                 </div>
               </article>
-              <article className=" grid grid-col-2 mx-auto mt-10 lg:mt-0">
+              <article className=" grid lg:grid-cols-2  mt-10 lg:mt-0">
                 <div
                   className="mx-auto"
                   data-aos="fade-left"
@@ -138,7 +127,7 @@ if(!token){
                   <img src={Payment1} alt="" className="w-60 h-78" />
                 </div>
                 <div
-                  className="text-center max-w-xs lg:mt-14 mx-auto pb-8"
+                  className=" lg:order-first text-center max-w-xs lg:mt-14 mx-auto pb-8"
                   data-aos="fade-right"
                   data-aos-easing="ease-out"
                   data-aos-duration="1200"
@@ -151,19 +140,21 @@ if(!token){
                 </div>
               </article>
             </section>
-            <button className="mt-10 mx-auto bg-orange-base text-white rounded-lg h-10 w-32 block">Sign Up Now</button>
-            <div className="shadow-md border-t border-gray grid grid-rows-3 gap-y-4 my-auto text-gray lg:h-64 left-0 bottom-0 right-0 pb-14 mt-10">
+            <Link to='/signup'>
+            <button onClick={topScroll} className="mt-10 mx-auto bg-orange-base text-white rounded-lg h-10 w-32 block">Sign Up Now</button>
+            </Link>
+            <div className="shadow-md  border-gray grid grid-rows-3 gap-y-4 my-auto text-gray lg:h-64  right-0 mt-10">
               <div>
 
              <img src={TranscertLogo} alt="logo" className="w-40 mt-5 lg:mt-1 mx-auto"/>
-             <div className=" text-center grid-cols-3 grid mx-28 lg:mx-72 mt-5">
+             <div className=" text-center flex flex-row mx-auto justify-center gap-x-6 lg:mx-72 mt-10">
              <i className="fa-brands fa-twitter cursor-pointer text-end"/>
              <i className="fa-brands fa-instagram cursor-pointer"/>
              <i className="fa-brands fa-whatsapp cursor-pointer text-start"/> 
              </div>
               </div>
-<div className="align-bottom">
-              <ul className="align-bottom grid grid-cols-3 text-center mt-10">
+              <div className="align-bottom">
+              <ul className="align-bottom flex flex-row justify-center gap-x-10 text-center mt-10">
                 <li>
                   <span>Contact us</span>
                 </li>

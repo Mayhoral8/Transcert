@@ -56,7 +56,7 @@ const Login = () => {
                      <div className="grid grid-cols-2">
 
                     <input
-                      className={`focus:outline-none border-b box h-8 w-72 text-gray-700 ${errorMsg === 'Wrong Password'? 'border-red border-2': null}`}
+                      className={`focus:outline-none border-b box h-8 w-72 text-gray ${errorMsg === 'Wrong Password'? 'border-red border-2': null}`}
                       type={!showPassword? 'password': 'text'}
                       placeholder="Password"
                       disabled={isLoading? true:false}
