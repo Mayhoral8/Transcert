@@ -56,14 +56,14 @@ if(token){
   
                 
             <div className="lg:ml-64  h-screen grid font-openSans block">
-              <div className=" hidden lg:flex justify-between px-4  items-center flex-flow-row lg:block h-20 shadow-md ">
+              <div className=" hidden lg:flex justify-between px-6  items-center flex-flow-row lg:block h-20 shadow-md ">
                 <div>
               <h2 className="text-2xl text-blue-base font-bold">Hi, {displayName} </h2>
               <h4 className="text-sm font-thin mt-2">Good {greeting}</h4>
                 </div>
               <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="h-12 w-12 border-1 rounded-full"/>
               </div>
-              <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto">
+              <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto w-full">
                 <h3 className="lg:hidden mt-4 text-blue-base text-center">Good {greeting}, {displayName}</h3>
 
               <div className="mt-12 mx-auto md:mt-44   lg:grid md:gap-x-5 md:grid md:grid-cols-2 lg:grid-cols-2 md:px-2 mt-4 lg:gap-x-10 lg:px-20 lg:mt-10">
@@ -74,10 +74,10 @@ if(token){
               </h2>
               <div className="lg:mt-6 mt-2 px-4">
               <h4 className="">
-                Status 
+                Status <i class={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
               </h4>
               <h5 className="text-sm  font-thin">
-              {regStatus} <i class={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'}`}></i>
+              {regStatus} 
               </h5>
               <h4 className="mt-4">
                 Description
@@ -94,11 +94,11 @@ if(token){
 </h2>
 <div className="lg:mt-6  mt-2 px-4">
 <h4 className="">
-  Status 
+  Status  <i class={`fa-solid fa-circle ${paymentStatus === 'Not Paid' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
+
 </h4>
 <h5 className="text-sm font-thin">
-{paymentStatus} <i class={`fa-solid fa-circle ${paymentStatus === 'Not Paid' ? 'text-orange-base' : 'text-green'}`}></i>
-
+{paymentStatus}
 </h5>
 <h4 className="mt-4">
   Description

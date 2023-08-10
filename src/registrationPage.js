@@ -221,10 +221,10 @@ const auth = getAuth()
                 </div>
               ) : (
                 <>
-                  <h2 className="mt-16 text-center  font-medium ">
+                  <h2 className="mt-16 text-center font-sm px-10 lg:px-0 text-blue-base lg:font-medium ">
                     Please, click on the icon below
-                    to get in touch with our representative <br /> and complete
-                    your registration before making payments
+                    to get in touch with our representative and complete
+                    your registration.
                   </h2>
                   <a href="https://chatwith.io/s/transcert" target= "_blank" className="mx-auto w-64 block">
                     <img

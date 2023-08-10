@@ -15,13 +15,13 @@ import Home from "./home";
 
 import LoadingOverlay from "./spinner";
 import Modal from "./modal";
-
+import Error from "./error";
 
 
 
 const App = () => {
-  const navigate = useNavigate()
-  const {userId, token} = useContext(ContextCreate)
+
+  const {token} = useContext(ContextCreate)
   return(
 <>
    
@@ -38,11 +38,11 @@ const App = () => {
 <Route path="/login" element={<Login />} />
 <Route path="/signUp" element={<Register />} />
 <Route path='/' element = {<Home/>}/>
-<Route path="*" element={<Login/>} />
+<Route path="*" element={<Error/>} />
    </Routes>
    
     
-  :  
+  
  
   
  

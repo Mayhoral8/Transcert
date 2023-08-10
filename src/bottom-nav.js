@@ -66,7 +66,7 @@ const { topScroll }  = useContext(ContextCreate)
                        
                       >
                     <img src={state.dashboardMode ? dashboard : dashboardBlack} className="w-4 text-center mx-auto"/>
-                    <h4 className="text-sm">Dashboard</h4>
+                    <h4 className="text-xs">Dashboard</h4>
                     </button>
                     </Link>
                   </div>
@@ -80,7 +80,7 @@ const { topScroll }  = useContext(ContextCreate)
                        
                       >
            <img src={state.registerMode? register : registerBlack} className="w-4 mx-auto"/>
-           <h4 className="text-sm">Register</h4>
+           <h4 className="text-xs">Register</h4>
 
                       </button>
                     </Link>
@@ -91,7 +91,7 @@ const { topScroll }  = useContext(ContextCreate)
                        className="py-1"
                       >
             <img src={state.paymentMode ? payment : paymentBlack} className="w-4 mx-auto"/>
-            <h4 className="text-sm">Payment</h4>
+            <h4 className="text-xs">Payment</h4>
 
                       </button>
                     </Link>
@@ -103,7 +103,7 @@ const { topScroll }  = useContext(ContextCreate)
                        className="h-12"
                       >
             <i className="w-4  mx-auto fas fa-user"/>
-            <h4 className="mb-3 text-sm">Profile</h4>
+            <h4 className="mb-3 text-xs">Profile</h4>
 
                       </button>
                     </Link>

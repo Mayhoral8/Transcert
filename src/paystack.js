@@ -34,11 +34,18 @@ useEffect(()=>{
         return (responseData.name)
       })
       setPhone(()=>{
-        return (responseData.phone)
+        return (responseData.phone)    
       })
       setAmount(()=>{
         
-        return responseData.amount
+        if(responseData.documentType === 'Transcript'){
+          return 1500
+        } else if(responseData.documentType === 'Certificate'){
+        return 2000
+        }else{
+          return 3000
+        }
+        
         
       })
       
@@ -79,7 +86,7 @@ useEffect(()=>{
     <div className="bg-white-01 mt-1 w-full checkout-form h-screen
     ">
  
-      <h1 className="text-center font-medium font-openSans mt-20 lg:text-base font-bold">{regStatus !== '' ? 'You are about to be redirected': 'Please register before making payment'}  {regStatus !== '' ? 'to our payment portal': null}</h1>
+      <h1 className="text-center font-medium font-openSans pt-10 lg:text-base font-bold">{regStatus !== '' ? 'You are about to be redirected': 'Please register before making payment'}  {regStatus !== '' ? 'to our payment portal': null}</h1>
   {/* {true === '' ? <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} /> : null}
    */}
     <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12  mx-auto`} {...componentProps} />
