@@ -49,8 +49,6 @@ const date = new Date()
 }, [regStatus, paymentStatus, token])
 
 
-
-
 if(token){ 
   return (
   

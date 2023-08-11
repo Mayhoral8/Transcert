@@ -5,8 +5,6 @@ import Payment1 from "./img/Payment1.jpg";
 import documentUpload from './img/documentUpload.png';
 import Register1 from "./img/Register1.jpg";
 import { ContextCreate } from "./context";
-
-
 import Aos from "aos";
 import "aos/dist/aos.css";
 import TranscertLogo from './img/TranscertLogo.png'
@@ -24,10 +22,8 @@ const Home = () => {
   const {topScroll, homeSignUpBtn, token } = useContext(ContextCreate)
    
 if(!token){
-
   return (
           <>
-          
             <section className="lg:grid lg:grid-cols-2 lg:px-24 lg:justify-between lg:mt-12 py-8 w-full lg:w-full lg:h-96 bg-blue-base text-gray mx-auto">
               <div
                 className="lg:mt-6 mt-24 lg:order-last mx-auto lg:mx-64 lg:h-72 w-64 h-56"

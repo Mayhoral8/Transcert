@@ -7,8 +7,6 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import whatsappIcon from "./img/whatsappIcon.png";
 import { ContextCreate } from "./context";
-import { db } from "./firebase-config";
-import { ref, onValue } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 const RegistrationPage = () => {
@@ -34,7 +32,7 @@ const auth = getAuth()
     Aos.init({ duration: 600 });
   }, []);
 
-  console.log(regFormValid)
+  
 
 
 

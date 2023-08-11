@@ -1,4 +1,4 @@
-import React, {useReducer, useContext} from "react";
+import React, {useReducer, useContext, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import dashboard from './img/dashboard.png'
 import dashboardBlack from './img/dashboard-black.png'
@@ -10,6 +10,7 @@ import { ContextCreate } from "./context";
 
 const BottomNav = ()=>{
 const { location }  = useContext(ContextCreate)
+const [loc, setLoc] = useState()
 
   const initialState = {
     paymentMode: false,
@@ -18,16 +19,13 @@ const { location }  = useContext(ContextCreate)
     profileMode: false
   }
   const reducerInputs  = (state, action)=>{
-    console.log(action.type === 'dashboard' && location.pathname === '/dashboard')
-    if(action.type === 'dashboard' && location.pathname === '/dashboard'){
+    if(action.type === 'dashboard' ){
       return {...state, dashboardMode: true, paymentMode:false, registerMode: false, profileMode:false}
-    }else if(action.type === 'payment' && location.pathname === '/payment'){
+    }else if(action.type === 'payment' ){
       return {...state, paymentMode: true, registerMode:false, dashboardMode:false, profileMode:false}
-    }else if(action.type === 'register' && location.pathname === '/register'){
-      
+    }else if(action.type === 'register' ){
       return {...state, registerMode: true, dashboardMode:false, paymentMode:false, profileMode:false}
-    }else if(action.type === 'profile' && location.pathname === '/profile'){
-    
+    }else if(action.type === 'profile' ){
       return {...state, profileMode: true, dashboardMode:false, paymentMode:false, registerMode:false}
     }
 
@@ -39,18 +37,18 @@ const { location }  = useContext(ContextCreate)
     return dispatch({type: 'dashboard'})
   }
 
-  
   const paymentHandler = ()=>{
     return dispatch({type: 'payment'})
   }
 
-  
   const registerHandler = ()=>{
      dispatch({type: 'register'})
   }
 const profileHandler = ()=>{
   dispatch({type: 'profile'})
 }
+
+
 
     return(
         <>
