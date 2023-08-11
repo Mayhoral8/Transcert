@@ -30,16 +30,16 @@ const App = () => {
 {token && <Modal/>}
 {token && <Navbar/>} 
 {token && <BottomNav/>}
-        <Routes>
-           <Route path="/dashboard" element={<Dashboard />} />
+<Routes>
+  <Route path="/dashboard" element={<Dashboard />} />
   <Route path="/registration" element={<RegistrationPage />} />
   <Route path="/payment" element={<Paystack/>}  />  
   <Route path = '/profile' element = {<Profile/>}/>
-<Route path="/login" element={<Login />} />
-<Route path="/signUp" element={<Register />} />
-<Route path='/' element = {<Home/>}/>
-<Route path="*" element={<Error/>} />
-   </Routes>
+  <Route path="/login" element={<Login />} />
+  <Route path="/signUp" element={<Register />} />
+  <Route path='/' element = {<Home/>}/>
+  <Route path="*" element={<Error/>} />
+</Routes>
    
     
   

@@ -89,7 +89,7 @@ useEffect(()=>{
       <h1 className="text-center font-medium font-openSans pt-10 lg:text-base font-bold">{regStatus !== '' ? 'You are about to be redirected': 'Please register before making payment'}  {regStatus !== '' ? 'to our payment portal': null}</h1>
   {/* {true === '' ? <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} /> : null}
    */}
-    <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12  mx-auto`} {...componentProps} />
+    <PaystackButton onSuccess={()=> console.log('yes')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12  mx-auto`} {...componentProps} />
 </div>
       
     </section>

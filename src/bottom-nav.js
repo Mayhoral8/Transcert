@@ -9,6 +9,8 @@ import paymentBlack from './img/payment-black.png'
 import { ContextCreate } from "./context";
 
 const BottomNav = ()=>{
+const { location }  = useContext(ContextCreate)
+
   const initialState = {
     paymentMode: false,
     dashboardMode: true,
@@ -16,15 +18,16 @@ const BottomNav = ()=>{
     profileMode: false
   }
   const reducerInputs  = (state, action)=>{
-    if(action.type === 'dashboard'){
+    console.log(action.type === 'dashboard' && location.pathname === '/dashboard')
+    if(action.type === 'dashboard' && location.pathname === '/dashboard'){
       return {...state, dashboardMode: true, paymentMode:false, registerMode: false, profileMode:false}
-    }else if(action.type === 'payment'){
+    }else if(action.type === 'payment' && location.pathname === '/payment'){
       return {...state, paymentMode: true, registerMode:false, dashboardMode:false, profileMode:false}
-    }else if(action.type === 'register'){
-      console.log('works')
+    }else if(action.type === 'register' && location.pathname === '/register'){
+      
       return {...state, registerMode: true, dashboardMode:false, paymentMode:false, profileMode:false}
-    }else if(action.type === 'profile'){
-      console.log('works')
+    }else if(action.type === 'profile' && location.pathname === '/profile'){
+    
       return {...state, profileMode: true, dashboardMode:false, paymentMode:false, registerMode:false}
     }
 
@@ -48,7 +51,6 @@ const BottomNav = ()=>{
 const profileHandler = ()=>{
   dispatch({type: 'profile'})
 }
-const { topScroll }  = useContext(ContextCreate)
 
     return(
         <>

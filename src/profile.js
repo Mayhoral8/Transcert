@@ -13,7 +13,7 @@ const Profile = ()=>{
     const {setMessage, setType,  setIsLoading, token, setIsOpen} = useContext(ContextCreate)
 
     
-    const navigate = useNavigate()
+
     
     const auth = getAuth()
     const [tempImgId, setTempImgId] = useState(uuidv4())    
@@ -68,7 +68,7 @@ const nameHandler = (e)=>{
 const emailHandler = (e)=>{
     setUserEmail(e.target.value)
 }
-console.log(name, userEmail)
+
 
      
     const pickedFile = useRef()
@@ -98,7 +98,9 @@ const profileImgUpdate = async()=>{
     const url = await getDownloadURL(ref(storage,  `${tempImgId}/${file.name}`));
   updateHandler('pic', url)
 }
-
+const handleOpen = ()=>{
+    setIsOpen(true)
+}
 
 const updateHandler = (type, extra)=>{
     setIsLoading(true)
@@ -173,7 +175,7 @@ if(token){
 
             <label className=" mx-auto w-1/2 text-blue-base" >Username</label>
             <div className="mx-auto w-1/2 flex flex-row justify-between">
-            {!nameEditMode ? <button onClick={setIsOpen(true)} className=" text-sm lg:text-base h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.displayName}</button>:<input  type="text" onChange={nameHandler}  value={name} name="display name" className="text-center text-sm h-8 rounded-md mx-auto w-full  border"/>}<span onClick={nameModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
+            {!nameEditMode ? <button onClick={handleOpen} className=" text-sm lg:text-base h-8 rounded-md bg-blue-base text-white w-full border">{auth.currentUser.displayName}</button>:<input  type="text" onChange={nameHandler}  value={name} name="display name" className="text-center text-sm h-8 rounded-md mx-auto w-full  border"/>}<span onClick={nameModeHandler} className="ml-1 text-blue-base"><i className="fa-solid fa-pen"/></span>
             </div>
             </div>
             <div className="grid grid-rows-2 gap-y-2 ">
@@ -189,7 +191,6 @@ if(token){
             </div>
         </div>
     </article>
-    {/* <Toast message='welcome to profile'/> */}
         </section>
         )
     }

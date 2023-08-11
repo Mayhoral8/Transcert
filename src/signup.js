@@ -34,8 +34,9 @@ const Register = () => {
           return (
             <>
              <div className="mt-14">
-
+<Link to='/'>
 <img src={TranscertLogo} alt="" className="w-40 mt-1 mx-auto"/>
+</Link>
 </div>
               <div className="mt-8 h-screen">
                 <h1 className="font-openSans text-gray font-bold text-center text-md">Create An Account</h1>

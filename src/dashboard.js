@@ -9,7 +9,7 @@ import Modal from "./modal";
 import { getAuth } from "firebase/auth";
 
 const Dashboard = () => {
-  const {token, openModal, userId, setIsLoading, regStatus, setRegStatus, paymentStatus, setPaymentStatus} = useContext(ContextCreate)
+  const {token, location, userId, setIsLoading, regStatus, setRegStatus, paymentStatus, setPaymentStatus} = useContext(ContextCreate)
   const auth = getAuth()
   const navigate = useNavigate();
   const [displayName, setDisplayName] = useState('')
@@ -22,7 +22,7 @@ useEffect(()=>{
     onValue(ref(db, `/users/${userId}`), (snapshot) => 
     {
       const responseData = snapshot.val();
-      console.log(responseData)
+      
       setDisplayName(auth.currentUser.displayName)
       setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
       setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
@@ -49,7 +49,7 @@ const date = new Date()
 }, [regStatus, paymentStatus, token])
 
 
-console.log(regStatus, paymentStatus)
+
 
 if(token){ 
   return (
@@ -74,7 +74,7 @@ if(token){
               </h2>
               <div className="lg:mt-6 mt-2 px-4">
               <h4 className="">
-                Status <i class={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
+                Status <i className={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
               </h4>
               <h5 className="text-sm  font-thin">
               {regStatus} 
@@ -94,7 +94,7 @@ if(token){
 </h2>
 <div className="lg:mt-6  mt-2 px-4">
 <h4 className="">
-  Status  <i class={`fa-solid fa-circle ${paymentStatus === 'Not Paid' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
+  Status  <i className={`fa-solid fa-circle ${paymentStatus === 'Not Paid' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
 
 </h4>
 <h5 className="text-sm font-thin">

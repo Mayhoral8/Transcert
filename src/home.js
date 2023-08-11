@@ -39,12 +39,11 @@ if(!token){
               </div>
 
               <div
-                className="lg:mt-4 w-96 mx-auto flex flex-col"
+                className="lg:mt-4 lg:w-96  flex flex-col"
               >
-                <div className=" lg:text-left   text-white text-center font-openSans grid:grid-rows-3 capitalize lg:text-2xl text-2xl font-bold text-white mt-12  ">
+                <div className=" lg:text-left text-white text-center font-openSans grid:grid-rows-3 capitalize lg:text-2xl text-2xl font-bold text-white mt-12  ">
                   <h3 className="mx-auto">Get your</h3>
-
-                <div className="text-orange-base mx-auto lg:ml-auto w-auto"> 
+                <div className="text-orange-base mx-auto  w-auto"> 
                 <Typewriter
   options={{
     strings: ['Transcript', 'English Proficiency Letter', 'Certificate'],

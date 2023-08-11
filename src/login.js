@@ -37,7 +37,9 @@ const Login = () => {
   
             <>
             <div className="mt-24 font-openSans">
+              <Link to='/'>
                 <img src={TranscertLogo} alt="" className="w-40 mt-5 mx-auto"/>
+              </Link>
             </div>
             <h1 className="font-openSans text-center text-gray text-md mt-10 font-bold">Welcome Back!</h1>
               <div className="mt-8 h-screen">

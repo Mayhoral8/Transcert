@@ -3,6 +3,7 @@ import { db } from "./firebase-config";
 import { set, ref, update, onValue } from "firebase/database";
 import { getAuth, sendPasswordResetEmail, sendEmailVerification, updateProfile } from "firebase/auth";
 import Toast from "./toast";
+import { useLocation } from "react-router-dom";
 
 // import {uid} from 'uid';
 import { auth } from "./firebase-config";
@@ -20,6 +21,7 @@ import "aos/dist/aos.css";
 export const ContextCreate = React.createContext();
 
 const ContextProvider = (props) => {
+  const location = useLocation()
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [regStatus, setRegStatus] = useState("");
@@ -336,14 +338,23 @@ sendPasswordResetEmail(auth, email)
               newString.push(' '+ string1)
         })
        
-      
-   
+        
+  //       const onBackButtonEvent = (e) =>{
+  //         e.preventDefault();
+  //         const currentLocation = window.location.pathname
+  //         window.history.push(`${currentLocation}/dashboard`)
+  //        }
+  //  useEffect(()=>{
+  //    window.addEventListener('popstate', onBackButtonEvent)
+  //   //  return ()=> window.removeEventListener('popstate', onBackButtonEvent)
+  //   })
 
     
   
   return (
     <ContextCreate.Provider
       value={{
+        location,
         regStatus,
         modalMsg,
         setModalMsg,
