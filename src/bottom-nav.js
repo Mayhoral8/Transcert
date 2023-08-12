@@ -48,7 +48,18 @@ const profileHandler = ()=>{
   dispatch({type: 'profile'})
 }
 
-
+// update UI on browser navigation
+useEffect(()=>{
+if(location.pathname === '/dashboard'){
+    return dispatch({type: 'dashboard'})
+}else if(location.pathname === '/registration'){
+     return dispatch({type: 'register'})
+}else if(location.pathname === '/payment'){
+    return dispatch({type: 'payment'})
+}else if(location.pathname=== '/profile'){
+    return dispatch({type: 'profile'})
+}
+}, [location.pathname])
 
     return(
         <>

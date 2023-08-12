@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ContextCreate } from './context';
 import { ref, onValue } from "firebase/database";
 import { db } from "./firebase-config";
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate, Navigate, Link } from 'react-router-dom';
 
 
 const Paystack =()=> {
@@ -19,7 +19,7 @@ const navigate = useNavigate()
 
 
  
-const {token, regStatus, userId, setIsLoading, paymentFunc} = useContext(ContextCreate)
+const {token, paymentStatus,regStatus,  userId, setIsLoading, paymentFunc} = useContext(ContextCreate)
 
 useEffect(()=>{
 
@@ -86,10 +86,8 @@ useEffect(()=>{
     <div className="bg-white-01 mt-1 w-full checkout-form h-screen
     ">
  
-      <h1 className="text-center font-medium font-openSans pt-10 lg:text-base font-bold">{regStatus !== '' ? 'You are about to be redirected': 'Please register before making payment'}  {regStatus !== '' ? 'to our payment portal': null}</h1>
-  {/* {true === '' ? <PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} /> : null}
-   */}
-    <PaystackButton onSuccess={()=> console.log('yes')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12  mx-auto`} {...componentProps} />
+      <h1 className="text-center font-medium font-openSans pt-44 lg lg:text-base font-bold">{regStatus === '' ? 'You are about to be redirected': `Please before making payment`}</h1>
+  {regStatus === 'Not registered' ? <button className={`block font-openSans bg-white text-gray w-48 mt-8 rounded-lg h-12  mx-auto`}>Pay now</button>:<PaystackButton onSuccess={()=> console.log('yes')} onClose={console.log('no')}  className={`block font-openSans bg-orange-base text-white w-48 mt-8 rounded-lg h-12 lg:h-12 mx-auto`} {...componentProps} />}
 </div>
       
     </section>

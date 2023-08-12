@@ -1,4 +1,4 @@
-import React, {useReducer, useContext} from "react";
+import React, {useReducer, useContext, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { ConsumerContext } from "./context";
 import TranscertLogo from "./img/TranscertLogo.png";
@@ -16,7 +16,7 @@ import { ContextCreate } from "./context";
 const Navbar = () => {
 
   const {
-    logout,
+    location,
     show,
     setShow,
    setModalMsg,
@@ -67,6 +67,17 @@ const modalMsgHandler = ()=>{
 const profileHandler = ()=>{
   dispatch({type: 'profile'})
 }
+useEffect(()=>{
+  if(location.pathname === '/dashboard'){
+      return dispatch({type: 'dashboard'})
+  }else if(location.pathname === '/registration'){
+       return dispatch({type: 'register'})
+  }else if(location.pathname === '/payment'){
+      return dispatch({type: 'payment'})
+  }else if(location.pathname=== '/profile'){
+      return dispatch({type: 'profile'})
+  }
+  }, [location.pathname])
   return (
     <>
 

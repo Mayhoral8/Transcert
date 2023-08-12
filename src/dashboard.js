@@ -64,28 +64,40 @@ if(token){
               <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto w-full">
                 <h3 className="lg:hidden mt-4 text-blue-base text-center">Good {greeting}, {displayName}</h3>
 
-              <div className="mt-12 mx-auto md:mt-44   lg:grid md:gap-x-5 md:grid md:grid-cols-2 lg:grid-cols-2 md:px-2 mt-4 lg:gap-x-10 lg:px-20 lg:mt-10">
-            <div className="mx-auto h-48 lg:h-56 w-72 lg:w-96 shadow-md rounded-md bg-blue-base text-white">
+              <div className="mt-12 mx-auto lg:h-28 md:mt-44  grid grid-rows-3 gap-y-4 lg:grid md:gap-x-5 md:grid md:grid-cols-3 lg:grid-cols-3 md:px-2 mt-4 lg:px-20 lg:mt-10">
+            <div className="mx-auto lg:py-2 grid grid-rows-2 h-28 lg:h-36 w-72  lg:w-64 shadow-md rounded-md bg-blue-base text-white">
 
-              <h2 className="py-1 lg:mt-4 lg:py-0 px-4 lg:text-2xl  font-bold">
+              <h2 className="py-4  lg:py-0 px-4 lg:text-2xl  font-bold">
                 Registration
               </h2>
-              <div className="lg:mt-6 mt-2 px-4">
+              <div className="lg:mt-6 px-4">
               <h4 className="">
-                Status <i className={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
+                Status <i className={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'} text-xs`}></i>
               </h4>
               <h5 className="text-sm  font-thin">
               {regStatus} 
               </h5>
-              <h4 className="mt-4">
-                Description
-              </h4>
-              <p className="text-sm font-thin">
-                Register by supplying a number of details such as your full name, faculty, e.t.c
-              </p>
+             
               </div>
+              
  </div>
-          <div className=" mx-auto h-48 lg:h-56 w-72 lg:w-96 shadow-md rounded-md bg-blue-base text-white">
+ <div className="mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-md bg-blue-base text-white">
+
+              <h2 className="py-4 lg:mt-4 lg:py-0 px-4 lg:text-2xl  font-bold">
+                Clearance
+              </h2>
+              <div className="lg:mt-6 px-4">
+              <h4 className="">
+                Status <i className={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'} text-xs`}></i>
+              </h4>
+              <h5 className="text-sm  font-thin">
+             Not Cleared
+              </h5>
+             
+              </div>
+              
+ </div>
+          <div className=" mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-md bg-blue-base text-white">
 
 <h2 className="mt-4 lg:mt-2 py-1 lg:py-2 px-4 lg:text-2xl font-bold">
   Payment
@@ -98,12 +110,7 @@ if(token){
 <h5 className="text-sm font-thin">
 {paymentStatus}
 </h5>
-<h4 className="mt-4">
-  Description
-</h4>
-<p className="text-sm font-thin">
-  Register by supplying a number of details such as your full name, faculty, e.t.c
-</p>
+
 </div>
 
         </div>
