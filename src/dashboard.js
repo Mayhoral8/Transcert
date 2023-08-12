@@ -15,17 +15,19 @@ const Dashboard = () => {
   const [displayName, setDisplayName] = useState('')
   const [greeting, setGreeting] = useState('')
 
+ 
 useEffect(()=>{
-  
+  console.log('pomm')
   if(token){
     setIsLoading(true)
+    console.log('yayy')
     onValue(ref(db, `/users/${userId}`), (snapshot) => 
     {
       const responseData = snapshot.val();
-      
       setDisplayName(auth.currentUser.displayName)
       setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
       setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
+      setIsLoading(false)
    
   }, (error)=>{
     setIsLoading(false)
@@ -33,22 +35,22 @@ useEffect(()=>{
   }
 
   )
-  setIsLoading(false)
   
-const date = new Date()
-
+  const date = new Date()
+  
   if(date.getHours() >= 12 && date.getHours() <= 13){
     return setGreeting('afternoon')
-    }else if(date.getHours() > 13 ){
-     return setGreeting('evening')
-    }else if(date.getHours() >= 0 && date.getHours() < 12){
-      return setGreeting('morning')
-    }
-    
+  }else if(date.getHours() > 13 ){
+    return setGreeting('evening')
+  }else if(date.getHours() >= 0 && date.getHours() < 12){
+    return setGreeting('morning')
+  }
+  
 }
+
 }, [regStatus, paymentStatus, token])
 
-
+// setIsLoading(true)
 if(token){ 
   return (
   

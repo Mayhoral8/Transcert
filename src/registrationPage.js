@@ -32,7 +32,7 @@ const auth = getAuth()
     Aos.init({ duration: 600 });
   }, []);
 
-  
+  console.log(isLoading);
 
 
 

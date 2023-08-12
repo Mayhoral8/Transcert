@@ -52,7 +52,7 @@ const ContextProvider = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const form = useRef();
-
+console.log(isLoading)
   // ----------------------------------------------------------
 
  
@@ -188,7 +188,7 @@ if(funcType === 'login'){
   };
 
 const login = useCallback((accessToken, uid, tokenDuration)=>{
-  setIsLoading(true);
+  // setIsLoading(true);
   setToken(()=>{
    return accessToken
   })
@@ -199,7 +199,7 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
   localStorage.setItem('userData',  JSON.stringify({token:accessToken, tokenExpirationDate, uid}));        
   navigate('/dashboard')
   setErrorMsg("");
-  setIsLoading(false);
+  // setIsLoading(false);
 })
   useEffect(()=>{
     const storedData = JSON.parse(localStorage.getItem('userData'))
@@ -339,15 +339,6 @@ sendPasswordResetEmail(auth, email)
         })
        
         
-  //       const onBackButtonEvent = (e) =>{
-  //         e.preventDefault();
-  //         const currentLocation = window.location.pathname
-  //         window.history.push(`${currentLocation}/dashboard`)
-  //        }
-  //  useEffect(()=>{
-  //    window.addEventListener('popstate', onBackButtonEvent)
-  //   //  return ()=> window.removeEventListener('popstate', onBackButtonEvent)
-  //   })
 
     
   

@@ -25,8 +25,8 @@ const App = () => {
   return(
 <>
    
-<LoadingOverlay/> 
 
+<LoadingOverlay/> 
 {token && <Modal/>}
 {token && <Navbar/>} 
 {token && <BottomNav/>}

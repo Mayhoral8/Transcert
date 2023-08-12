@@ -1,19 +1,16 @@
 import React, {useContext} from 'react'
 import styled from "styled-components"
-import { ConsumerContext } from "./context";
+import { ContextCreate } from './context'
 
 
 
 const LoadingOverlay =()=>{
-    return(<>
-        <ConsumerContext>
-        {(value) => {
-          const { isLoading } = value;
-  
+
+  const {isLoading} = useContext(ContextCreate)
+console.log(isLoading)
   if(isLoading){
-    return (
-      <>
-    <section className=''>
+    return(
+      <section className=''>
 
     <ModalStyle>
     <div className='text-4xl'>
@@ -22,16 +19,11 @@ const LoadingOverlay =()=>{
     </div>
     </ModalStyle>
     </section>
-    </>
+  
   )
 }else{
-    return null
+  return null
 }
-}
-}
-</ConsumerContext>
-</>
-)
 }
 const ModalStyle = styled.div`
 position: fixed;
@@ -40,7 +32,7 @@ bottom: 0;
 right: 0;
 left: 0;
 display: flex;
-z-index: 10;
+z-index: 20;
 align-items: center;
 justify-content: center;
 background: rgba(0, 0, 0, 0.8);

@@ -5,14 +5,14 @@ import { storage } from './firebase-config'
 import { uploadBytes, getDownloadURL, ref } from 'firebase/storage'
 import Toast from "./toast";
 import { v4 as uuidv4 } from 'uuid';
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 
 const Profile = ()=>{
-    const {setMessage, setType,  setIsLoading, token, setIsOpen} = useContext(ContextCreate)
+    const {setMessage, setType,  setIsLoading, token, setIsOpen, isLoading} = useContext(ContextCreate)
 
-    
+    // setIsLoading(true)
 
     
     const auth = getAuth()
