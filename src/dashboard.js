@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useReducer } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { db } from "./firebase-config";
 import { ref, onValue } from "firebase/database";
@@ -9,11 +9,16 @@ import Modal from "./modal";
 import { getAuth } from "firebase/auth";
 
 const Dashboard = () => {
-  const {token, location, userId, setIsLoading, regStatus, setRegStatus, paymentStatus, setPaymentStatus} = useContext(ContextCreate)
+  const {token, userId, setIsLoading, regStatus, setRegStatus, paymentStatus, setPaymentStatus} = useContext(ContextCreate)
   const auth = getAuth()
   const navigate = useNavigate();
   const [displayName, setDisplayName] = useState('')
   const [greeting, setGreeting] = useState('')
+
+  const [regInfo, setRegInfo] = useState(false)
+  const [clrInfo, setClrInfo] = useState(false)
+  const [payInfo, setPayInfo] = useState(false)
+
 
  
 useEffect(()=>{
@@ -50,6 +55,16 @@ useEffect(()=>{
 
 }, [regStatus, paymentStatus, token])
 
+const payInfoHandler = ()=>{
+  setPayInfo(!payInfo)
+}
+const clrInfoHandler = ()=>{
+setClrInfo(!clrInfo)
+}
+const regInfoHandler = ()=>{
+setRegInfo(!regInfo)
+}
+
 // setIsLoading(true)
 if(token){ 
   return (
@@ -67,7 +82,9 @@ if(token){
                 <h3 className="lg:hidden mt-4 text-blue-base text-center">Good {greeting}, {displayName}</h3>
 
               <div className="mt-12 mx-auto lg:h-28 md:mt-44  grid grid-rows-3 gap-y-4 lg:grid md:gap-x-5 md:grid md:grid-cols-3 lg:grid-cols-3 md:px-2 mt-4 lg:px-20 lg:mt-10">
-            <div className="mx-auto lg:py-2 grid grid-rows-2 h-28 lg:h-36 w-72  lg:w-64 shadow-md rounded-md bg-blue-base text-white">
+                <section className="h-40">
+
+            <div className="mx-auto lg:py-2 grid grid-rows-2 h-28 lg:h-36 w-72  lg:w-64 shadow-md rounded-t bg-blue-base text-white">
 
               <h2 className="py-4  lg:py-0 px-4 lg:text-2xl  font-bold">
                 Registration
@@ -83,7 +100,20 @@ if(token){
               </div>
               
  </div>
- <div className="mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-md bg-blue-base text-white">
+              <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64 px-4 mx-auto rounded-b">
+
+              <div className={`info ${regInfo ? 'visible': 'hidden'} border-2 overflow-hidden transition-all ease-in duration-400`}>
+                <p className={`text-xs   `}>lanarnaokrna aoirgniorg</p>
+              </div>
+              <div onClick={regInfoHandler} className="text-center cursor-pointer ">
+               <i className={`ri-arrow-${regInfo ? 'up':'down'}-s-line text-lg text-blue-base font-bold`}/> 
+              </div>
+              </article>
+ </section>
+
+<section className="h-40">
+  
+ <div className="mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-t bg-blue-base text-white">
 
               <h2 className="py-4 lg:mt-4 lg:py-0 px-4 lg:text-2xl  font-bold">
                 Clearance
@@ -99,7 +129,18 @@ if(token){
               </div>
               
  </div>
-          <div className=" mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-md bg-blue-base text-white">
+ <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64 px-4 mx-auto rounded-b">
+
+<div className={`info ${clrInfo ? 'visible': 'hidden'} border-2 overflow-hidden transition-all ease-in duration-400`}>
+  <p className={`text-xs   `}>lanarnaokrna aoirgniorg</p>
+</div>
+<div onClick={clrInfoHandler} className="text-center cursor-pointer ">
+ <i className={`ri-arrow-${clrInfo ? 'up':'down'}-s-line text-lg text-blue-base font-bold`}/> 
+</div>
+</article>
+</section>
+<section className="h-40">
+          <div className=" mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-t bg-blue-base text-white">
 
 <h2 className="mt-4 lg:mt-2 py-1 lg:py-2 px-4 lg:text-2xl font-bold">
   Payment
@@ -116,6 +157,16 @@ if(token){
 </div>
 
         </div>
+        <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64 px-4 mx-auto rounded-b">
+
+<div className={`info ${payInfo ? 'visible': 'hidden'} border-2 overflow-hidden transition-all ease-in duration-400`}>
+  <p className={`text-xs   `}>lanarnaokrna aoirgniorg</p>
+</div>
+<div onClick={payInfoHandler} className="text-center cursor-pointer ">
+ <i className={`ri-arrow-${payInfo ? 'up':'down'}-s-line text-lg text-blue-base font-bold`}/> 
+</div>
+</article>
+        </section>
                       </div>
              <div className="mx-auto flex flex-col text-center mt-6 lg:mt-20 lg:mt-0">
              <i className="fa-regular fa-lightbulb text-xl text-orange-base"/>

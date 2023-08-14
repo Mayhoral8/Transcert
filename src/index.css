@@ -87,6 +87,21 @@ box-shadow: 1px 6px 10px rgb(46, 46, 46)
 }
 
 
+.info {
+	overflow: hidden;
+	transition: all .5s ease-in-out;
+	line-height: 0;
+	padding: 0 1em;
+  }
+   
+  .info:target {
+	line-height: 1.5;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: black;
+  }
+
+
 
 
 @tailwind base;

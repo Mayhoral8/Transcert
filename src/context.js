@@ -205,7 +205,7 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
     const storedData = JSON.parse(localStorage.getItem('userData'))
     if(storedData && storedData.token && storedData.tokenExpirationDate > new Date().getTime()){
       login(storedData.token, storedData.uid, storedData.tokenExpirationDate)
-    }
+    } 
     }, [token])
     
     const logout =  useCallback((pop) => {
@@ -215,8 +215,8 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
        setTokenExpirationTime(null)
       localStorage.removeItem("userData");
       setErrorMsg("");
-      setOpenModal(false)
       setIsLoading(false);
+      setOpenModal(true)
       navigate('/login')
 
     });
@@ -224,9 +224,11 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
 
     useEffect(()=>{
       if(tokenExpirationTime){
+        console.log('z')
       const remainingTime = tokenExpirationTime - new Date().getTime()
         timeoutId = setTimeout(logout, remainingTime)
       }else{
+        console.log('y')
         clearTimeout(timeoutId)
       }
     }, [token, userId])
@@ -241,7 +243,6 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
         navigate('/home')
       }
   }
-
 
   
   const resetPword =()=>{
