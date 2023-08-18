@@ -188,18 +188,18 @@ if(funcType === 'login'){
   };
 
 const login = useCallback((accessToken, uid, tokenDuration)=>{
-  // setIsLoading(true);
+ 
   setToken(()=>{
    return accessToken
   })
   setUserId(uid)
-  // console.log(accessToken)
+
   const tokenExpirationDate = tokenDuration || new Date().getTime() + (1000 * 60 * 60)
   setTokenExpirationTime(tokenExpirationDate)
   localStorage.setItem('userData',  JSON.stringify({token:accessToken, tokenExpirationDate, uid}));        
   navigate('/dashboard')
   setErrorMsg("");
-  // setIsLoading(false);
+
 })
   useEffect(()=>{
     const storedData = JSON.parse(localStorage.getItem('userData'))
@@ -212,11 +212,11 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
     setIsLoading(true);
        signOut(auth);
        setToken(null)
+       setOpenModal(false)
        setTokenExpirationTime(null)
       localStorage.removeItem("userData");
       setErrorMsg("");
       setIsLoading(false);
-      setOpenModal(true)
       navigate('/login')
 
     });
@@ -224,11 +224,9 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
 
     useEffect(()=>{
       if(tokenExpirationTime){
-        console.log('z')
       const remainingTime = tokenExpirationTime - new Date().getTime()
         timeoutId = setTimeout(logout, remainingTime)
       }else{
-        console.log('y')
         clearTimeout(timeoutId)
       }
     }, [token, userId])

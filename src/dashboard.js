@@ -129,19 +129,19 @@ if(token){
               </div>
               
  </div>
- <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64 px-4 mx-auto rounded-b">
+ <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64  mx-auto rounded-b">
 
-<div className={`info ${clrInfo ? 'visible': 'hidden'} border-2 overflow-hidden transition-all ease-in duration-400`}>
-  <p className={`text-xs   `}>lanarnaokrna aoirgniorg</p>
+<div className={`info ${clrInfo ? 'visible': 'hidden'}  w-full border-b overflow-hidden transition-all ease-in duration-400`}>
+  <p className={`text-xs   text-center`}>You will be cleared for payment after your documents have been confirmend</p>
 </div>
 <div onClick={clrInfoHandler} className="text-center cursor-pointer ">
  <i className={`ri-arrow-${clrInfo ? 'up':'down'}-s-line text-lg text-blue-base font-bold`}/> 
 </div>
 </article>
 </section>
-<section className="h-40">
-          <div className=" mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-t bg-blue-base text-white">
 
+<section className="h-40">
+<div className=" mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-t bg-blue-base text-white">
 <h2 className="mt-4 lg:mt-2 py-1 lg:py-2 px-4 lg:text-2xl font-bold">
   Payment
 </h2>
