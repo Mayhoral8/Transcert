@@ -15,6 +15,7 @@ const Register = () => {
       <ConsumerContext>
         {(value) => {
           const {
+            testReg,
             setPassword,
             setEmail,
             isLoading,
@@ -115,6 +116,7 @@ const Register = () => {
             
               </div>
               </div>
+              <button onClick={testReg}>Test reg</button>
               
               
               

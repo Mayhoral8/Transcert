@@ -7,7 +7,7 @@ import { ContextCreate } from './context'
 const LoadingOverlay =()=>{
 
   const {isLoading} = useContext(ContextCreate)
-console.log(isLoading)
+
   if(isLoading){
     return(
       <section className=''>

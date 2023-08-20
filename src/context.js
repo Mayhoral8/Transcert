@@ -52,7 +52,7 @@ const ContextProvider = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const form = useRef();
-console.log(isLoading)
+
   // ----------------------------------------------------------
 
  
@@ -93,12 +93,22 @@ if(funcType === 'login'){
 }
 }
 
+const testReg = ()=>{
+  set(ref(db, `users/${"55oYqZPPzHbpNXgb6U3f4GtiMpD3"}`), {
+    email,
+    regPhoneNumber,
+    id: "55oYqZPPzHbpNXgb6U3f4GtiMpD3",
+    regStatus: '',
+    paymentStatus: ''
+  })
+}
 
   const registerUser = (e) => {
     e.preventDefault();
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
     .then((response) => {
+      console.log(response.user)
          set(ref(db, `users/${response.user.uid}`), {
           email,
           regPhoneNumber,
@@ -144,7 +154,10 @@ if(funcType === 'login'){
   };
  
  
-  const emailVerResendMsg = "Please verify your email first to sign in. Check your mail inbox/spam"
+  const emailVerResendMsg = `Please verify your email first to sign in.
+Check your mail inbox/spam`
+
+ 
    
   
 
@@ -154,12 +167,15 @@ if(funcType === 'login'){
     signInWithEmailAndPassword(auth, email, password)
     .then((response) => {
       if(response.user.emailVerified) {
-        
        login(response.user.accessToken, response.user.uid)
       }else{
         alert('please Verify email')
         setErrorMsg(emailVerResendMsg)
         signOut(auth)
+        setIsLoading(()=>{
+            console.log('be guided')
+            return false
+        })
       }
     })
       .catch((error) => {
@@ -429,7 +445,8 @@ sendPasswordResetEmail(auth, email)
         setCustomButtons,
         isOpen,
         setIsOpen,
-        regFormValid
+        regFormValid,
+        testReg
       
       }}
     >

@@ -43,7 +43,7 @@ const Login = () => {
             </div>
             <h1 className="font-openSans text-center text-gray text-md mt-10 font-bold">Welcome Back!</h1>
               <div className="mt-8 h-screen">
-              <h2 className="text-center text-red font-bold">{errorMsg}</h2>       
+              <p className="text-center text-red">{errorMsg}</p>       
                     <form onSubmit={loginHandler}>
                 <div className=" mx-auto w-72 mt-10 h-44 font-openSans">
                   <div className="grid grid-rows-2  gap-y-10 text-sm">

@@ -26,13 +26,19 @@ useEffect(()=>{
   if(token){
     setIsLoading(true)
     console.log('yayy')
-    onValue(ref(db, `/users/${userId}`), (snapshot) => 
+    onValue(ref(db, `/users/${userId}`), 
+    (snapshot) => 
     {
-      const responseData = snapshot.val();
-      setDisplayName(auth.currentUser.displayName)
-      setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
-      setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
-      setIsLoading(false)
+     
+        const responseData = snapshot.val();
+        setDisplayName(auth.currentUser.displayName)
+        if(responseData){
+          setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
+          setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
+          setIsLoading(false)
+      }else{
+        setIsLoading(false)
+      }
    
   }, (error)=>{
     setIsLoading(false)
