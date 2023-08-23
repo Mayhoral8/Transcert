@@ -147,19 +147,14 @@ const testReg = ()=>{
       });
   };
 
-  const obj = {
-    name: 'tope',
-    age: null
 
-  };
- 
- 
-  const emailVerResendMsg = `Please verify your email first to sign in.
-Check your mail inbox/spam`
-
+  
+  
  
    
   
+  const emailVerResendMsg = `Please verify your email first to sign in.
+Check your mail inbox/spam`
 
   const loginHandler = (e) => {
     e.preventDefault()
@@ -263,15 +258,13 @@ const login = useCallback((accessToken, uid, tokenDuration)=>{
 const auth = getAuth();
 sendPasswordResetEmail(auth, email)
   .then(() => {
-    // Password reset email sent!
-    // ..
     alert('Password reset link has been sent. Please check your email inbox/spam')
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
-    // ..
+    
   });
   }
 
