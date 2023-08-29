@@ -87,6 +87,7 @@ const [faculty, setFaculty] = useState('')
 
 const sendEmailV = (funcType)=>{
   const auth = getAuth()
+   console.log(auth)
 sendEmailVerification(auth.currentUser)
 if(funcType === 'login'){
   alert('Verification email sent')
@@ -108,7 +109,7 @@ const testReg = ()=>{
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
     .then((response) => {
-      console.log(response.user)
+      console.log(auth)
          set(ref(db, `users/${response.user.uid}`), {
           email,
           regPhoneNumber,
@@ -118,7 +119,7 @@ const testReg = ()=>{
         })
       sendEmailV();
       alert('Email verification link sent. Please check your email inbox or spam to verify and sign in.')
-      auth.signOut();
+      // auth.signOut();
       })
       .then(() => {
         updateProfile(auth.currentUser, {
@@ -126,7 +127,7 @@ const testReg = ()=>{
         })
         setIsLoading(false);
       //  <Navigate to='/login'/>
-       navigate('/login')
+      //  navigate('/login')
         console.log("registered");
       }).catch((error) => {
         if (error) {
@@ -150,18 +151,16 @@ const testReg = ()=>{
 
   
   
- 
    
   
-  const emailVerResendMsg = `Please verify your email first to sign in.
-Check your mail inbox/spam`
+  const emailVerResendMsg = `Please verify your email first to sign in Check your mail inbox/spam`
 
   const loginHandler = (e) => {
     e.preventDefault()
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
     .then((response) => {
-      if(response.user.emailVerified) {
+      if(response.user.emailVerified){
        login(response.user.accessToken, response.user.uid)
       }else{
         alert('please Verify email')
@@ -340,12 +339,7 @@ sendPasswordResetEmail(auth, email)
       top:0, left:0 , behavior: "smooth"
     });
   }
-   const newString = []   
-        const string1 = 'Fullname:tope,EmailAddress1:tope@gmail.com,EmailAddress2:tope@gmail.com,Phonenumber:55555555555,RegistrationNumber:555555555,Department:Physiology,Faculty:BMS,Programme:Special,Sessionofentry:2011/2012,Sessionofgraduation:,DateofBirth:2023-02-16'
-        const string2 = string1.split(',').map((string1)=>{
-              newString.push(' '+ string1)
-        })
-       
+  
         
 
     

@@ -125,3 +125,17 @@ if(location.pathname === '/dashboard'){
 }
 
 export default BottomNav
+
+
+
+
+// {
+//   "rules": {
+//     "users": {
+//       "$uid": {
+//         ".read": "$uid === auth.uid",
+//         ".write": "$uid === auth.uid"
+//       }
+//     }
+//   }
+// }

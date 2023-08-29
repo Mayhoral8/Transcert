@@ -21,7 +21,7 @@ const Login = () => {
     errorMsg,
     isLoading,
     token,
-    resetPword} = useContext(ContextCreate)
+    resetPword, sendEmailV} = useContext(ContextCreate)
 
   useEffect(()=>{
     if(token){
@@ -32,6 +32,7 @@ const Login = () => {
   const resetErrMsg = ()=>{
     setErrorMsg('')
   }
+
    
   return (
   
@@ -43,7 +44,7 @@ const Login = () => {
             </div>
             <h1 className="font-openSans text-center text-gray text-md mt-10 font-bold">Welcome Back!</h1>
               <div className="mt-8 h-screen">
-              <p className="text-center text-red">{errorMsg}</p>       
+              <p className="text-center text-red">{errorMsg}</p>
                     <form onSubmit={loginHandler}>
                 <div className=" mx-auto w-72 mt-10 h-44 font-openSans">
                   <div className="grid grid-rows-2  gap-y-10 text-sm">
