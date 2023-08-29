@@ -127,7 +127,7 @@ const testReg = ()=>{
         })
         setIsLoading(false);
       //  <Navigate to='/login'/>
-      //  navigate('/login')
+       navigate('/login')
         console.log("registered");
       }).catch((error) => {
         if (error) {
