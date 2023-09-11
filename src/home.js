@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 import TranscertLogo from './img/TranscertLogo.png'
 import { Link, Navigate } from "react-router-dom";
 import Typewriter from "typewriter-effect";
+import Navbar from "./navbar";
 
 
 
@@ -24,6 +25,7 @@ const Home = () => {
 if(!token){
   return (
           <>
+          <Navbar/>
             <section className="lg:grid lg:grid-cols-2 lg:px-24 lg:justify-between lg:mt-12 py-8 w-full lg:w-full lg:h-96 bg-blue-base text-gray mx-auto">
               <div
                 className="lg:mt-6 mt-24 lg:order-last mx-auto lg:mx-64 lg:h-72 w-64 h-56"

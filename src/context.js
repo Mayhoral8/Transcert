@@ -13,9 +13,7 @@ import {
   signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { storage } from "./firebase-config";
 import emailjs from "@emailjs/browser";
-import Aos from "aos";
 import "aos/dist/aos.css";
 
 export const ContextCreate = React.createContext();

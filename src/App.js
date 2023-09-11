@@ -7,7 +7,7 @@ import Dashboard from "./dashboard";
 import RegistrationPage from "./registrationPage";
 import Paystack from "./paystack";
 import Profile from "./profile";
-import Navbar from "./navbar";
+import Sidebar from "./sidebar";
 import BottomNav from "./bottom-nav";
 
 
@@ -28,7 +28,7 @@ const App = () => {
 
 <LoadingOverlay/> 
 {token && <Modal/>}
-{token && <Navbar/>} 
+{token && <Sidebar/>} 
 {token && <BottomNav/>}
 <Routes>
   <Route path="/dashboard" element={<Dashboard />} />

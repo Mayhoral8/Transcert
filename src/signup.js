@@ -3,7 +3,7 @@ import { ConsumerContext } from "./context";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import TranscertLogo from './img/TranscertLogo.png'
-import Footer from "./footer";
+import Navbar from "./navbar";
 
 const Register = () => {
   const[showPassword, setShowPassword] = useState(false)
@@ -34,6 +34,7 @@ const Register = () => {
           if(!token){
           return (
             <>
+            <Navbar/>
              <div className="mt-14">
 <Link to='/'>
 <img src={TranscertLogo} alt="" className="w-40 mt-1 mx-auto"/>

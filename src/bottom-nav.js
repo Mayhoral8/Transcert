@@ -65,7 +65,7 @@ if(location.pathname === '/dashboard'){
         <>
         <div
                   className={`bottom-nav lg:hidden bottom-0  transition-all ease-in delay-400   z-10 fixed items-center align-middle
-                  text-white w-full h-16 block gap-x-2 bg-white border grid grid-cols-4 px-2 text-center`}
+                  text-white w-full h-16 block gap-x-2 bg-white border grid grid-cols-3 px-2 text-center`}
                 >
                   <div
                     onClick={dashboardHandler} className={`text-gray rounded-md ${state.dashboardMode ? 'bg-orange-base text-white': null }`}
@@ -96,17 +96,7 @@ if(location.pathname === '/dashboard'){
                       </button>
                     </Link>
                   </div>
-                  <div onClick={paymentHandler} className={`text-gray rounded-md ${state.paymentMode ? 'bg-orange-base text-white': null }`}>
-                    <Link to="/payment">
-                      <button
-                       className="py-1"
-                      >
-            <img src={state.paymentMode ? payment : paymentBlack} className="w-4 mx-auto"/>
-            <h4 className="text-xs">Payment</h4>
-
-                      </button>
-                    </Link>
-                  </div>
+                
 
                   <div onClick={profileHandler} className={` text-gray rounded-md ${state.profileMode ? 'bg-orange-base text-white ': null }`}>
                     <Link to="/profile">

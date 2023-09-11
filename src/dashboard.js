@@ -85,9 +85,9 @@ if(token){
               <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="h-12 w-12 border-1 rounded-full"/>
               </div>
               <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto w-full">
-                <h3 className="lg:hidden mt-4 text-blue-base text-center">Good {greeting}, {displayName}</h3>
+                <h3 className="lg:hidden mt-10 text-blue-base text-center">Good {greeting}, {displayName}</h3>
 
-              <div className="mt-12 mx-auto lg:h-28 md:mt-44  grid grid-rows-3 gap-y-4 lg:grid md:gap-x-5 md:grid md:grid-cols-3 lg:grid-cols-3 md:px-2 mt-4 lg:px-20 lg:mt-10">
+              <div className="mt-16 lg:mt-12 mx-auto lg:h-28 md:mt-44  mx-auto md:px-2 ">
                 <section className="h-40">
 
             <div className="mx-auto lg:py-2 grid grid-rows-2 h-28 lg:h-36 w-72  lg:w-64 shadow-md rounded-t bg-blue-base text-white">
@@ -106,75 +106,18 @@ if(token){
               </div>
               
  </div>
-              <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64 px-4 mx-auto rounded-b">
+              <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64  px-2 mx-auto rounded-b">
 
-              <div className={`info ${regInfo ? 'visible': 'hidden'} border-2 overflow-hidden transition-all ease-in duration-400`}>
-                <p className={`text-xs   `}>lanarnaokrna aoirgniorg</p>
+              <div className={`info ${regInfo ? 'visible': 'hidden'} border-t-0 text-center px-0  h-12 border-blue-base border-2 w-full overflow-hidden transition-all ease-in duration-400`}>
+                <p className={`text-xs mt-3 font-bold`}>Submit your details to get registered</p>
               </div>
-              <div onClick={regInfoHandler} className="text-center cursor-pointer ">
+              <div onClick={regInfoHandler} className="text-center cursor-pointer w-4 mx-auto ">
                <i className={`ri-arrow-${regInfo ? 'up':'down'}-s-line text-lg text-blue-base font-bold`}/> 
               </div>
               </article>
  </section>
-
-<section className="h-40">
-  
- <div className="mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-t bg-blue-base text-white">
-
-              <h2 className="py-4 lg:mt-4 lg:py-0 px-4 lg:text-2xl  font-bold">
-                Clearance
-              </h2>
-              <div className="lg:mt-6 px-4">
-              <h4 className="">
-                Status <i className={`fa-solid fa-circle ${regStatus === 'Not registered' ? 'text-orange-base' : 'text-green'} text-xs`}></i>
-              </h4>
-              <h5 className="text-sm  font-thin">
-             Not Cleared
-              </h5>
-             
-              </div>
-              
- </div>
- <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64  mx-auto rounded-b">
-
-<div className={`info ${clrInfo ? 'visible': 'hidden'}  w-full border-b overflow-hidden transition-all ease-in duration-400`}>
-  <p className={`text-xs   text-center`}>You will be cleared for payment after your documents have been confirmend</p>
-</div>
-<div onClick={clrInfoHandler} className="text-center cursor-pointer ">
- <i className={`ri-arrow-${clrInfo ? 'up':'down'}-s-line text-lg text-blue-base font-bold`}/> 
-</div>
-</article>
-</section>
-
-<section className="h-40">
-<div className=" mx-auto h-28 lg:h-36 w-72 lg:w-64 shadow-md rounded-t bg-blue-base text-white">
-<h2 className="mt-4 lg:mt-2 py-1 lg:py-2 px-4 lg:text-2xl font-bold">
-  Payment
-</h2>
-<div className="lg:mt-6  mt-2 px-4">
-<h4 className="">
-  Status  <i className={`fa-solid fa-circle ${paymentStatus === 'Not Paid' ? 'text-orange-base' : 'text-green'} text-sm`}></i>
-
-</h4>
-<h5 className="text-sm font-thin">
-{paymentStatus}
-</h5>
-
-</div>
-
-        </div>
-        <article className="w-72 border-blue-base flex flex-col border-2 lg:w-64 px-4 mx-auto rounded-b">
-
-<div className={`info ${payInfo ? 'visible': 'hidden'} border-2 overflow-hidden transition-all ease-in duration-400`}>
-  <p className={`text-xs   `}>lanarnaokrna aoirgniorg</p>
-</div>
-<div onClick={payInfoHandler} className="text-center cursor-pointer ">
- <i className={`ri-arrow-${payInfo ? 'up':'down'}-s-line text-lg text-blue-base font-bold`}/> 
-</div>
-</article>
-        </section>
-                      </div>
-             <div className="mx-auto flex flex-col text-center mt-6 lg:mt-20 lg:mt-0">
+                 </div>
+             <div className="mx-auto flex flex-col text-center mt-20 lg:mt-40 lg:mt-0">
              <i className="fa-regular fa-lightbulb text-xl text-orange-base"/>
               <p className="text-sm lg:text-base">Please note that you are required to register first,<br/> after which you will be cleared by a representative <br/> before making payments.</p>
              </div>
