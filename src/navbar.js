@@ -21,12 +21,12 @@ return(
     <i onClick={showHandler} className={`w-4 ml-auto lg:hidden fa-solid ${show? 'fa-xmark': 'fa-bars'} mt-4 cursor-pointer`}/>
     </div>
     <div
-            className={`h-0 lg:mt-4 lg:bg-white h-40  mt-5 lg:grid navbar-project lg:visible sticky transition-all ease-in delay-400 ${
-                show ? "h-0" : "h-48 lg:h-0"
+            className={`h-0 lg:mt-4 lg:bg-white mt-5  lg:grid navbar-project lg:visible sticky transition-all ease-in delay-400 ${
+                true ? "h-0" : "lg:h-0"
               } bg-orange-base w-full  top-0 z-40 absolute block`}
               >
                 <div className={`${
-                    !show ? "hidden" : "block"} h-screen py-60 text-2xl grid grid-rows-2 lg:h-0 bg-orange-base lg:bg-white lg:grid lg:grid-cols-2  lg:text-end lg:text-blue-base  text-center text-white`}>
+                    !show ? "hidden" : "block"} h-screen lg:h-2 py-60 lg:py-2 lg:text-base text-2xl grid grid-rows-2 lg:h-0 bg-orange-base lg:bg-white lg:grid lg:grid-cols-2  lg:text-end lg:text-blue-base  text-center text-white`}>
                   <div>
                     <Link to="/login">
                       <button
