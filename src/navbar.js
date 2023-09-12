@@ -15,13 +15,15 @@ return(
     <>
     <div className="lg:px-16  lg:grid grid-cols-2 z-20 w-full shadow-md lg:grid bg-white fixed h-16 py-auto">
     <div className="px-4 grid grid-cols-2">
+      <div className="w-28">
         <Link to='/'>
-        <img src={TranscertLogo} className=" mt-3 lg:mt-5  mt-4  box text-black  w-28 h-6"/>
+        <img src={TranscertLogo} className=" lg:mt-5  mt-4  box text-black  w-full h-6"/>
         </Link>
-    <i onClick={showHandler} className={`w-4 ml-auto lg:hidden fa-solid ${show? 'fa-xmark': 'fa-bars'} mt-4 cursor-pointer`}/>
+      </div>
+    <i onClick={showHandler} className={`w-4 ml-auto lg:hidden fa-solid text-lg text-blue-base ${show? 'fa-xmark': 'fa-bars'} mt-4 cursor-pointer`}/>
     </div>
     <div
-            className={`h-0 lg:mt-4 lg:bg-white mt-5  lg:grid navbar-project lg:visible sticky transition-all ease-in delay-400 ${
+            className={`h-0 lg:mt-4 lg:bg-white mt-4  lg:grid navbar-project lg:visible sticky transition-all ease-in delay-400 ${
                 true ? "h-0" : "lg:h-0"
               } bg-orange-base w-full  top-0 z-40 absolute block`}
               >

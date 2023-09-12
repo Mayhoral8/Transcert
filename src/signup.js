@@ -33,15 +33,16 @@ const Register = () => {
 
           if(!token){
           return (
-            <>
+            <section className="h-screen">
             <Navbar/>
-             <div className="mt-14">
+
+              <div className="">
+             
 <Link to='/'>
-<img src={TranscertLogo} alt="" className="w-40 mt-1 mx-auto"/>
+<img src={TranscertLogo} alt="" className="w-40 pt-20 mx-auto"/>
 </Link>
-</div>
-              <div className="mt-8 h-screen">
-                <h1 className="font-openSans text-gray font-bold text-center text-md">Create An Account</h1>
+
+                <h1 className="font-openSans text-gray font-bold text-center text-md mt-10">Create An Account</h1>
                 <h4 className="text-center text-red-500 font-bold h-6">
                   {errorMsg}
                 </h4>
@@ -117,11 +118,11 @@ const Register = () => {
             
               </div>
               </div>
-              <button onClick={testReg}>Test reg</button>
+             
               
               
               
-            </>
+            </section>
           )
           } else {
             return  <Navigate to = '/main'  />

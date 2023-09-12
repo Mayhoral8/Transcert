@@ -37,15 +37,15 @@ const Login = () => {
    
   return (
   
-            <>
+            <section className="h-screen">
             <Navbar/>
-            <div className="mt-24 font-openSans">
+            <div className="pt-20 font-openSans">
               <Link to='/'>
-                <img src={TranscertLogo} alt="" className="w-40 mt-5 mx-auto"/>
+                <img src={TranscertLogo} alt="" className="w-40  mx-auto"/>
               </Link>
             </div>
-            <h1 className="font-openSans text-center text-gray text-md mt-10 font-bold">Welcomev Back!</h1>
-              <div className="mt-8 h-screen">
+            <h1 className="font-openSans text-center text-gray text-md mt-10 font-bold">Welcome Back!</h1>
+              <div className="mt-8">
               <p className="text-center text-red">{errorMsg}</p>
                     <form onSubmit={loginHandler}>
                 <div className=" mx-auto w-72 mt-10 h-44 font-openSans">
@@ -92,7 +92,7 @@ const Login = () => {
        
     </div>
    
-            </>
+            </section>
           );
       
     

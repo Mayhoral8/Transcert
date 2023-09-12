@@ -131,8 +131,7 @@ if(!token){
                 >
                   <h2 className=" text-center font-bold block font-openSans">PAYMENT</h2>
                   <p className="mt-2 text-gray font-thin text-sm text-center font-openSans">
-                    Finish by paying a token. We accept Paystack as a payment
-                    method for all types of online transactions!
+                    Finish by paying a token.
                   </p>
                 </div>
               </article>
