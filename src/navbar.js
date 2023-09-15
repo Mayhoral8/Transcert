@@ -13,7 +13,7 @@ const Navbar = ()=>{
     }
 return(
     <>
-    <div className="lg:px-16  lg:grid grid-cols-2 z-20 w-full shadow-md lg:grid bg-white fixed h-16 py-auto">
+    <div className="lg:px-16  lg:grid grid-cols-2 z-10 w-full shadow-md lg:grid bg-white fixed h-16 py-auto">
     <div className="px-4 grid grid-cols-2">
       <div className="w-28">
         <Link to='/'>

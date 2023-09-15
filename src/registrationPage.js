@@ -183,25 +183,6 @@ const auth = getAuth()
                       <option value="Special">Special</option>
                     </select>
 
-                    <div>
-                      <label>Which document do you wish to get?</label>{" "}
-                      <span className="text-red">*</span>
-                    </div>
-                    <select
-                      name="doc_type"
-                      id=""
-                      className="border py-2 px-4 pb-2"
-                      required
-                      onChange={(e) => {setDocType(e.target.value); console.log(docType)}}
-                    >
-                      <option value="">---Please select an option---</option>
-                      <option value="Transcript">Transcript-#5000</option>
-                      <option value="Certificate">Certificate-#4000</option>
-                      <option value="English Proficiency letter">
-                        English Proficiency Letter-#6000
-                      </option>
-                    </select>
-
                     <button
                      
                       disabled={regStatus === 'Not registered' && regFormValid ? false : true}
@@ -224,7 +205,7 @@ const auth = getAuth()
                     to get in touch with our representative and complete
                     your registration.
                   </h2>
-                  <a href="https://chatwith.io/s/transcert" target= "_blank" className="mx-auto w-64 block">
+                  <a href="https://chatwith.io/s/transcert-1" target= "_blank" className="mx-auto w-64 block">
                     <img
                       src={whatsappIcon}
                       className="mx-auto mt-8 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
