@@ -61,12 +61,7 @@ useEffect(()=>{
 
 }, [regStatus, paymentStatus, token])
 
-const payInfoHandler = ()=>{
-  setPayInfo(!payInfo)
-}
-const clrInfoHandler = ()=>{
-setClrInfo(!clrInfo)
-}
+
 const regInfoHandler = ()=>{
 setRegInfo(!regInfo)
 }
@@ -79,13 +74,13 @@ if(token){
             <div className="lg:ml-64  h-screen grid font-openSans block">
               <div className=" hidden lg:flex justify-between px-6  items-center flex-flow-row lg:block h-20 shadow-md ">
                 <div>
-              <h2 className="text-2xl text-blue-base font-bold">Hi, {displayName} </h2>
-              <h4 className="text-sm font-thin mt-2">Good {greeting}</h4>
+              <h2 className="text-2xl text-blue-base font-bold ">Hi, {displayName} </h2>
+              <h4 className="text-sm font-thin">Good {greeting}</h4>
                 </div>
               <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="h-12 w-12 border-1 rounded-full"/>
               </div>
               <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto w-full">
-                <h3 className="lg:hidden mt-10 text-blue-base text-center">Good {greeting}, {displayName}</h3>
+                <h3 className="lg:hidden mt-20 text-blue-base text-center">Good {greeting}, {displayName}</h3>
 
               <div className="mt-16 lg:mt-12 mx-auto lg:h-28 md:mt-44  mx-auto md:px-2 ">
                 <section className="h-40">

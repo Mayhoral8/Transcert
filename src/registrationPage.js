@@ -49,7 +49,7 @@ const auth = getAuth()
               {regStatus === 'Not registered' ? (
                 
                 <div className="bg-white-01 mt-1   font-openSans px-10 lg:px-10 lg:w-full lg:px-56  lg:mx-auto block">
-                  <h2 className=" text-center pt-10 font-bold ">
+                  <h2 className=" text-center pt-20 font-bold ">
                     Please, carefully fill in your details.
                   </h2>
                   <form

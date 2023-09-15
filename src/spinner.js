@@ -35,6 +35,6 @@ display: flex;
 z-index: 20;
 align-items: center;
 justify-content: center;
-background: rgba(0, 0, 0, 0.8);
+background: rgba(0, 0, 0, 0.6);
 `;
 export default LoadingOverlay
