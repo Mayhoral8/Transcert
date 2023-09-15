@@ -165,7 +165,7 @@ if(token){
     <article className=" bg-white-01 mt-1 lg:px-56  mx-auto  lg:w-full h-screen  ">
         <div className="flex flex-row">
 
-    <img alt="" src={picEditMode ? previewUrl: auth.currentUser.photoURL} className="w-1/2 mt-20 mx-auto h-20 w-20 border-1 rounded-full border-blue-base"/>
+    <img alt="" src={picEditMode ? previewUrl: auth.currentUser.photoURL} className="w-1/2 mt-20 mx-auto h-20 w-20  rounded-full border-blue-base"/>
     <input type="file" accept=".png, .jpg, .jpeg" onChange={pickFileHandler} className="hidden" ref={pickedFile}/>
     <i onClick={pickImageHandler} className="fa-solid fa-camera text-blue-base my-auto absolute lg:ml-72 ml-52 mt-20 cursor-pointer"/>
         </div>
