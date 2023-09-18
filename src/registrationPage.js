@@ -200,7 +200,7 @@ const auth = getAuth()
                 </div>
               ) : (
                 <>
-                  <h2 className="mt-16 text-center font-sm px-10 lg:px-0 text-blue-base lg:font-medium ">
+                  <h2 className="mt-28 md:mt-64 md:text-2xl text-center font-sm px-10 lg:px-0 text-blue-base lg:font-medium ">
                     Please, click on the icon below
                     to get in touch with our representative and complete
                     your registration.

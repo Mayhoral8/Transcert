@@ -80,9 +80,9 @@ if(token){
               <img alt="" src={auth.currentUser ? auth.currentUser.photoURL : ''} className="h-12 w-12 border-1 rounded-full"/>
               </div>
               <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto w-full">
-                <h3 className="lg:hidden mt-20 text-blue-base text-center">Good {greeting}, {displayName}</h3>
+                <h3 className="lg:hidden mt-20 text-blue-base text-center md:pt-40">Good {greeting}, {displayName}</h3>
 
-              <div className="mt-16 lg:mt-12 mx-auto lg:h-28 md:mt-44  mx-auto md:px-2 ">
+              <div className="mt-16 lg:mt-12 mx-auto lg:h-28 md:mt-20  mx-auto md:px-2 ">
                 <section className="h-40">
 
             <div className="mx-auto lg:py-2 grid grid-rows-2 h-28 lg:h-36 w-72  lg:w-64 shadow-md rounded-t bg-blue-base text-white">

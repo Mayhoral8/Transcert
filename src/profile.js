@@ -158,7 +158,7 @@ if(token){
     return(
         <section className="lg:ml-64">
              
-        <div className="  hidden  lg:block h-20 shadow-md  lg:flex items-center px-4">
+        <div className="hidden  md:flex lg:block h-20 shadow-md  lg:flex items-center px-4">
     <h2 className="text-2xl text-blue-base font-bold">Profile </h2>
     </div>
 

@@ -273,8 +273,7 @@ sendPasswordResetEmail(auth, email)
   faculty !== ""  &&
   modeOfStudy !== '' &&
   durationOfStudy !== '' &&
-  programme !== '' &&
-  docType !== ''
+  programme !== ''
   const updateFunc = (e) => {
     e.preventDefault();   
           if (
