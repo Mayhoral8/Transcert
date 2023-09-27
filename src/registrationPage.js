@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { ConsumerContext } from "./context";
 import Modal from "./modal";
-import Footer from "./footer";
+import Graduation from "./graduation";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import whatsappIcon from "./img/whatsappIcon.png";
@@ -19,7 +19,7 @@ const auth = getAuth()
     setRegNumber,
     setFullName,
     setProgramme,
-    setDocType,
+    setSessionOfGraduation,
     setFaculty,
     form,
     openModal,
@@ -34,11 +34,23 @@ const auth = getAuth()
 
   console.log(isLoading);
 
+const sessions = []
 
+console.log(sessions)
 
+  
+  const year = new Date().getFullYear()
+  let earliestYear = 1990
+       while (earliestYear < year){
+          const session  = `${earliestYear}/${earliestYear + 1}`
+          console.log(session)
+          sessions.push(session)
+          earliestYear+= 1
+       }
 
+  // for(i =earliestYear < year, i++){
 
-       
+  // }
         if (token) {
           return (
             <section className="lg:ml-64">
@@ -138,20 +150,7 @@ const auth = getAuth()
                       required
                       onChange={(e) => setFaculty(e.target.value)}
                     />
-                    <div>
-                      <label>Mode of study:</label>{" "}
-                      <span className="text-red">*</span>
-                    </div>
-                    <select
-                      name="mode_of_study"
-                      className="border py-2 px-4 pb-2"
-                      required
-                      onChange={(e) => setModeOfStudy(e.target.value)}
-                    >
-                      <option value="">---Please select an option---</option>
-                      <option value="Regular">Regular</option>
-                      <option value="Special">Special</option>
-                    </select>
+                   
                     <div>
                       <label>Duration of study:</label>{" "}
                       <span className="text-red">*</span>
@@ -167,6 +166,23 @@ const auth = getAuth()
                       <option value="5 years">5 years</option>
                       <option value="6 years">6 years</option>
                     </select>
+                    <div>
+                      <label>Session of Graduation:</label>{" "}
+                      <span className="text-red">*</span>
+                    </div>
+                    <select
+                      name="Session of Entry"
+                      className="border py-2 px-4 pb-2"
+                      required
+                      onChange={(e) => setSessionOfGraduation(e.target.value)}
+                    >
+                      <option value="">---Please select an option---</option>
+                      
+                    {sessions.map((session)=>{
+                      
+                      return <Graduation value={session}/>
+                    })}
+                    </select>
 
                     <div>
                       <label>Programme:</label>{" "}
@@ -180,7 +196,9 @@ const auth = getAuth()
                     >
                       <option value="">---Please select an option---</option>
                       <option value="Regular">Regular</option>
-                      <option value="Special">Special</option>
+                      <option value="Part-time">Part-time</option>
+                      <option value="CEP">CEP</option>
+
                     </select>
 
                     <button
@@ -200,7 +218,7 @@ const auth = getAuth()
                 </div>
               ) : (
                 <>
-                  <h2 className="mt-28 md:mt-64 md:text-2xl text-center font-sm px-10 lg:px-0 text-blue-base lg:font-medium ">
+                  <h2 className="mt-40 lg:mt-28 lg:text-base md:mt-64 md:text-2xl text-center font-sm px-10 lg:px-0 text-blue-base lg:font-medium ">
                     Please, click on the icon below
                     to get in touch with our representative and complete
                     your registration.

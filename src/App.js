@@ -12,7 +12,7 @@ import BottomNav from "./bottom-nav";
 
 
 import Home from "./home";
-
+import Overlay from "./overlay";
 import LoadingOverlay from "./spinner";
 import Modal from "./modal";
 import Error from "./error";
@@ -25,7 +25,6 @@ const App = () => {
   return(
 <>
    
-
 <LoadingOverlay/> 
 {token && <Modal/>}
 {token && <Sidebar/>} 

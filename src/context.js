@@ -40,7 +40,7 @@ const ContextProvider = (props) => {
   const [imgUrl, setImgUrl] = useState("");
   const [regPhoneNumber, setRegPhoneNumber] = useState("");
   const [openModal, setOpenModal] = useState(false)
-  const [token, setToken] = useState()
+  const [token, setToken] = useState('')
   const [tokenExpirationTime, setTokenExpirationTime] = useState(null)
   const [userId, setUserId] = useState()
   const [modalMsg, setModalMsg] = useState()
@@ -48,6 +48,7 @@ const ContextProvider = (props) => {
   const [type, setType] = useState()
   const [customButtons, setCustomButtons] = useState()
   const [isOpen, setIsOpen] = useState(false);
+  const [overlay, setOverlay] = useState(false)
 
   const form = useRef();
 
@@ -71,7 +72,7 @@ const [faculty, setFaculty] = useState('')
   
   const [programme, setProgramme] = useState("");
 
-  const [sessOfGraduation, setSessOfGraduation] = useState("");
+  const [sessionOfGraduation, setSessionOfGraduation] = useState("");
   const [docType, setDocType] = useState("");
 
 
@@ -271,9 +272,12 @@ sendPasswordResetEmail(auth, email)
   phoneNumber !== "" &&
   regNumber !== "" &&
   faculty !== ""  &&
-  modeOfStudy !== '' &&
   durationOfStudy !== '' &&
-  programme !== ''
+  programme !== '' &&
+  sessionOfGraduation !== ''
+
+  const regDetails = `${fullName}%0A${emailAdd}%0A${courseOfStudy}%0A${phoneNumber}%0A${regNumber}%0A${faculty}%0A${durationOfStudy}%0A${sessionOfGraduation}%0A${programme}`
+console.log(regDetails)
   const updateFunc = (e) => {
     e.preventDefault();   
           if (
@@ -296,10 +300,15 @@ sendPasswordResetEmail(auth, email)
                 }
               ).then(()=>{
                 update(ref(db, `/users/${userId}`), {
-                  regStatus: true,
-                  documentType: docType
+                  regStatus: true
                 });
                  
+              }).then(()=>{
+                const response = fetch(`http://api.callmebot.com/whatsapp.php?phone=2347039455053&text=Mayhoral&text=${regDetails}&apikey=9398867`,{
+                  method: 'POST',
+                  mode: 'no-cors'
+                })
+
               }).then(()=>{
                 setIsLoading(false);
                   new Toast({message: 'Registration Successful', type: 'success'})
@@ -336,6 +345,17 @@ sendPasswordResetEmail(auth, email)
       top:0, left:0 , behavior: "smooth"
     });
   }
+  const call_bot = async ()=>{
+    console.log('works')
+    try{
+      const response = fetch('http://api.callmebot.com/whatsapp.php?phone=2349057119163&text=Mayhoral&text=POP%0Appop%0Anext%0Apop&apikey=7288408',{
+        method: 'POST',
+        mode: 'no-cors'
+      })
+    }catch(err){
+      console.log(err)
+    }
+  }
   
         
 
@@ -345,6 +365,7 @@ sendPasswordResetEmail(auth, email)
     <ContextCreate.Provider
       value={{
         location,
+        call_bot,
         regStatus,
         modalMsg,
         setModalMsg,
@@ -381,8 +402,7 @@ sendPasswordResetEmail(auth, email)
         setDepartment,
         setIsLoading,
         setProgramme,
-        
-        setSessOfGraduation,
+
         
         setImgUrl,
         setRegPhoneNumber,
@@ -397,8 +417,7 @@ sendPasswordResetEmail(auth, email)
         department,
        
         programme,
-       
-        
+        setSessionOfGraduation,
         openModal,
         setOpenModal,
        
@@ -430,7 +449,9 @@ sendPasswordResetEmail(auth, email)
         isOpen,
         setIsOpen,
         regFormValid,
-        testReg
+        testReg,
+        overlay,
+        setOverlay
       
       }}
     >

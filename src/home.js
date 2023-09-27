@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useContext } from "react";
 import UNIZIK from "./img/UNIZIK2.png";
-import Payment1 from "./img/Payment1.jpg";
+import Payment1 from "./img/Payment1.png";
 import documentUpload from './img/documentUpload.png';
-import Register1 from "./img/Register1.jpg";
+import Register1 from "./img/Register1.png";
 import { ContextCreate } from "./context";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -11,6 +11,7 @@ import TranscertLogo from './img/TranscertLogo.png'
 import { Link, Navigate } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import Navbar from "./navbar";
+import Overlay from "./overlay";
 
 
 
@@ -26,6 +27,7 @@ if(!token){
   return (
           <>
           <Navbar/>
+          <Overlay/>
             <section className="lg:grid lg:grid-cols-2 lg:px-24 lg:justify-between lg:mt-12 py-8 w-full lg:w-full lg:h-96 bg-blue-base text-gray mx-auto">
               <div
                 className="lg:mt-6 mt-24 lg:order-last mx-auto lg:mx-64 lg:h-72 w-64 h-56"
@@ -67,7 +69,7 @@ if(!token){
               <h2 className="mt-16 text-center lg:text-2xl font-openSans font-bold">GET STARTED IN {true ? <span className="text-orange-base">3 EASY </span>: null} STEPS</h2>
             <section className="lg:px-10 mt-20 grid grid-rows-3">
 
-              <article className="grid lg:grid-cols-2 lg:h-32">
+              <article className="grid lg:grid-cols-2 items-center lg:h-32">
                 <div
                   className="mx-auto lg:order-last lg:align-center"
                   data-aos="fade-left"
@@ -77,7 +79,7 @@ if(!token){
                   <img src={Register1} alt="" className="w-72 h-86 mx-auto" />
                 </div>
                 <div
-                  className="text-center  max-w-xs mx-auto"
+                  className="text-center lg:grid  max-w-xs mx-auto"
                   data-aos="fade-right"
                   data-aos-easing="ease-out"
                   data-aos-duration="1200 "
@@ -89,7 +91,7 @@ if(!token){
                   </p>
                 </div>
               </article>
-              <article className="grid lg:grid-cols-2 mt-10 lg:mt-0">
+              <article className="grid lg:grid-cols-2 mt-10 lg:mt-0 items-center">
 
                 <div
                   className="mx-auto "
@@ -114,7 +116,7 @@ if(!token){
                   </p>
                 </div>
               </article>
-              <article className=" grid lg:grid-cols-2  mt-10 lg:mt-0">
+              <article className=" grid lg:grid-cols-2  mt-10 lg:mt-0 items-center">
                 <div
                   className="mx-auto"
                   data-aos="fade-left"
@@ -177,4 +179,6 @@ if(!token){
   return <Navigate to='/dashboard' />
 }
 }
+
+
 export default Home;
