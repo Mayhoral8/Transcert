@@ -39,6 +39,7 @@ return(
                         } `}
                         onClick={() => {
                           setShow(!show);
+                          setOverlay(!overlay)
                           topScroll();
                         }}
                       >
@@ -58,6 +59,7 @@ return(
                         logout("register");
                         topScroll();
                         setShow(!show);
+                        setOverlay(!overlay)
                       }}
                       >
                         Sign Up Free
