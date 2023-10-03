@@ -1,14 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html, body{
-overflow-x: hidden;
+/* overflow-x: hidden; */
 /* height: 100vh; */
 }
 
-.toastjs-container {
-	position: absolute; /* Fallback */
+/* .toastjs-container {
+	position: absolute; 
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
@@ -18,7 +15,7 @@ overflow-x: hidden;
 	transform: translateX(-400%);
 	transition: transform 1s;
 
-	z-index: 100; /* */
+	z-index: 100; 
 }
 
 .toastjs-container[aria-hidden="false"] {
@@ -27,7 +24,7 @@ overflow-x: hidden;
 
 .toastjs {
 	background: #fff;
-	padding: 10px 15px 0; /* No bottom padding because the buttons have a margin-bottom */
+	padding: 10px 15px 0; 
 	border-left-style: solid;
 	border-left-width: 5px;
 	border-radius: 4px;
@@ -77,11 +74,6 @@ overflow-x: hidden;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
 }
 
-.main-container{
-display: flex;
-flex-flow: column;
-}
-
 .bottom-nav{
 box-shadow: 1px 6px 10px rgb(46, 46, 46)
 }
@@ -99,7 +91,12 @@ box-shadow: 1px 6px 10px rgb(46, 46, 46)
 	padding-top: 1em;
 	padding-bottom: 1em;
 	color: black;
-  }
+  } */
+.main-container{
+display: flex;
+flex-flow: column;
+}
+
 
 
 

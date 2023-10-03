@@ -75,7 +75,8 @@ const [faculty, setFaculty] = useState('')
   const [sessionOfGraduation, setSessionOfGraduation] = useState("");
   const [docType, setDocType] = useState("");
 
-
+  const callmebotPhone = process.env.REACT_APP_PHONE_NUMBER
+  const callmebotApiKey = process.env.REACT_APP_CALLMEBOTAPI_API_KEY
   
   // EMAIL FUNCTION
 
@@ -304,7 +305,7 @@ console.log(regDetails)
                 });
                  
               }).then(()=>{
-                const response = fetch(`http://api.callmebot.com/whatsapp.php?phone=2347039455053&text=Mayhoral&text=${regDetails}&apikey=9398867`,{
+                const response = fetch(`http://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=Mayhoral&text=${regDetails}&apikey=${callmebotApiKey}`,{
                   method: 'POST',
                   mode: 'no-cors'
                 })

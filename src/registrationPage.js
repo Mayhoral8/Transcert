@@ -36,7 +36,6 @@ const auth = getAuth()
 
 const sessions = []
 
-console.log(sessions)
 
   
   const year = new Date().getFullYear()
@@ -48,19 +47,16 @@ console.log(sessions)
           earliestYear+= 1
        }
 
-  // for(i =earliestYear < year, i++){
-
-  // }
         if (token) {
           return (
             <section className="lg:ml-64">
               {openModal ? <Modal /> : null}
-              <div className="hidden lg:flex items-center px-4 lg:block h-20 shadow-md ">
+              <div className="hidden  items-center px-4 lg:block h-20 shadow-md ">
               <h2 className="text-2xl text-blue-base font-bold">Register </h2>
               </div>
               {regStatus === 'Not registered' ? (
                 
-                <div className="bg-white-01 mt-1   font-openSans px-10 lg:px-10 lg:w-full lg:px-56  lg:mx-auto block">
+                <div className="bg-white-01 mt-1   font-openSans px-10 lg:w-full lg:px-56  lg:mx-auto block">
                   <h2 className=" text-center pt-20 font-bold ">
                     Please, carefully fill in your details.
                   </h2>
