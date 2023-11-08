@@ -9,15 +9,14 @@ import Modal from "./modal";
 import { getAuth } from "firebase/auth";
 
 const Dashboard = () => {
-  const {call_bot, token, userId, setIsLoading, regStatus, setRegStatus, paymentStatus, setPaymentStatus} = useContext(ContextCreate)
+  const {token, userId, setIsLoading, regStatus, setRegStatus, paymentStatus, setPaymentStatus} = useContext(ContextCreate)
   const auth = getAuth()
-  const navigate = useNavigate();
+
   const [displayName, setDisplayName] = useState('')
   const [greeting, setGreeting] = useState('')
 
   const [regInfo, setRegInfo] = useState(false)
-  const [clrInfo, setClrInfo] = useState(false)
-  const [payInfo, setPayInfo] = useState(false)
+  
 
 
  
@@ -67,13 +66,13 @@ const regInfoHandler = ()=>{
 setRegInfo(!regInfo)
 }
 
-// setIsLoading(true)
+
 if(token){ 
   return (
   
                 
-            <div className="lg:ml-64  h-screen grid font-openSans block">
-              <div className=" hidden lg:flex justify-between px-6  items-center flex-flow-row lg:block h-20 shadow-md ">
+            <div className="lg:ml-64  h-screen grid font-openSans">
+              <div className=" hidden lg:flex justify-between px-6  items-center flex-flow-row h-20 shadow-md ">
                 <div>
               <h2 className="text-2xl text-blue-base font-bold ">Hi, {displayName} </h2>
               <h4 className="text-sm font-thin">Good {greeting}</h4>
@@ -83,7 +82,7 @@ if(token){
               <section className="h-screen md:h-screen bg-white-01 mt-1 mx-auto w-full">
                 <h3 className="lg:hidden mt-20 text-blue-base text-center md:pt-40">Good {greeting}, {displayName}</h3>
 
-              <div className="mt-16 lg:mt-12 mx-auto lg:h-28 md:mt-20  mx-auto md:px-2 ">
+              <div className="mt-16 lg:mt-12 mx-auto lg:h-28 md:mt-20  md:px-2 ">
                 <section className="h-40">
 
             <div className="mx-auto lg:py-2 grid grid-rows-2 h-28 lg:h-36 w-72  lg:w-64 shadow-md rounded-t bg-blue-base text-white">
@@ -113,7 +112,7 @@ if(token){
               </article>
  </section>
                  </div>
-             <div className="mx-auto flex flex-col text-center mt-20 lg:mt-40 lg:mt-0">
+             <div className="mx-auto flex flex-col text-center mt-20 lg:mt-40 ">
              <i className="fa-regular fa-lightbulb text-xl text-orange-base"/>
               <p className="text-sm lg:text-base">Please note that you are required to register first,<br/> after which you will be cleared by a representative <br/> before making payments.</p>
              </div>

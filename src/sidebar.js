@@ -1,13 +1,12 @@
 import React, {useReducer, useContext, useEffect} from "react";
 import { Link } from "react-router-dom";
-import { ConsumerContext } from "./context";
 import TranscertLogo from "./img/TranscertLogo.png";
 import dashboard from './img/dashboard.png'
 import dashboardBlack from './img/dashboard-black.png'
 import register from './img/register.png'
 import registerBlack from './img/register-black.png'
-import payment from './img/payment2.png'
-import paymentBlack from './img/payment-black.png'
+import { MdDashboard } from "react-icons/md";
+
 import { getAuth } from "firebase/auth";
 import Modal from "./modal";
 import { ContextCreate } from "./context";
@@ -113,12 +112,12 @@ useEffect(()=>{
                   <div
                     className={`h-10 grid grid-cols-3 px-3 justify-between transition-all  w-36 mx-auto  items-center ease-in delay-400  ${state.dashboardMode ? "bg-orange-base rounded-lg  text-white" :  null}`}
                   >
-                  <img src={state.dashboardMode ? dashboard : dashboardBlack} className="w-6"/>
+                  <MdDashboard/>
                       
                       <button
                         type="button"
                         onClick={dashboardHandler}
-                        className={`w-1/2 block col-span-2 `}
+                        className={`w-1/2 block col-span-2 ${state.dashboardMode ? 'text-white': 'text-gray-900'}`}
                       
                       >
                         Dashboard

@@ -4,13 +4,11 @@ import dashboard from './img/dashboard.png'
 import dashboardBlack from './img/dashboard-black.png'
 import register from './img/register.png'
 import registerBlack from './img/register-black.png'
-import payment from './img/payment2.png'
-import paymentBlack from './img/payment-black.png'
 import { ContextCreate } from "./context";
 
 const BottomNav = ()=>{
 const { location }  = useContext(ContextCreate)
-const [loc, setLoc] = useState()
+
 
   const initialState = {
     paymentMode: false,
@@ -65,7 +63,7 @@ if(location.pathname === '/dashboard'){
         <>
         <div
                   className={`bottom-nav lg:hidden bottom-0  transition-all ease-in delay-400   z-10 fixed items-center align-middle
-                  text-white md:h-32 w-full h-16 block gap-x-2 bg-white border grid grid-cols-3 px-2 text-center`}
+                  text-white md:h-32 w-full h-16  gap-x-2 bg-white border grid grid-cols-3 px-2 text-center`}
                 >
                   <div
                     onClick={dashboardHandler} className={`text-gray rounded-md ${state.dashboardMode ? 'bg-orange-base text-white': null }`}

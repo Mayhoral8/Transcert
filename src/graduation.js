@@ -1,14 +1,8 @@
-import React, {useContext} from "react";
-
-import { ContextCreate } from "./context";
-
+import React from "react";
 
 const Graduation = (props)=>{
-    console.log(props.value)
-    const {setSessionOfGraduation} = useContext(ContextCreate)
 return(<>
-
-                      <option value={props.value}>{props.value}</option>
+ <option value={props.value}>{props.value}</option>
 </>)
 
 }

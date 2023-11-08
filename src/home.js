@@ -67,9 +67,9 @@ if(!token){
             </section>
 
               <h2 className="mt-16 text-center lg:text-2xl font-openSans font-bold">GET STARTED IN {true ? <span className="text-orange-base">3 EASY </span>: null} STEPS</h2>
-            <section className="lg:px-10 mt-20 grid grid-rows-3">
+            <section className="lg:px-10 overflow-x-auto mt-20 grid grid-rows-3">
 
-              <article className="grid lg:grid-cols-2 items-center lg:h-32">
+              <article className="w-full grid lg:grid-cols-2 items-center lg:h-32">
                 <div
                   className="mx-auto lg:order-last lg:align-center"
                   data-aos="fade-left"
