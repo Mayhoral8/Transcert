@@ -41,7 +41,7 @@ if(!token){
               <div
                 className="lg:mt-4 lg:w-96  flex flex-col"
               >
-                <div className=" lg:text-left text-white text-center font-openSans grid:grid-rows-3 capitalize lg:text-2xl text-2xl font-bold text-white mt-12  ">
+                <div className=" lg:text-left text-center font-openSans grid:grid-rows-3 capitalize lg:text-2xl text-2xl font-bold text-white mt-12  ">
                   <h3 className="mx-auto">Get your</h3>
                 <div className="text-orange-base mx-auto  w-auto"> 
                 <Typewriter
@@ -94,7 +94,7 @@ if(!token){
               <article className="grid lg:grid-cols-2 mt-10 lg:mt-0 items-center">
 
                 <div
-                  className="mx-auto "
+                  class Name="mx-auto "
                   data-aos="fade-left"
                   data-aos-easing="ease-out"
                   data-aos-duration="1200"

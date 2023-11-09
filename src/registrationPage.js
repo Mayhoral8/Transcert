@@ -42,7 +42,6 @@ const sessions = []
   let earliestYear = 1990
        while (earliestYear < year){
           const session  = `${earliestYear}/${earliestYear + 1}`
-          console.log(session)
           sessions.push(session)
           earliestYear+= 1
        }

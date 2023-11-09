@@ -32,7 +32,6 @@ useEffect(()=>{
         const responseData = snapshot.val();
         setDisplayName(auth.currentUser.displayName)
         if(responseData){
-          console.log(responseData.regStatus)
           setRegStatus(responseData.regStatus === '' ? 'Not registered': 'Registered')
           setPaymentStatus(responseData.paymentStatus === '' ? 'Not Paid': 'Paid')
           setIsLoading(false)

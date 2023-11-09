@@ -77,6 +77,8 @@ const [faculty, setFaculty] = useState('')
 
   const callmebotPhone = process.env.REACT_APP_PHONE_NUMBER
   const callmebotApiKey = process.env.REACT_APP_CALLMEBOTAPI_API_KEY
+
+  console.log(callmebotPhone, callmebotApiKey);
   
   // EMAIL FUNCTION
 
@@ -278,7 +280,7 @@ sendPasswordResetEmail(auth, email)
   sessionOfGraduation !== ''
 
   const regDetails = `${fullName}%0A${emailAdd}%0A${courseOfStudy}%0A${phoneNumber}%0A${regNumber}%0A${faculty}%0A${durationOfStudy}%0A${sessionOfGraduation}%0A${programme}`
-console.log(regDetails)
+
   const updateFunc = (e) => {
     e.preventDefault();   
           if (
@@ -305,10 +307,11 @@ console.log(regDetails)
                 });
                  
               }).then(()=>{
-                const response = fetch(`http://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=Mayhoral&text=${regDetails}&apikey=${callmebotApiKey}`,{
+                const response = fetch(`http://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=${regDetails}&apikey=${callmebotApiKey}`,{
                   method: 'POST',
                   mode: 'no-cors'
                 })
+                console.log(response);
 
               }).then(()=>{
                 setIsLoading(false);
