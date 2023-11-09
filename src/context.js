@@ -307,7 +307,7 @@ sendPasswordResetEmail(auth, email)
                 });
                  
               }).then(()=>{
-                const response = fetch(`http://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=${regDetails}&apikey=${callmebotApiKey}`,{
+                const response = fetch(`https://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=${regDetails}&apikey=${callmebotApiKey}`,{
                   method: 'POST',
                   mode: 'no-cors'
                 })
