@@ -295,19 +295,10 @@ const sendToWhatsapp = async ()=>{
             regFormValid
           ) {
             setIsLoading(true)
-              .then(
-                (result) => {
-                  console.log(result.text);
-                },
-                (error) => {
-                  console.log(error.text);
-                }
-              ).then(()=>{
+    
                 update(ref(db, `/users/${userId}`), {
                   regStatus: true
-                });
-                 
-              }).then(()=>{
+                }).then(()=>{
                 sendToWhatsapp()
 
               }).then(()=>{
