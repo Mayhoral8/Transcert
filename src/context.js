@@ -295,13 +295,6 @@ const sendToWhatsapp = async ()=>{
             regFormValid
           ) {
             setIsLoading(true)
-            emailjs
-              .sendForm(
-                "service_1kf8q4r",
-                "template_7haozug",
-                form.current,
-                "HoDMgnKrRm2WdK2E_"
-              )
               .then(
                 (result) => {
                   console.log(result.text);
