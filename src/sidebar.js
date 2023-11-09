@@ -37,10 +37,10 @@ const modalMsgHandler = ()=>{
     if(action.type === 'dashboard'){
       return {...state, dashboardMode: true, paymentMode:false, registerMode: false, profileMode:false}
     }else if(action.type === 'register'){
-      console.log('works')
+     
       return {...state, registerMode: true, dashboardMode:false, paymentMode:false, profileMode:false}
     }else if(action.type === 'profile'){
-      console.log('works')
+      
       return {...state, profileMode: true, dashboardMode:false, paymentMode:false, registerMode:false}
     }
 

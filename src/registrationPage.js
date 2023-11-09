@@ -32,7 +32,7 @@ const auth = getAuth()
     Aos.init({ duration: 600 });
   }, []);
 
-  console.log(isLoading);
+ 
 
 const sessions = []
 
@@ -173,9 +173,9 @@ const sessions = []
                     >
                       <option value="">---Please select an option---</option>
                       
-                    {sessions.map((session)=>{
+                    {sessions.map((session, id)=>{
                       
-                      return <Graduation value={session}/>
+                      return <Graduation value={session} key={id}/>
                     })}
                     </select>
 

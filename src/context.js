@@ -4,8 +4,6 @@ import { set, ref, update, onValue } from "firebase/database";
 import { getAuth, sendPasswordResetEmail, sendEmailVerification, updateProfile } from "firebase/auth";
 import Toast from "./toast";
 import { useLocation } from "react-router-dom";
-
-// import {uid} from 'uid';
 import { auth } from "./firebase-config";
 import { useNavigate } from "react-router";
 import {
