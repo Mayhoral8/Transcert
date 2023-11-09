@@ -78,8 +78,6 @@ const [faculty, setFaculty] = useState('')
   const callmebotPhone = process.env.REACT_APP_PHONE_NUMBER
   const callmebotApiKey = process.env.REACT_APP_CALLMEBOTAPI_API_KEY
 
-  console.log(callmebotPhone, callmebotApiKey);
-  
   // EMAIL FUNCTION
 
   const sendEmail = (e) => {
@@ -282,13 +280,11 @@ sendPasswordResetEmail(auth, email)
   const regDetails = `${fullName}%0A${emailAdd}%0A${courseOfStudy}%0A${phoneNumber}%0A${regNumber}%0A${faculty}%0A${durationOfStudy}%0A${sessionOfGraduation}%0A${programme}`
 
 const sendToWhatsapp = async ()=>{
-
   try{ 
     const response = await fetch(`https://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=${regDetails}&apikey=${callmebotApiKey}`,{
       method: 'POST',
       mode: 'no-cors'
     })
-    console.log(response);
   }catch(err){
     console.log(err);
   }
@@ -357,17 +353,7 @@ const sendToWhatsapp = async ()=>{
       top:0, left:0 , behavior: "smooth"
     });
   }
-  const call_bot = async ()=>{
-    console.log('works')
-    try{
-      const response = fetch('http://api.callmebot.com/whatsapp.php?phone=2349057119163&text=Mayhoral&text=POP%0Appop%0Anext%0Apop&apikey=7288408',{
-        method: 'POST',
-        mode: 'no-cors'
-      })
-    }catch(err){
-      console.log(err)
-    }
-  }
+
   
         
 
@@ -377,7 +363,7 @@ const sendToWhatsapp = async ()=>{
     <ContextCreate.Provider
       value={{
         location,
-        call_bot,
+        
         regStatus,
         modalMsg,
         setModalMsg,
