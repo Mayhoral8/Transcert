@@ -281,6 +281,18 @@ sendPasswordResetEmail(auth, email)
 
   const regDetails = `${fullName}%0A${emailAdd}%0A${courseOfStudy}%0A${phoneNumber}%0A${regNumber}%0A${faculty}%0A${durationOfStudy}%0A${sessionOfGraduation}%0A${programme}`
 
+const sendToWhatsapp = async ()=>{
+
+  try{ 
+    const response = await fetch(`https://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=${regDetails}&apikey=${callmebotApiKey}`,{
+      method: 'POST',
+      mode: 'no-cors'
+    })
+    console.log(response);
+  }catch(err){
+    console.log(err);
+  }
+}
   const updateFunc = (e) => {
     e.preventDefault();   
           if (
@@ -307,11 +319,7 @@ sendPasswordResetEmail(auth, email)
                 });
                  
               }).then(()=>{
-                const response = fetch(`https://api.callmebot.com/whatsapp.php?phone=${callmebotPhone}&text=${regDetails}&apikey=${callmebotApiKey}`,{
-                  method: 'POST',
-                  mode: 'no-cors'
-                })
-                console.log(response);
+                sendToWhatsapp()
 
               }).then(()=>{
                 setIsLoading(false);
