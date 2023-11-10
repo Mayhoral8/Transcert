@@ -30,6 +30,9 @@ const Register = () => {
             sendEmail,
             token
           } = value;
+          const errMsgHandler = ()=>{
+              setErrorMsg('')
+          }
 
           if(!token){
           return (
@@ -43,7 +46,7 @@ const Register = () => {
 </Link>
 
                 <h1 className="font-openSans text-gray font-bold text-center text-md mt-10">Create An Account</h1>
-                <h4 className="text-center text-red-500 font-bold h-6">
+                <h4 className="text-center text-red font-bold h-6">
                   {errorMsg}
                 </h4>
                 <div className="">
@@ -51,7 +54,7 @@ const Register = () => {
                     <div className=" font-openSans mx-auto w-72 mt-4 grid grid-cols-2 h-52 ">
                       <div className="grid grid-cols-1 text-sm text-gray-900">
                         <input
-                          className="focus:outline-none border-b mx-auto h-10 text-gray-900 w-72 border-gray-300"
+                          className="focus:outline-none border-b mx-auto h-10  w-72 border-gray-300"
                           type="text"
                           placeholder="Name"
                           name="user_name"
@@ -111,7 +114,7 @@ const Register = () => {
                 <div className=" font-openSans flex flex-row text-center justify-center w-64 mx-auto pb-2 mt-4 text-sm">
               <h6 className="w-44">Already have an account?</h6> 
               <Link to ='/login'>
-                <p className="font-openSans text-sm text-orange-base ml-2 w-18 block mx-auto text-center">
+                <p onClick={errMsgHandler} className="font-openSans text-sm text-orange-base ml-2 w-18 block mx-auto text-center">
                   Login
                 </p>
               </Link>

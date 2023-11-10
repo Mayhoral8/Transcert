@@ -78,6 +78,9 @@ const [faculty, setFaculty] = useState('')
 
   // EMAIL FUNCTION
 
+  const [forgotPwd, setForgotPwd ] = useState(3)
+
+
   const sendEmail = (e) => {
     e.preventDefault();
   };
@@ -92,16 +95,9 @@ if(funcType === 'login'){
 }
 }
 
-const testReg = ()=>{
-  set(ref(db, `users/${"55oYqZPPzHbpNXgb6U3f4GtiMpD3"}`), {
-    email,
-    regPhoneNumber,
-    id: "55oYqZPPzHbpNXgb6U3f4GtiMpD3",
-    regStatus: '',
-    paymentStatus: ''
-  })
-}
 
+
+ 
   const registerUser = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -124,17 +120,24 @@ const testReg = ()=>{
           displayName: name
         })
         setIsLoading(false);
-      //  <Navigate to='/login'/>
+   
        navigate('/login')
         console.log("registered");
       }).catch((error) => {
         if (error) {
           setIsLoading(false);
-          const errorString1 = error.message
+
+          if(error.message === 'Firebase: Error (auth/email-already-in-use).'){
+            let string = 'Firebase: Error (auth/email-already-in-use).'
+            let string2 = string.split(' ')[2].slice(6, 26).replaceAll('-', ' ').replace('e', 'E')
+            setErrorMsg(string2)
+          } else{
+
+            const errorString1 = error.message
             .split(" ")
             .splice(1, error.message.length);
           errorString1.pop();
-
+          
           let words = [];
           errorString1.map((word) => {
             console.log(word);
@@ -142,6 +145,7 @@ const testReg = ()=>{
           });
           setErrorMsg(words.join(" "));
           console.log(error.message);
+        }
         }
       });
   };
@@ -193,6 +197,11 @@ const testReg = ()=>{
           setErrorMsg(errorString2.join(" "));
         }
       });
+    
+      if (errorMsg === 'Wrong Password'){
+       setForgotPwd(forgotPwd - 1)
+  }
+
   };
 
 const login = useCallback((accessToken, uid, tokenDuration)=>{
@@ -382,7 +391,8 @@ const sendToWhatsapp = async ()=>{
         setDepartment,
         setIsLoading,
         setProgramme,
-
+        forgotPwd,
+        setForgotPwd,
         
         setImgUrl,
         setRegPhoneNumber,
@@ -429,7 +439,7 @@ const sendToWhatsapp = async ()=>{
         isOpen,
         setIsOpen,
         regFormValid,
-        testReg,
+        
         overlay,
         setOverlay
       

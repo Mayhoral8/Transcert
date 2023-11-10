@@ -22,7 +22,8 @@ const Login = () => {
     errorMsg,
     isLoading,
     token,
-    resetPword, sendEmailV} = useContext(ContextCreate)
+    forgotPwd,
+    resetPword} = useContext(ContextCreate)
 
   useEffect(()=>{
     if(token){
@@ -33,7 +34,10 @@ const Login = () => {
   const resetErrMsg = ()=>{
     setErrorMsg('')
   }
+ 
+    
 
+  
    
   return (
   
@@ -76,7 +80,7 @@ const Login = () => {
                   <button type="submit" className="px-auto font-openSans flex items-center mx-auto mt-5 px-32 w-72 bg-orange-base rounded-md h-8 my-auto text-white" onClick={loginHandler} disabled={isLoading? true:false}>{isLoading ?<i className="fas fa-spinner animate-spin"/>  : 'Login'}</button>
                   </form>
                 
-              {errorMsg === 'Wrong Password'?  
+              {errorMsg === 'Wrong Password' && forgotPwd === 0 ?  
               (<div className="grid grid-cols-2 gap-x-2 text-sm mt-4"><h2 className="text-right text-red-400">Forgot Password?</h2> <span className="cursor-pointer text-orange-base" onClick={()=> resetPword()}>Click here to reset it</span></div>): null }
               <div className=" flex font-openSans flex-row text-center justify-center w-64 mx-auto pb-2 mt-4 text-sm">
               <h6 className="w-40">Don't have an account?</h6> 

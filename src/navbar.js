@@ -15,7 +15,7 @@ const Navbar = ()=>{
     }
 return(
     <>
-    <div className="lg:px-16  lg:grid grid-cols-2 z-30 w-full shadow-md lg:grid bg-white fixed h-16 py-auto">
+    <div className="lg:px-16  lg:grid grid-cols-2 z-30 w-full shadow-md  bg-white fixed h-16 py-auto">
     <div className="px-4 w-full grid grid-cols-2">
       <div className="w-28">
         <Link to='/'>
