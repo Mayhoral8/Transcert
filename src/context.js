@@ -282,9 +282,10 @@ sendPasswordResetEmail(auth, email)
   faculty !== ""  &&
   durationOfStudy !== '' &&
   programme !== '' &&
+  department !== '' &&
   sessionOfGraduation !== ''
 
-  const regDetails = `${fullName}%0A${emailAdd}%0A${courseOfStudy}%0A${phoneNumber}%0A${regNumber}%0A${faculty}%0A${durationOfStudy}%0A${sessionOfGraduation}%0A${programme}`
+  const regDetails = `${fullName}%0A${emailAdd}%0A${courseOfStudy}%0A${phoneNumber}%0A${regNumber}%0A${faculty}%0A${department}%0A${durationOfStudy}%0A${sessionOfGraduation}%0A${programme}`
 
 const sendToWhatsapp = async ()=>{
   try{ 
@@ -336,8 +337,6 @@ const sendToWhatsapp = async ()=>{
     });
     
 
-    console.log('payment')
-   
   }
   const topScroll = ()=>{
     window.scrollTo({

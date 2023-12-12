@@ -25,7 +25,7 @@ const auth = getAuth()
     openModal,
     setDurationOfStudy,
     setCourseOfStudy,
-    setModeOfStudy,
+    setDepartment,
     setEmailAdd,
     docType, regFormValid} = useContext(ContextCreate)
   useEffect(() => {
@@ -133,6 +133,19 @@ const sessions = []
                       onChange={(e) => setCourseOfStudy(e.target.value)}
                     />
 
+                      <div>
+                      <label>Department</label>
+                      <span className="text-red">*</span>
+                    </div>
+                    <input
+                      name="department"
+                      placeholder="department"
+                      type="text"
+                      className="border rounded-md focus:outline-none py-2  px-4 pb-2"
+                      required
+                      onChange={(e) => setDepartment(e.target.value)}
+                    />
+                      
                     <div>
                       <label>Faculty</label>
                       <span className="text-red">*</span>
