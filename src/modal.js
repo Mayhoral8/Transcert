@@ -22,7 +22,7 @@ const Modal = ()=> {
         <h1 className='text-start text-lg px-4 font-bold mt-4'>Sign out?</h1>
         <p className='text-sm  text-start px-4'>{modalMsg}</p>
         <div className='grid grid-flow-col ml-auto gap-x-2 px-4'>
-        <button onClick={()=> setOpenModal(false)} className=' text-red border-2 border-red text-gray w-20 h-8  rounded-md  '>No</button>
+        <button onClick={()=> setOpenModal(false)} className=' text-red border-2 border-red  w-20 h-8  rounded-md  '>No</button>
         <button onClick={()=> logout()} className='bg-orange-base border-2 t border-orange-base w-20 h-8 text-white rounded-md '>Yes</button>
         </div>
         </div>
