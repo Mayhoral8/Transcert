@@ -1,6 +1,5 @@
 import {React, useState, useEffect, useContext} from 'react'
 import { PaystackButton } from 'react-paystack'
-import styled from 'styled-components'
 import { ContextCreate } from './context';
 import { ref, onValue } from "firebase/database";
 import { db } from "./firebase-config";

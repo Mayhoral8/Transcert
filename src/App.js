@@ -1,15 +1,15 @@
-import React, {useContext} from "react";
+import  {useContext} from "react";
 import Login from "./login";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { ContextCreate } from "./context";
 import Register from "./signup";
-import Dashboard from "./dashboard";
+import Dashboard from "./dashboard.tsx";
 import RegistrationPage from "./registrationPage";
 import Paystack from "./paystack";
-import Profile from "./profile";
+import Profile from "./profile.tsx";
 import Sidebar from "./sidebar";
 import BottomNav from "./bottom-nav";
-
+import Toast from "toast.js";
 
 import Home from "./home";
 import Overlay from "./overlay";
@@ -21,10 +21,10 @@ import Error from "./error";
 
 const App = () => {
 
-  const {token} = useContext(ContextCreate)
+  const {token} = useContext(ContextCreate).auth
   return(
 <>
-   
+<Toast/>
 <LoadingOverlay/> 
 {token && <Modal/>}
 {token && <Sidebar/>} 

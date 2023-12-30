@@ -1,22 +1,28 @@
-import React, {useReducer, useContext, useState, useEffect} from "react";
-import { Link } from "react-router-dom";
-import dashboard from './img/dashboard.png'
-import dashboardBlack from './img/dashboard-black.png'
-import register from './img/register.png'
-import registerBlack from './img/register-black.png'
-import { ContextCreate } from "./context";
+import  {useReducer, useEffect} from "react";
+import { Link, useLocation } from "react-router-dom";
+
 
 const BottomNav = ()=>{
-const { location }  = useContext(ContextCreate)
 
+const location = useLocation()
 
+type State = {
+  paymentMode: boolean,
+  dashboardMode: boolean,
+  registerMode: boolean,
+  profileMode: boolean
+}
   const initialState = {
     paymentMode: false,
     dashboardMode: true,
     registerMode: false,
     profileMode: false
   }
-  const reducerInputs  = (state, action)=>{
+  type Action = {
+    type: string
+  } 
+
+  const reducerInputs  = (state:State, action:Action)=>{
     if(action.type === 'dashboard' ){
       return {...state, dashboardMode: true, paymentMode:false, registerMode: false, profileMode:false}
     }else if(action.type === 'payment' ){
@@ -26,6 +32,7 @@ const { location }  = useContext(ContextCreate)
     }else if(action.type === 'profile' ){
       return {...state, profileMode: true, dashboardMode:false, paymentMode:false, registerMode:false}
     }
+    return state
 
   }
 
@@ -72,9 +79,8 @@ if(location.pathname === '/dashboard'){
                     <button
                         type="button"
                         className={`py-1`}
-                       
                       >
-                    <img src={state.dashboardMode ? dashboard : dashboardBlack} className="w-4 text-center mx-auto"/>
+                    <img src={state.dashboardMode ? require( './img/dashboard.png') : require('./img/dashboard-black.png')} className="w-4 text-center mx-auto"/>
                     <h4 className="text-xs">Dashboard</h4>
                     </button>
                     </Link>
@@ -88,14 +94,11 @@ if(location.pathname === '/dashboard'){
                         className={`py-1`}
                        
                       >
-           <img src={state.registerMode? register : registerBlack} className="w-4 mx-auto"/>
+           <img src={state.registerMode? require('./img/register.png') : require('./img/register-black.png')} className="w-4 mx-auto"/>
            <h4 className="text-xs">Register</h4>
-
                       </button>
                     </Link>
                   </div>
-                
-
                   <div onClick={profileHandler} className={` text-gray rounded-md ${state.profileMode ? 'bg-orange-base text-white ': null }`}>
                     <Link to="/profile">
                       <button

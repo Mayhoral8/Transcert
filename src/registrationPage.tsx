@@ -1,19 +1,18 @@
 import React, { useContext, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import { ConsumerContext } from "./context";
+import { Navigate } from "react-router-dom";
 import Modal from "./modal";
 import Graduation from "./graduation";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import whatsappIcon from "./img/whatsappIcon.png";
 import { ContextCreate } from "./context";
-import { getAuth } from "firebase/auth";
-
+import { update, ref } from "firebase/database";
+import { db } from "firebase-config";
+import {toast} from 'sonner'
 const RegistrationPage = () => {
-const auth = getAuth()
-  const {  isLoading,
-    updateFunc,
-    token,
+const {registration, auth, modal, ui} = useContext(ContextCreate)
+const {setIsLoading, topScroll} = ui
+
+  const { 
     regStatus,
     setPhoneNumber,
     setRegNumber,
@@ -21,23 +20,58 @@ const auth = getAuth()
     setProgramme,
     setSessionOfGraduation,
     setFaculty,
-    form,
-    openModal,
     setDurationOfStudy,
     setCourseOfStudy,
     setDepartment,
     setEmailAdd,
-    docType, regFormValid} = useContext(ContextCreate)
+    regFormValid, sendToWhatsapp} = registration
+    const {token, userId} = auth
+    const{openModal} =  modal
   useEffect(() => {
     Aos.init({ duration: 600 });
   }, []);
 
- 
 
-const sessions = []
+let e: React.ChangeEvent<HTMLInputElement>;
 
+  const updateFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
+   
+    console.log('i');
+    
+          if (
+            regFormValid
+          ) {
+            setIsLoading(true)
+    
+                update(ref(db, `/users/${userId}`), {
+                  regStatus: true
+                }).then(()=>{
+                sendToWhatsapp()
+               toast.success('Registration successful!')
 
   
+              }).then(()=>{
+                setIsLoading(false);
+                  topScroll();
+              })
+              .then(()=>{
+                  setFullName('')
+                  setEmailAdd('')
+                  setPhoneNumber('')
+                  setDepartment('')
+                  setCourseOfStudy('')
+                  setRegNumber('')
+                })
+                
+              
+          } else {
+            alert("Please Fill Out All Fields");
+          }
+       
+  
+  };
+ 
+const sessions = [] 
   const year = new Date().getFullYear()
   let earliestYear = 1990
        while (earliestYear < year){
@@ -59,8 +93,7 @@ const sessions = []
                   <h2 className=" text-center pt-20 font-bold ">
                     Please, carefully fill in your details.
                   </h2>
-                  <form
-                    ref={form}
+                  <section
                     className=" grid grid-flow-row mt-16 lg:py-24  gap-y-6 lg:mt-2  text-sm mx-auto"
                   >
                     <div>
@@ -100,8 +133,8 @@ const sessions = []
                       placeholder="+234"
                       name="phone_number"
                       type="text"
-                      maxLength="11"
-                      minLength="11"
+                      maxLength={11}
+                      minLength={11}
                       className="border rounded-md focus:outline-none py-2  px-4 pb-2"
                       required
                       onChange={(e) => setPhoneNumber(e.target.value)}
@@ -212,17 +245,13 @@ const sessions = []
                     <button
                      
                       disabled={regStatus === 'Not registered' && regFormValid ? false : true}
-                      type="submit"
+                      onClick={()=> updateFunc(e)}
                       className=" text-center   items-center mx-auto mt-5  w-72 bg-orange-base rounded-md h-8 text-white"
-                      onClick={(e) => {
-                        
-                        updateFunc(e);
-                      }}
-                    >
+                     >
                        Submit
                     </button>
                     <div className="lg:hidden mt-20"></div>
-                  </form>
+                  </section>
                 </div>
               ) : (
                 <>
@@ -233,7 +262,7 @@ const sessions = []
                   </h2>
                   <a href="https://chatwith.io/s/transcert-1" target= "_blank" className="mx-auto w-64 block">
                     <img
-                      src={whatsappIcon}
+                      src={require( "./img/whatsappIcon.png")}
                       className="mx-auto mt-8 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
                     />
                   </a>

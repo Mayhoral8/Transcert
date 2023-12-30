@@ -1,13 +1,7 @@
-import React from "react";
 import { useEffect, useContext } from "react";
-import UNIZIK from "./img/UNIZIK2.png";
-import Payment1 from "./img/Payment1.png";
-import documentUpload from "./img/documentUpload.png";
-import Register1 from "./img/Register1.png";
 import { ContextCreate } from "./context";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import TranscertLogo from "./img/TranscertLogo.png";
 import { Link, Navigate } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import Navbar from "./navbar";
@@ -18,7 +12,9 @@ const Home = () => {
     Aos.init({ duration: 2000 });
   }, []);
 
-  const { topScroll, homeSignUpBtn, token } = useContext(ContextCreate);
+  const { auth, ui } = useContext(ContextCreate);
+  const { homeSignUpBtn, token } = auth;
+  const { topScroll } = ui;
 
   if (!token) {
     return (
@@ -32,7 +28,7 @@ const Home = () => {
             data-aos-easing="ease-out"
             data-aos-duration="1200"
           >
-            <img src={UNIZIK} alt="" className="mt-4" />
+            <img src={require("./img/UNIZIK2.png")} alt="" className="mt-4" />
           </div>
 
           <div className="lg:mt-4 lg:w-96  flex flex-col">
@@ -81,7 +77,11 @@ const Home = () => {
               data-aos-easing="ease-out"
               data-aos-duration="1200"
             >
-              <img src={Register1} alt="" className="w-72 h-86 mx-auto" />
+              <img
+                src={require("./img/Register1.png")}
+                alt=""
+                className="w-72 h-86 mx-auto"
+              />
             </div>
             <div
               className="text-center lg:grid  max-w-xs mx-auto"
@@ -100,13 +100,16 @@ const Home = () => {
           </article>
           <article className="grid lg:grid-cols-2 mt-10 lg:mt-0 items-center">
             <div
-              class
-              Name="mx-auto "
+              className="mx-auto "
               data-aos="fade-left"
               data-aos-easing="ease-out"
               data-aos-duration="1200"
             >
-              <img src={documentUpload} alt="" className="w-60 h-78 mx-auto" />
+              <img
+                src={require("./img/documentUpload.png")}
+                alt=""
+                className="w-60 h-78 mx-auto"
+              />
             </div>
             <div
               className="lg:order-last text-center max-w-xs lg:mt-14 mx-auto"
@@ -130,7 +133,11 @@ const Home = () => {
               data-aos-easing="ease-out"
               data-aos-duration="1200"
             >
-              <img src={Payment1} alt="" className="w-60 h-78" />
+              <img
+                src={require("./img/Payment1.png")}
+                alt=""
+                className="w-60 h-78"
+              />
             </div>
             <div
               className=" lg:order-first text-center max-w-xs lg:mt-14 mx-auto pb-8"
@@ -158,7 +165,7 @@ const Home = () => {
         <div className="shadow-md  border-gray grid grid-rows-3 gap-y-4 my-auto text-gray lg:h-64  right-0 mt-10">
           <div>
             <img
-              src={TranscertLogo}
+              src={require("./img/TranscertLogo.png")}
               alt="logo"
               className="w-40 mt-5 lg:mt-1 mx-auto"
             />
