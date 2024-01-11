@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Navigate } from "react-router-dom";
 import Modal from "./modal";
 import Graduation from "./graduation";
@@ -8,6 +8,8 @@ import { ContextCreate } from "./context";
 import { update, ref } from "firebase/database";
 import { db } from "firebase-config";
 import {toast} from 'sonner'
+
+
 const RegistrationPage = () => {
 const {registration, auth, modal, ui} = useContext(ContextCreate)
 const {setIsLoading, topScroll} = ui
@@ -31,7 +33,7 @@ const {setIsLoading, topScroll} = ui
     Aos.init({ duration: 600 });
   }, []);
 
-
+const whatsappLinkRef = useRef<HTMLAnchorElement>(null)
 let e: React.ChangeEvent<HTMLInputElement>;
 
   const updateFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +54,8 @@ let e: React.ChangeEvent<HTMLInputElement>;
   
               }).then(()=>{
                 setIsLoading(false);
-                  topScroll();
+                whatsappLinkRef.current?.click()
+                topScroll();
               })
               .then(()=>{
                   setFullName('')
@@ -241,12 +244,12 @@ const sessions = []
                       <option value="CEP">CEP</option>
 
                     </select>
-
+                    
                     <button
                      
                       disabled={regStatus === 'Not registered' && regFormValid ? false : true}
                       onClick={()=> updateFunc(e)}
-                      className=" text-center   items-center mx-auto mt-5  w-72 bg-orange-base rounded-md h-8 text-white"
+                      className=" text-center items-center mx-auto mt-5  w-72 bg-orange-base rounded-md h-8 text-white"
                      >
                        Submit
                     </button>
@@ -260,7 +263,7 @@ const sessions = []
                     to get in touch with our representative and complete
                     your registration.
                   </h2>
-                  <a href="https://chatwith.io/s/transcert-1" target= "_blank" className="mx-auto w-64 block">
+                  <a ref={whatsappLinkRef} href="https://web.whatsapp.com/send/?phone=2347039455053&text=I+just+filled+in+my+details+on+the+Transcert+website.." target= "_blank" className="mx-auto w-64 block">
                     <img
                       src={require( "./img/whatsappIcon.png")}
                       className="mx-auto mt-8 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
