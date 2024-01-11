@@ -1,4 +1,4 @@
-import {React, useEffect, useContext} from 'react'
+import { useEffect, useContext} from 'react'
 import styled from "styled-components"
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -9,7 +9,7 @@ const Overlay = ()=> {
     Aos.init({ duration: 600 });
   }, []);
 
-  const { overlay} = useContext(ContextCreate)
+  const { overlay} = useContext(ContextCreate).ui
 
 
   if(overlay){

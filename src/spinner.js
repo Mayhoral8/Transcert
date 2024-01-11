@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import  {useContext} from 'react'
 import styled from "styled-components"
 import { ContextCreate } from './context'
 
@@ -6,7 +6,7 @@ import { ContextCreate } from './context'
 
 const LoadingOverlay =()=>{
 
-  const {isLoading} = useContext(ContextCreate)
+  const {isLoading} = useContext(ContextCreate).ui
 
   if(isLoading){
     return(
