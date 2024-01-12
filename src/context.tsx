@@ -61,6 +61,7 @@ const ContextProvider = (props: any) => {
 
   const callmebotPhone = process.env.REACT_APP_PHONE_NUMBER;
   const callmebotApiKey = process.env.REACT_APP_CALLMEBOTAPI_API_KEY;
+console.log(callmebotApiKey, callmebotPhone);
 
   // EMAIL FUNCTION
 
