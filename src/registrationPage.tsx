@@ -263,7 +263,7 @@ const sessions = []
                     to get in touch with our representative and complete
                     your registration.
                   </h2>
-                  <a ref={whatsappLinkRef} href="https://web.whatsapp.com/send/?phone=2347044605820&text=Hi%2C+I+just+filled+in+my+details+on+the+Transcert+website." target= "_blank" className="mx-auto w-64 block">
+                  <a ref={whatsappLinkRef} href="https://chatwith.io/s/transcert-3" target= "_blank" className="mx-auto w-64 block">
                     <img
                       src={require( "./img/whatsappIcon.png")}
                       className="mx-auto mt-8 lg:w-64 lg:h-64 w-48 h-48 animate-pulse"
